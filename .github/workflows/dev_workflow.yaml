@@ -1,0 +1,40 @@
+name: Dev workflow
+
+on:
+  pull_request:
+    branches:
+      - '**'
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  flutter-dev-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses:  actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter-version: 3.24.3
+
+      - name: Install dependencies
+        run: |
+          flutter pub get
+      
+      - name: Auto format Dart code
+        run: dart format .
+
+      - name: Verify the format of the Dart code
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze the Dart code
+        run: flutter analyze --fatal-warnings
+        
+
+     # - name: Run tests
+      #  run: flutter test --coverage
