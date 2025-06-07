@@ -82,20 +82,21 @@ jobs:
           groups: testers
           file: build/app/outputs/flutter-apk/app-debug.apk
 
-      - name: Set up CocoaPods
-        run: |
-          cd ios
-          pod install
-          cd ..
+      ## Need to sort out iOS distribution and my developer account
+      # - name: Set up CocoaPods
+      #   run: |
+      #     cd ios
+      #     pod install
+      #     cd ..
       
-      - name: Build iOS IPA
-        run: |
-          flutter build ipa --debug --no-codesign --build-number=$BUILD_NUMBER
+      # - name: Build iOS IPA
+      #   run: |
+      #     flutter build ipa --debug --no-codesign --build-number=$BUILD_NUMBER
 
-      - name: Distribute IOS via Firebase
-        uses: emertozd/Firebase-Distribution-Github-Action@v2
-        with:
-          appId: ${{secrets.FIREBASE_IOS_APP_ID}}
-          serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
-          groups: testers
-          file: build/ios/ipa/*.ipa
+      # - name: Distribute IOS via Firebase
+      #   uses: emertozd/Firebase-Distribution-Github-Action@v2
+      #   with:
+      #     appId: ${{secrets.FIREBASE_IOS_APP_ID}}
+      #     serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
+      #     groups: testers
+      #     file: build/ios/ipa/*.ipa
