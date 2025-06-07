@@ -1,4 +1,4 @@
-package com.example.nextone
+package com.silvanosolutions.nextone
 
 import io.flutter.embedding.android.FlutterActivity
 
