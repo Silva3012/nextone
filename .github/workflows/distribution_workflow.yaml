@@ -90,7 +90,7 @@ jobs:
       
       - name: Build iOS IPA
         run: |
-          flutter build ios --debug --no-codesign --build-number=$BUILD_NUMBER
+          flutter build ipa --debug --no-codesign --build-number=$BUILD_NUMBER
 
       - name: Distribute IOS via Firebase
         uses: emertozd/Firebase-Distribution-Github-Action@v2
