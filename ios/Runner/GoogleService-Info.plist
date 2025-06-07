@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>173797215995-ccosp7agun084o318jurmr4fa1baplam.apps.googleusercontent.com</string>
+	<string>173797215995-q2ehfp4feukurt0sdqk1sjetsf8sa35f.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.173797215995-ccosp7agun084o318jurmr4fa1baplam</string>
+	<string>com.googleusercontent.apps.173797215995-q2ehfp4feukurt0sdqk1sjetsf8sa35f</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCYO_kZ4s7MarlG3tqRTsfqcfLdz3Qs0Fc</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.nextone</string>
+	<string>com.silvanosolutions.nextone</string>
 	<key>PROJECT_ID</key>
 	<string>nextone-4ba5e</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:173797215995:ios:5579cd4b3dd7cddde3aa5e</string>
+	<string>1:173797215995:ios:73c8c769c7db21a5e3aa5e</string>
 </dict>
 </plist>
