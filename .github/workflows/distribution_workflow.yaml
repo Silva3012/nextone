@@ -6,6 +6,9 @@ on:
     types: 
       - closed
 
+permissions:
+  contents: write
+
 jobs:
   build-app:
     if: github.event.pull_request.merged == true
