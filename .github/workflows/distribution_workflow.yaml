@@ -1,0 +1,102 @@
+name: Distribution Workflow
+
+on:
+  pull_request:
+    branches: ["develop"]
+    types: 
+      - closed
+
+permissions:
+  contents: write
+
+jobs:
+  build-app:
+    if: github.event.pull_request.merged == true
+    runs-on: macos-latest 
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter-version: 3.24.3
+
+      - name: Install dependencies
+        run: |
+          flutter pub get
+      
+      - name: Create google-services.json
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > android/app/google-services.json
+
+      - name: Decode and create GoogleService-Info.plist
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}" | base64 --decode > ios/Runner/GoogleService-Info.plist
+
+      - name: Increment build number in pubspec.yaml
+        id: increment_build
+        run: |
+          echo "Current build number:"
+          current_build=$(grep 'version: ' pubspec.yaml | sed 's/.*+//')
+          echo $current_build
+  
+          new_build=$((current_build + 1))
+          echo "New build number: $new_build"
+  
+          # Replace build number
+          sed -i '' -E "s/version: (.*)\+[0-9]+/version: \1+${new_build}/" pubspec.yaml
+  
+          echo "BUILD_NUMBER=$new_build" >> $GITHUB_ENV
+      
+      - name: Commit updated pubspec.yaml
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+            
+          git add pubspec.yaml
+          git commit -m "chore: increment build number to $BUILD_NUMBER [skip ci]" || echo "No changes to commit"
+          git push
+
+      - name: Build APK
+        run: flutter build apk --debug --build-number=$BUILD_NUMBER
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug.apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
+
+      - name: upload artifact to Firebase App Distribution
+        uses: emertozd/Firebase-Distribution-Github-Action@v2
+        with:
+          appId: ${{secrets.FIREBASE_ANDROID_APP_ID}}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
+          groups: testers
+          file: build/app/outputs/flutter-apk/app-debug.apk
+
+      ## Need to sort out iOS distribution and my developer account
+      # - name: Set up CocoaPods
+      #   run: |
+      #     cd ios
+      #     pod install
+      #     cd ..
+      
+      # - name: Build iOS IPA
+      #   run: |
+      #     flutter build ipa --debug --no-codesign --build-number=$BUILD_NUMBER
+
+      # - name: Distribute IOS via Firebase
+      #   uses: emertozd/Firebase-Distribution-Github-Action@v2
+      #   with:
+      #     appId: ${{secrets.FIREBASE_IOS_APP_ID}}
+      #     serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
+      #     groups: testers
+      #     file: build/ios/ipa/*.ipa
