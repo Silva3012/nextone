@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.nextone"
+    namespace = "com.silvanosolutions.nextone"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
