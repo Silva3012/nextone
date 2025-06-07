@@ -52,6 +52,15 @@ jobs:
           sed -i '' -E "s/version: (.*)\+[0-9]+/version: \1+${new_build}/" pubspec.yaml
   
           echo "BUILD_NUMBER=$new_build" >> $GITHUB_ENV
+      
+      - name: Commit updated pubspec.yaml
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+            
+          git add pubspec.yaml
+          git commit -m "chore: increment build number to $BUILD_NUMBER [skip ci]" || echo "No changes to commit"
+          git push
 
       - name: Build APK
         run: flutter build apk --debug --build-number=$BUILD_NUMBER
