@@ -1,0 +1,1 @@
+const nextoneLogo = 'NextOne Logo';

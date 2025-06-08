@@ -7,42 +7,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:173797215995:android:5cc7e3c81a30d964e3aa5e",
-        "android_client_info": {
-          "package_name": "com.example.nextone"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "173797215995-qok4lbbd56go0h8pboia3eu5s0mf84n6.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDETqS33lgeB16JPFMTbjjfNzB3R8P9_cs"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "173797215995-qok4lbbd56go0h8pboia3eu5s0mf84n6.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "173797215995-ccosp7agun084o318jurmr4fa1baplam.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.nextone"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:173797215995:android:639fae7907146985e3aa5e",
         "android_client_info": {
           "package_name": "com.silvanosolutions.nextone"
