@@ -6,7 +6,7 @@ import 'app/app.dart';
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(const NextOneApp());
+  runApp(NextOneApp());
 
   Future.delayed(const Duration(seconds: 2), () {
     FlutterNativeSplash.remove();
