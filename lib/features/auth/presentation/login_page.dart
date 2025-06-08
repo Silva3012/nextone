@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/features/auth/presentation/widgets/background_image.dart';
+import 'package:nextone/features/auth/presentation/widgets/login_footer.dart';
+import 'package:nextone/shared/widgets/nextone_button.dart';
 import 'package:nextone/shared/widgets/nextone_logo.dart';
 import 'package:nextone/shared/widgets/nextone_text_field.dart';
 
@@ -64,6 +65,26 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    height16,
+                    NextoneButton(
+                      text: 'Login',
+                      onPressed: () {},
+                      type: NextoneButtonType.primary,
+                    ),
+                    height16,
+                    NextoneButton(
+                      text: 'Facebook',
+                      onPressed: () {},
+                      type: NextoneButtonType.secondary,
+                    ),
+                    height16,
+                    NextoneButton(
+                      text: 'Google',
+                      onPressed: () {},
+                      type: NextoneButtonType.secondary,
+                    ),
+                    const Spacer(),
+                    const LoginFooter(),
                   ],
                 ),
               ),
