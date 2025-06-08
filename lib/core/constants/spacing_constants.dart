@@ -11,3 +11,12 @@ const height200 = SizedBox(height: 200);
 
 /// Height of 16 logical pixels
 const height16 = SizedBox(height: 16);
+
+/// Height of 32 logical pixels
+const height32 = SizedBox(height: 32);
+
+/// Height of 64 logical pixels
+const height64 = SizedBox(height: 64);
+
+/// Height of 80 logical pixels
+const height80 = SizedBox(height: 80);
