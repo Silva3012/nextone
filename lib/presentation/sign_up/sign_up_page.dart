@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/presentation/sign_up/widgets/sign_up_footer.dart';
-import 'package:nextone/shared/widgets/background_image.dart';
-import 'package:nextone/shared/widgets/nextone_button.dart';
-import 'package:nextone/shared/widgets/nextone_logo.dart';
-import 'package:nextone/shared/widgets/nextone_text_field.dart';
+import 'package:nextone/presentation/shared/widgets/background_image.dart';
+import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
+import 'package:nextone/presentation/shared/widgets/nextone_logo.dart';
+import 'package:nextone/presentation/shared/widgets/nextone_text_field.dart';
 
 @RoutePage()
 class SignUpPage extends HookWidget {
