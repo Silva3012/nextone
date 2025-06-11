@@ -35,10 +35,10 @@ class SignUpPage extends HookWidget {
                           const NextoneLogo(),
                           SizedBox(height: screenHeight * 0.20),
                           const NextoneTextField(
-                            hintText: 'Username',
+                            hintText: 'Email',
                             controller: null,
                             keyboardType: TextInputType.text,
-                            prefixIcon: Icon(Icons.person),
+                            prefixIcon: Icon(Icons.email),
                           ),
                           height16,
                           NextoneTextField(
