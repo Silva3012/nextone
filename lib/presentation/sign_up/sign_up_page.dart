@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/presentation/sign_up/widgets/sign_up_footer.dart';
-import 'package:nextone/shared/widgets/background_image.dart';
-import 'package:nextone/shared/widgets/nextone_button.dart';
-import 'package:nextone/shared/widgets/nextone_logo.dart';
-import 'package:nextone/shared/widgets/nextone_text_field.dart';
+import 'package:nextone/presentation/shared/widgets/background_image.dart';
+import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
+import 'package:nextone/presentation/shared/widgets/nextone_logo.dart';
+import 'package:nextone/presentation/shared/widgets/nextone_text_field.dart';
 
 @RoutePage()
 class SignUpPage extends HookWidget {
@@ -35,10 +35,10 @@ class SignUpPage extends HookWidget {
                           const NextoneLogo(),
                           SizedBox(height: screenHeight * 0.20),
                           const NextoneTextField(
-                            hintText: 'Username',
+                            hintText: 'Email',
                             controller: null,
                             keyboardType: TextInputType.text,
-                            prefixIcon: Icon(Icons.person),
+                            prefixIcon: Icon(Icons.email),
                           ),
                           height16,
                           NextoneTextField(
@@ -49,8 +49,8 @@ class SignUpPage extends HookWidget {
                             obscureText: isPasswordVisible.value,
                             suffixIcon: IconButton(
                               icon: isPasswordVisible.value
-                                  ? const Icon(Icons.visibility_off)
-                                  : const Icon(Icons.visibility),
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off),
                               onPressed: () => isPasswordVisible.value =
                                   !isPasswordVisible.value,
                             ),

@@ -13,6 +13,7 @@ class NextOneApp extends StatelessWidget {
       title: 'NextOne',
       theme: NextoneAppTheme.theme,
       routerConfig: _appRouter.config(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
