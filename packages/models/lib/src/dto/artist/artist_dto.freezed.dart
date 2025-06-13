@@ -22,7 +22,7 @@ ArtistDto _$ArtistDtoFromJson(Map<String, dynamic> json) {
 mixin _$ArtistDto {
   String get uid => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
+  String? get username => throw _privateConstructorUsedError;
   String? get profilePictureUrl => throw _privateConstructorUsedError;
   String? get biography => throw _privateConstructorUsedError;
   String? get genre => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $ArtistDtoCopyWith<$Res> {
   $Res call(
       {String uid,
       String email,
-      String username,
+      String? username,
       String? profilePictureUrl,
       String? biography,
       String? genre,
@@ -70,7 +70,7 @@ class _$ArtistDtoCopyWithImpl<$Res, $Val extends ArtistDto>
   $Res call({
     Object? uid = null,
     Object? email = null,
-    Object? username = null,
+    Object? username = freezed,
     Object? profilePictureUrl = freezed,
     Object? biography = freezed,
     Object? genre = freezed,
@@ -85,10 +85,10 @@ class _$ArtistDtoCopyWithImpl<$Res, $Val extends ArtistDto>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      username: null == username
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       profilePictureUrl: freezed == profilePictureUrl
           ? _value.profilePictureUrl
           : profilePictureUrl // ignore: cast_nullable_to_non_nullable
@@ -120,7 +120,7 @@ abstract class _$$ArtistDtoImplCopyWith<$Res>
   $Res call(
       {String uid,
       String email,
-      String username,
+      String? username,
       String? profilePictureUrl,
       String? biography,
       String? genre,
@@ -142,7 +142,7 @@ class __$$ArtistDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? uid = null,
     Object? email = null,
-    Object? username = null,
+    Object? username = freezed,
     Object? profilePictureUrl = freezed,
     Object? biography = freezed,
     Object? genre = freezed,
@@ -157,10 +157,10 @@ class __$$ArtistDtoImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      username: null == username
+      username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       profilePictureUrl: freezed == profilePictureUrl
           ? _value.profilePictureUrl
           : profilePictureUrl // ignore: cast_nullable_to_non_nullable
@@ -187,7 +187,7 @@ class _$ArtistDtoImpl with DiagnosticableTreeMixin implements _ArtistDto {
   _$ArtistDtoImpl(
       {required this.uid,
       required this.email,
-      required this.username,
+      this.username,
       this.profilePictureUrl,
       this.biography,
       this.genre,
@@ -201,7 +201,7 @@ class _$ArtistDtoImpl with DiagnosticableTreeMixin implements _ArtistDto {
   @override
   final String email;
   @override
-  final String username;
+  final String? username;
   @override
   final String? profilePictureUrl;
   @override
@@ -273,7 +273,7 @@ abstract class _ArtistDto implements ArtistDto {
   factory _ArtistDto(
       {required final String uid,
       required final String email,
-      required final String username,
+      final String? username,
       final String? profilePictureUrl,
       final String? biography,
       final String? genre,
@@ -287,7 +287,7 @@ abstract class _ArtistDto implements ArtistDto {
   @override
   String get email;
   @override
-  String get username;
+  String? get username;
   @override
   String? get profilePictureUrl;
   @override

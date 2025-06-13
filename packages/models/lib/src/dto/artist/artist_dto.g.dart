@@ -10,7 +10,7 @@ _$ArtistDtoImpl _$$ArtistDtoImplFromJson(Map<String, dynamic> json) =>
     _$ArtistDtoImpl(
       uid: json['uid'] as String,
       email: json['email'] as String,
-      username: json['username'] as String,
+      username: json['username'] as String?,
       profilePictureUrl: json['profilePictureUrl'] as String?,
       biography: json['biography'] as String?,
       genre: json['genre'] as String?,

@@ -11,20 +11,17 @@ import 'package:nextone_core/nextone_core_export.dart';
 class FirebaseArtistAuth implements IFirebaseArtistAuth {
   final FirebaseAuth _firebaseAuth;
   final FirebaseFirestore _firestore;
+  final FirebaseUserDtoMapper _firebaseUserDtoMapper;
 
-  FirebaseArtistAuth(this._firebaseAuth, this._firestore);
-  @override
+  FirebaseArtistAuth(
+      this._firebaseAuth, this._firestore, this._firebaseUserDtoMapper);
   @override
   Future<ArtistDto?> getArtistProfile(String uid) async {
     try {
       final artistDoc = await _firestore.collection('artists').doc(uid).get();
-      if (artistDoc.exists) {
-        final artistData = artistDoc.data() as Map<String, dynamic>;
+      if (!artistDoc.exists) return null;
 
-        return ArtistDto.fromJson(artistData);
-      } else {
-        return null;
-      }
+      return ArtistDto.fromJson(artistDoc.data()!);
     } catch (e) {
       log(e.toString());
       rethrow;
@@ -107,10 +104,22 @@ class FirebaseArtistAuth implements IFirebaseArtistAuth {
   /// Stream of [FirebaseUser] which will emit the current user when
   /// the authentication state changes
   ///
-  Stream<User?> get user {
-    return _firebaseAuth.authStateChanges().map((firebaseUser) {
-      final user = firebaseUser;
-      return user;
+  Stream<ArtistDto?> get user {
+    return _firebaseAuth.authStateChanges().asyncMap((firebaseUser) async {
+      if (firebaseUser == null) return null;
+
+      final firebaseUserDto = FirebaseUserDto(
+        uid: firebaseUser.uid,
+        email: firebaseUser.email ?? '',
+        displayName: firebaseUser.displayName ?? '',
+        photoUrl: firebaseUser.photoURL ?? '',
+      );
+
+      final artist = _firebaseUserDtoMapper
+          .convert<FirebaseUserDto, ArtistDto>(firebaseUserDto);
+
+      final profile = await getArtistProfile(firebaseUser.uid);
+      return profile ?? artist;
     });
   }
 }

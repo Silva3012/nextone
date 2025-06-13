@@ -1,8 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:models/models.dart';
 
 abstract class IFirebaseArtistAuth {
-  Stream<User?> get user;
+  Stream<ArtistDto?> get user;
 
   Future<void> logInWithEmailAndPassword(String email, String password);
 

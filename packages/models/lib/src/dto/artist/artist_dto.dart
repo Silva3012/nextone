@@ -10,7 +10,7 @@ class ArtistDto with _$ArtistDto {
   factory ArtistDto({
     required String uid,
     required String email,
-    required String username,
+    String? username,
     String? profilePictureUrl,
     String? biography,
     String? genre,
