@@ -49,8 +49,8 @@ class SignUpPage extends HookWidget {
                             obscureText: isPasswordVisible.value,
                             suffixIcon: IconButton(
                               icon: isPasswordVisible.value
-                                  ? const Icon(Icons.visibility_off)
-                                  : const Icon(Icons.visibility),
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off),
                               onPressed: () => isPasswordVisible.value =
                                   !isPasswordVisible.value,
                             ),

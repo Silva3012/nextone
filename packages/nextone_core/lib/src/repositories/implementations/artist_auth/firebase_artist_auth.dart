@@ -71,22 +71,27 @@ class FirebaseArtistAuth implements IFirebaseArtistAuth {
   Future<void> signUpWithEmailAndPassword(
       String email, String password, String? username) async {
     try {
-      final artistCredential = await _firebaseAuth
+      final userCeredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
 
-      final uid = artistCredential.user!.uid;
+      final firebaseUser = userCeredential.user!;
+      final firebaseUserDto = FirebaseUserDto.fromFirebaseUser(firebaseUser);
 
-      final artist = ArtistDto(
-        uid: uid,
-        email: email,
-        username: username ?? '',
-        profilePictureUrl: '',
-        biography: '',
-        genre: '',
-        supporterCount: 0,
-      );
+      // Map to ArtistDto using AutoMappr
+      final artist = FirebaseUserDtoMapper()
+          .convert<FirebaseUserDto, ArtistDto>(firebaseUserDto)
+          .copyWith(
+            username: username ?? '',
+            profilePictureUrl: '',
+            biography: '',
+            genre: '',
+            supporterCount: 0,
+          );
 
-      await _firestore.collection('artists').doc(uid).set(artist.toJson());
+      await _firestore
+          .collection('artists')
+          .doc(artist.uid)
+          .set(artist.toJson());
     } catch (e) {
       log(e.toString());
       rethrow;
