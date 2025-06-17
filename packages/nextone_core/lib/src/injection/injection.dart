@@ -5,14 +5,14 @@ import 'package:injectable/injectable.dart';
 import 'package:models/models.dart';
 import 'package:nextone_core/src/injection/injection.config.dart';
 
-final getIt = GetIt.instance;
+final getItSL = GetIt.instance;
 
 @InjectableInit(
-  initializerName: 'init', // default
-  preferRelativeImports: true, // default
-  asExtension: true, // default
+  initializerName: 'init',
+  preferRelativeImports: true,
+  asExtension: true,
 )
-void configureDependencies() => getIt.init();
+Future<void> configureDependencies() async => getItSL.init();
 
 @module
 abstract class FirebaseModule {

@@ -19,23 +19,40 @@ class ArtistAuthBloc extends Bloc<ArtistAuthEvent, ArtistAuthState> {
       : super(const ArtistAuthState.unknown()) {
     // Listen to auth changes and add event when it changes
     _artistSubscription = _firebaseArtistAuth.user.listen((artist) {
-      add(ArtistAuthEvent.onArtistAuthChanged(artist!));
+      add(ArtistAuthEvent.onArtistAuthChanged(artist: artist));
     });
     on<ArtistAuthEvent>((event, emit) async {
-      await event.map(
-        onArtistAuthChanged: (e) async {
-          final artist = e.artist;
-          if (artist != null) {
-            emit(ArtistAuthState.authenticated(artist));
-          } else {
-            emit(const ArtistAuthState.unauthenticated());
-          }
-        },
-        onSignOutRequested: (artist) async {
-          await _firebaseArtistAuth.signOut();
+      await event.map(onArtistAuthChanged: (e) async {
+        final artist = e.artist;
+        if (artist != null) {
+          emit(ArtistAuthState.authenticated(artist));
+        } else {
           emit(const ArtistAuthState.unauthenticated());
-        },
-      );
+        }
+      }, onSignOutRequested: (artist) async {
+        await _firebaseArtistAuth.signOut();
+        emit(const ArtistAuthState.unauthenticated());
+      }, onSignUpRequested: (e) async {
+        emit(const ArtistAuthState.loading());
+        try {
+          final artist = await _firebaseArtistAuth.signUpWithEmailAndPassword(
+              email: e.email, password: e.password);
+          emit(ArtistAuthState.authenticated(artist));
+        } catch (e) {
+          emit(const ArtistAuthState.unauthenticated());
+          addError(e, StackTrace.current);
+        }
+      }, onLoginRequested: (e) async {
+        emit(const ArtistAuthState.loading());
+        try {
+          final artist = await _firebaseArtistAuth.logInWithEmailAndPassword(
+              email: e.email, password: e.password);
+          emit(ArtistAuthState.authenticated(artist));
+        } catch (e) {
+          emit(const ArtistAuthState.unauthenticated());
+          addError(e, StackTrace.current);
+        }
+      });
     });
   }
 

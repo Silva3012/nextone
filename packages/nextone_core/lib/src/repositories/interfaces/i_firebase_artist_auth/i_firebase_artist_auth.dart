@@ -3,10 +3,11 @@ import 'package:models/models.dart';
 abstract class IFirebaseArtistAuth {
   Stream<ArtistDto?> get user;
 
-  Future<void> logInWithEmailAndPassword(String email, String password);
+  Future<ArtistDto> logInWithEmailAndPassword(
+      {required String email, required String password});
 
-  Future<void> signUpWithEmailAndPassword(
-      String email, String password, String? username);
+  Future<ArtistDto> signUpWithEmailAndPassword(
+      {required String email, required String password, String? username});
 
   Future<void> signOut();
 
