@@ -6,4 +6,5 @@ class ArtistAuthState with _$ArtistAuthState {
   const factory ArtistAuthState.authenticated(ArtistDto artist) =
       _Authenticated;
   const factory ArtistAuthState.unauthenticated() = _Unauthenticated;
+  const factory ArtistAuthState.loading() = _Loading;
 }

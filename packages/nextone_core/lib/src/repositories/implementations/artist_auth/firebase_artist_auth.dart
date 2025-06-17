@@ -29,12 +29,21 @@ class FirebaseArtistAuth implements IFirebaseArtistAuth {
   }
 
   @override
-  Future<void> logInWithEmailAndPassword(String email, String password) async {
+  Future<ArtistDto> logInWithEmailAndPassword(
+      {required String email, required String password}) async {
     try {
-      await _firebaseAuth.signInWithEmailAndPassword(
+      final userCredential = await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+
+      final user = userCredential.user!;
+      final artistProfile = await getArtistProfile(user.uid);
+      if (artistProfile == null) {
+        throw Exception('Artist profile not found');
+      }
+
+      return artistProfile;
     } catch (e) {
       log(e.toString());
       rethrow;
@@ -68,8 +77,10 @@ class FirebaseArtistAuth implements IFirebaseArtistAuth {
   }
 
   @override
-  Future<void> signUpWithEmailAndPassword(
-      String email, String password, String? username) async {
+  Future<ArtistDto> signUpWithEmailAndPassword(
+      {required String email,
+      required String password,
+      String? username}) async {
     try {
       final userCeredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -78,7 +89,7 @@ class FirebaseArtistAuth implements IFirebaseArtistAuth {
       final firebaseUserDto = FirebaseUserDto.fromFirebaseUser(firebaseUser);
 
       // Map to ArtistDto using AutoMappr
-      final artist = FirebaseUserDtoMapper()
+      final artist = _firebaseUserDtoMapper
           .convert<FirebaseUserDto, ArtistDto>(firebaseUserDto)
           .copyWith(
             username: username ?? '',
@@ -92,6 +103,8 @@ class FirebaseArtistAuth implements IFirebaseArtistAuth {
           .collection('artists')
           .doc(artist.uid)
           .set(artist.toJson());
+
+      return artist;
     } catch (e) {
       log(e.toString());
       rethrow;
