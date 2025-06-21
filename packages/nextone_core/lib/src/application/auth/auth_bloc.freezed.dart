@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'artist_auth_bloc.dart';
+part of 'auth_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,201 +15,193 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ArtistAuthEvent {
+mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ArtistDto? artist) onArtistAuthChanged,
+    required TResult Function(UserCredentialsDto? user) onAuthChanged,
     required TResult Function() onSignOutRequested,
-    required TResult Function(String email, String password, String? username)
-        onSignUpRequested,
+    required TResult Function(String email, String password) onSignUpRequested,
     required TResult Function(String email, String password) onLoginRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult? Function(UserCredentialsDto? user)? onAuthChanged,
     TResult? Function()? onSignOutRequested,
-    TResult? Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult? Function(String email, String password)? onSignUpRequested,
     TResult? Function(String email, String password)? onLoginRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult Function(UserCredentialsDto? user)? onAuthChanged,
     TResult Function()? onSignOutRequested,
-    TResult Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult Function(String email, String password)? onSignUpRequested,
     TResult Function(String email, String password)? onLoginRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_onArtistAuthChanged value) onArtistAuthChanged,
-    required TResult Function(_onSignOutRequested value) onSignOutRequested,
-    required TResult Function(_onSigUpRequested value) onSignUpRequested,
-    required TResult Function(_onLoginRequested value) onLoginRequested,
+    required TResult Function(_OnAuthChanged value) onAuthChanged,
+    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(_OnLoginRequested value) onLoginRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult? Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult? Function(_onLoginRequested value)? onLoginRequested,
+    TResult? Function(_OnAuthChanged value)? onAuthChanged,
+    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(_OnLoginRequested value)? onLoginRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult Function(_onLoginRequested value)? onLoginRequested,
+    TResult Function(_OnAuthChanged value)? onAuthChanged,
+    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(_OnLoginRequested value)? onLoginRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ArtistAuthEventCopyWith<$Res> {
-  factory $ArtistAuthEventCopyWith(
-          ArtistAuthEvent value, $Res Function(ArtistAuthEvent) then) =
-      _$ArtistAuthEventCopyWithImpl<$Res, ArtistAuthEvent>;
+abstract class $AuthEventCopyWith<$Res> {
+  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
+      _$AuthEventCopyWithImpl<$Res, AuthEvent>;
 }
 
 /// @nodoc
-class _$ArtistAuthEventCopyWithImpl<$Res, $Val extends ArtistAuthEvent>
-    implements $ArtistAuthEventCopyWith<$Res> {
-  _$ArtistAuthEventCopyWithImpl(this._value, this._then);
+class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
+    implements $AuthEventCopyWith<$Res> {
+  _$AuthEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$onArtistAuthChangedImplCopyWith<$Res> {
-  factory _$$onArtistAuthChangedImplCopyWith(_$onArtistAuthChangedImpl value,
-          $Res Function(_$onArtistAuthChangedImpl) then) =
-      __$$onArtistAuthChangedImplCopyWithImpl<$Res>;
+abstract class _$$OnAuthChangedImplCopyWith<$Res> {
+  factory _$$OnAuthChangedImplCopyWith(
+          _$OnAuthChangedImpl value, $Res Function(_$OnAuthChangedImpl) then) =
+      __$$OnAuthChangedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ArtistDto? artist});
+  $Res call({UserCredentialsDto? user});
 
-  $ArtistDtoCopyWith<$Res>? get artist;
+  $UserCredentialsDtoCopyWith<$Res>? get user;
 }
 
 /// @nodoc
-class __$$onArtistAuthChangedImplCopyWithImpl<$Res>
-    extends _$ArtistAuthEventCopyWithImpl<$Res, _$onArtistAuthChangedImpl>
-    implements _$$onArtistAuthChangedImplCopyWith<$Res> {
-  __$$onArtistAuthChangedImplCopyWithImpl(_$onArtistAuthChangedImpl _value,
-      $Res Function(_$onArtistAuthChangedImpl) _then)
+class __$$OnAuthChangedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$OnAuthChangedImpl>
+    implements _$$OnAuthChangedImplCopyWith<$Res> {
+  __$$OnAuthChangedImplCopyWithImpl(
+      _$OnAuthChangedImpl _value, $Res Function(_$OnAuthChangedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? artist = freezed,
+    Object? user = freezed,
   }) {
-    return _then(_$onArtistAuthChangedImpl(
-      artist: freezed == artist
-          ? _value.artist
-          : artist // ignore: cast_nullable_to_non_nullable
-              as ArtistDto?,
+    return _then(_$OnAuthChangedImpl(
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserCredentialsDto?,
     ));
   }
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ArtistDtoCopyWith<$Res>? get artist {
-    if (_value.artist == null) {
+  $UserCredentialsDtoCopyWith<$Res>? get user {
+    if (_value.user == null) {
       return null;
     }
 
-    return $ArtistDtoCopyWith<$Res>(_value.artist!, (value) {
-      return _then(_value.copyWith(artist: value));
+    return $UserCredentialsDtoCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$onArtistAuthChangedImpl implements _onArtistAuthChanged {
-  const _$onArtistAuthChangedImpl({required this.artist});
+class _$OnAuthChangedImpl implements _OnAuthChanged {
+  const _$OnAuthChangedImpl({required this.user});
 
   @override
-  final ArtistDto? artist;
+  final UserCredentialsDto? user;
 
   @override
   String toString() {
-    return 'ArtistAuthEvent.onArtistAuthChanged(artist: $artist)';
+    return 'AuthEvent.onAuthChanged(user: $user)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$onArtistAuthChangedImpl &&
-            (identical(other.artist, artist) || other.artist == artist));
+            other is _$OnAuthChangedImpl &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, artist);
+  int get hashCode => Object.hash(runtimeType, user);
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$onArtistAuthChangedImplCopyWith<_$onArtistAuthChangedImpl> get copyWith =>
-      __$$onArtistAuthChangedImplCopyWithImpl<_$onArtistAuthChangedImpl>(
-          this, _$identity);
+  _$$OnAuthChangedImplCopyWith<_$OnAuthChangedImpl> get copyWith =>
+      __$$OnAuthChangedImplCopyWithImpl<_$OnAuthChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ArtistDto? artist) onArtistAuthChanged,
+    required TResult Function(UserCredentialsDto? user) onAuthChanged,
     required TResult Function() onSignOutRequested,
-    required TResult Function(String email, String password, String? username)
-        onSignUpRequested,
+    required TResult Function(String email, String password) onSignUpRequested,
     required TResult Function(String email, String password) onLoginRequested,
   }) {
-    return onArtistAuthChanged(artist);
+    return onAuthChanged(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult? Function(UserCredentialsDto? user)? onAuthChanged,
     TResult? Function()? onSignOutRequested,
-    TResult? Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult? Function(String email, String password)? onSignUpRequested,
     TResult? Function(String email, String password)? onLoginRequested,
   }) {
-    return onArtistAuthChanged?.call(artist);
+    return onAuthChanged?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult Function(UserCredentialsDto? user)? onAuthChanged,
     TResult Function()? onSignOutRequested,
-    TResult Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult Function(String email, String password)? onSignUpRequested,
     TResult Function(String email, String password)? onLoginRequested,
     required TResult orElse(),
   }) {
-    if (onArtistAuthChanged != null) {
-      return onArtistAuthChanged(artist);
+    if (onAuthChanged != null) {
+      return onAuthChanged(user);
     }
     return orElse();
   }
@@ -217,87 +209,87 @@ class _$onArtistAuthChangedImpl implements _onArtistAuthChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_onArtistAuthChanged value) onArtistAuthChanged,
-    required TResult Function(_onSignOutRequested value) onSignOutRequested,
-    required TResult Function(_onSigUpRequested value) onSignUpRequested,
-    required TResult Function(_onLoginRequested value) onLoginRequested,
+    required TResult Function(_OnAuthChanged value) onAuthChanged,
+    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(_OnLoginRequested value) onLoginRequested,
   }) {
-    return onArtistAuthChanged(this);
+    return onAuthChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult? Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult? Function(_onLoginRequested value)? onLoginRequested,
+    TResult? Function(_OnAuthChanged value)? onAuthChanged,
+    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(_OnLoginRequested value)? onLoginRequested,
   }) {
-    return onArtistAuthChanged?.call(this);
+    return onAuthChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult Function(_onLoginRequested value)? onLoginRequested,
+    TResult Function(_OnAuthChanged value)? onAuthChanged,
+    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(_OnLoginRequested value)? onLoginRequested,
     required TResult orElse(),
   }) {
-    if (onArtistAuthChanged != null) {
-      return onArtistAuthChanged(this);
+    if (onAuthChanged != null) {
+      return onAuthChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _onArtistAuthChanged implements ArtistAuthEvent {
-  const factory _onArtistAuthChanged({required final ArtistDto? artist}) =
-      _$onArtistAuthChangedImpl;
+abstract class _OnAuthChanged implements AuthEvent {
+  const factory _OnAuthChanged({required final UserCredentialsDto? user}) =
+      _$OnAuthChangedImpl;
 
-  ArtistDto? get artist;
+  UserCredentialsDto? get user;
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$onArtistAuthChangedImplCopyWith<_$onArtistAuthChangedImpl> get copyWith =>
+  _$$OnAuthChangedImplCopyWith<_$OnAuthChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$onSignOutRequestedImplCopyWith<$Res> {
-  factory _$$onSignOutRequestedImplCopyWith(_$onSignOutRequestedImpl value,
-          $Res Function(_$onSignOutRequestedImpl) then) =
-      __$$onSignOutRequestedImplCopyWithImpl<$Res>;
+abstract class _$$OnSignOutRequestedImplCopyWith<$Res> {
+  factory _$$OnSignOutRequestedImplCopyWith(_$OnSignOutRequestedImpl value,
+          $Res Function(_$OnSignOutRequestedImpl) then) =
+      __$$OnSignOutRequestedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$onSignOutRequestedImplCopyWithImpl<$Res>
-    extends _$ArtistAuthEventCopyWithImpl<$Res, _$onSignOutRequestedImpl>
-    implements _$$onSignOutRequestedImplCopyWith<$Res> {
-  __$$onSignOutRequestedImplCopyWithImpl(_$onSignOutRequestedImpl _value,
-      $Res Function(_$onSignOutRequestedImpl) _then)
+class __$$OnSignOutRequestedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$OnSignOutRequestedImpl>
+    implements _$$OnSignOutRequestedImplCopyWith<$Res> {
+  __$$OnSignOutRequestedImplCopyWithImpl(_$OnSignOutRequestedImpl _value,
+      $Res Function(_$OnSignOutRequestedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$onSignOutRequestedImpl implements _onSignOutRequested {
-  const _$onSignOutRequestedImpl();
+class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
+  const _$OnSignOutRequestedImpl();
 
   @override
   String toString() {
-    return 'ArtistAuthEvent.onSignOutRequested()';
+    return 'AuthEvent.onSignOutRequested()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$onSignOutRequestedImpl);
+        (other.runtimeType == runtimeType && other is _$OnSignOutRequestedImpl);
   }
 
   @override
@@ -306,10 +298,9 @@ class _$onSignOutRequestedImpl implements _onSignOutRequested {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ArtistDto? artist) onArtistAuthChanged,
+    required TResult Function(UserCredentialsDto? user) onAuthChanged,
     required TResult Function() onSignOutRequested,
-    required TResult Function(String email, String password, String? username)
-        onSignUpRequested,
+    required TResult Function(String email, String password) onSignUpRequested,
     required TResult Function(String email, String password) onLoginRequested,
   }) {
     return onSignOutRequested();
@@ -318,10 +309,9 @@ class _$onSignOutRequestedImpl implements _onSignOutRequested {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult? Function(UserCredentialsDto? user)? onAuthChanged,
     TResult? Function()? onSignOutRequested,
-    TResult? Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult? Function(String email, String password)? onSignUpRequested,
     TResult? Function(String email, String password)? onLoginRequested,
   }) {
     return onSignOutRequested?.call();
@@ -330,10 +320,9 @@ class _$onSignOutRequestedImpl implements _onSignOutRequested {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult Function(UserCredentialsDto? user)? onAuthChanged,
     TResult Function()? onSignOutRequested,
-    TResult Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult Function(String email, String password)? onSignUpRequested,
     TResult Function(String email, String password)? onLoginRequested,
     required TResult orElse(),
   }) {
@@ -346,10 +335,10 @@ class _$onSignOutRequestedImpl implements _onSignOutRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_onArtistAuthChanged value) onArtistAuthChanged,
-    required TResult Function(_onSignOutRequested value) onSignOutRequested,
-    required TResult Function(_onSigUpRequested value) onSignUpRequested,
-    required TResult Function(_onLoginRequested value) onLoginRequested,
+    required TResult Function(_OnAuthChanged value) onAuthChanged,
+    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(_OnLoginRequested value) onLoginRequested,
   }) {
     return onSignOutRequested(this);
   }
@@ -357,10 +346,10 @@ class _$onSignOutRequestedImpl implements _onSignOutRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult? Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult? Function(_onLoginRequested value)? onLoginRequested,
+    TResult? Function(_OnAuthChanged value)? onAuthChanged,
+    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(_OnLoginRequested value)? onLoginRequested,
   }) {
     return onSignOutRequested?.call(this);
   }
@@ -368,10 +357,10 @@ class _$onSignOutRequestedImpl implements _onSignOutRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult Function(_onLoginRequested value)? onLoginRequested,
+    TResult Function(_OnAuthChanged value)? onAuthChanged,
+    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(_OnLoginRequested value)? onLoginRequested,
     required TResult orElse(),
   }) {
     if (onSignOutRequested != null) {
@@ -381,37 +370,36 @@ class _$onSignOutRequestedImpl implements _onSignOutRequested {
   }
 }
 
-abstract class _onSignOutRequested implements ArtistAuthEvent {
-  const factory _onSignOutRequested() = _$onSignOutRequestedImpl;
+abstract class _OnSignOutRequested implements AuthEvent {
+  const factory _OnSignOutRequested() = _$OnSignOutRequestedImpl;
 }
 
 /// @nodoc
-abstract class _$$onSigUpRequestedImplCopyWith<$Res> {
-  factory _$$onSigUpRequestedImplCopyWith(_$onSigUpRequestedImpl value,
-          $Res Function(_$onSigUpRequestedImpl) then) =
-      __$$onSigUpRequestedImplCopyWithImpl<$Res>;
+abstract class _$$OnSignUpRequestedImplCopyWith<$Res> {
+  factory _$$OnSignUpRequestedImplCopyWith(_$OnSignUpRequestedImpl value,
+          $Res Function(_$OnSignUpRequestedImpl) then) =
+      __$$OnSignUpRequestedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, String password, String? username});
+  $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$onSigUpRequestedImplCopyWithImpl<$Res>
-    extends _$ArtistAuthEventCopyWithImpl<$Res, _$onSigUpRequestedImpl>
-    implements _$$onSigUpRequestedImplCopyWith<$Res> {
-  __$$onSigUpRequestedImplCopyWithImpl(_$onSigUpRequestedImpl _value,
-      $Res Function(_$onSigUpRequestedImpl) _then)
+class __$$OnSignUpRequestedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$OnSignUpRequestedImpl>
+    implements _$$OnSignUpRequestedImplCopyWith<$Res> {
+  __$$OnSignUpRequestedImplCopyWithImpl(_$OnSignUpRequestedImpl _value,
+      $Res Function(_$OnSignUpRequestedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? email = null,
     Object? password = null,
-    Object? username = freezed,
   }) {
-    return _then(_$onSigUpRequestedImpl(
+    return _then(_$OnSignUpRequestedImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -420,92 +408,80 @@ class __$$onSigUpRequestedImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$onSigUpRequestedImpl implements _onSigUpRequested {
-  const _$onSigUpRequestedImpl(
-      {required this.email, required this.password, this.username});
+class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
+  const _$OnSignUpRequestedImpl({required this.email, required this.password});
 
   @override
   final String email;
   @override
   final String password;
-  @override
-  final String? username;
 
   @override
   String toString() {
-    return 'ArtistAuthEvent.onSignUpRequested(email: $email, password: $password, username: $username)';
+    return 'AuthEvent.onSignUpRequested(email: $email, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$onSigUpRequestedImpl &&
+            other is _$OnSignUpRequestedImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.username, username) ||
-                other.username == username));
+                other.password == password));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password, username);
+  int get hashCode => Object.hash(runtimeType, email, password);
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$onSigUpRequestedImplCopyWith<_$onSigUpRequestedImpl> get copyWith =>
-      __$$onSigUpRequestedImplCopyWithImpl<_$onSigUpRequestedImpl>(
+  _$$OnSignUpRequestedImplCopyWith<_$OnSignUpRequestedImpl> get copyWith =>
+      __$$OnSignUpRequestedImplCopyWithImpl<_$OnSignUpRequestedImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ArtistDto? artist) onArtistAuthChanged,
+    required TResult Function(UserCredentialsDto? user) onAuthChanged,
     required TResult Function() onSignOutRequested,
-    required TResult Function(String email, String password, String? username)
-        onSignUpRequested,
+    required TResult Function(String email, String password) onSignUpRequested,
     required TResult Function(String email, String password) onLoginRequested,
   }) {
-    return onSignUpRequested(email, password, username);
+    return onSignUpRequested(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult? Function(UserCredentialsDto? user)? onAuthChanged,
     TResult? Function()? onSignOutRequested,
-    TResult? Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult? Function(String email, String password)? onSignUpRequested,
     TResult? Function(String email, String password)? onLoginRequested,
   }) {
-    return onSignUpRequested?.call(email, password, username);
+    return onSignUpRequested?.call(email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult Function(UserCredentialsDto? user)? onAuthChanged,
     TResult Function()? onSignOutRequested,
-    TResult Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult Function(String email, String password)? onSignUpRequested,
     TResult Function(String email, String password)? onLoginRequested,
     required TResult orElse(),
   }) {
     if (onSignUpRequested != null) {
-      return onSignUpRequested(email, password, username);
+      return onSignUpRequested(email, password);
     }
     return orElse();
   }
@@ -513,10 +489,10 @@ class _$onSigUpRequestedImpl implements _onSigUpRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_onArtistAuthChanged value) onArtistAuthChanged,
-    required TResult Function(_onSignOutRequested value) onSignOutRequested,
-    required TResult Function(_onSigUpRequested value) onSignUpRequested,
-    required TResult Function(_onLoginRequested value) onLoginRequested,
+    required TResult Function(_OnAuthChanged value) onAuthChanged,
+    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(_OnLoginRequested value) onLoginRequested,
   }) {
     return onSignUpRequested(this);
   }
@@ -524,10 +500,10 @@ class _$onSigUpRequestedImpl implements _onSigUpRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult? Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult? Function(_onLoginRequested value)? onLoginRequested,
+    TResult? Function(_OnAuthChanged value)? onAuthChanged,
+    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(_OnLoginRequested value)? onLoginRequested,
   }) {
     return onSignUpRequested?.call(this);
   }
@@ -535,10 +511,10 @@ class _$onSigUpRequestedImpl implements _onSigUpRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult Function(_onLoginRequested value)? onLoginRequested,
+    TResult Function(_OnAuthChanged value)? onAuthChanged,
+    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(_OnLoginRequested value)? onLoginRequested,
     required TResult orElse(),
   }) {
     if (onSignUpRequested != null) {
@@ -548,41 +524,39 @@ class _$onSigUpRequestedImpl implements _onSigUpRequested {
   }
 }
 
-abstract class _onSigUpRequested implements ArtistAuthEvent {
-  const factory _onSigUpRequested(
+abstract class _OnSignUpRequested implements AuthEvent {
+  const factory _OnSignUpRequested(
       {required final String email,
-      required final String password,
-      final String? username}) = _$onSigUpRequestedImpl;
+      required final String password}) = _$OnSignUpRequestedImpl;
 
   String get email;
   String get password;
-  String? get username;
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$onSigUpRequestedImplCopyWith<_$onSigUpRequestedImpl> get copyWith =>
+  _$$OnSignUpRequestedImplCopyWith<_$OnSignUpRequestedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$onLoginRequestedImplCopyWith<$Res> {
-  factory _$$onLoginRequestedImplCopyWith(_$onLoginRequestedImpl value,
-          $Res Function(_$onLoginRequestedImpl) then) =
-      __$$onLoginRequestedImplCopyWithImpl<$Res>;
+abstract class _$$OnLoginRequestedImplCopyWith<$Res> {
+  factory _$$OnLoginRequestedImplCopyWith(_$OnLoginRequestedImpl value,
+          $Res Function(_$OnLoginRequestedImpl) then) =
+      __$$OnLoginRequestedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$onLoginRequestedImplCopyWithImpl<$Res>
-    extends _$ArtistAuthEventCopyWithImpl<$Res, _$onLoginRequestedImpl>
-    implements _$$onLoginRequestedImplCopyWith<$Res> {
-  __$$onLoginRequestedImplCopyWithImpl(_$onLoginRequestedImpl _value,
-      $Res Function(_$onLoginRequestedImpl) _then)
+class __$$OnLoginRequestedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$OnLoginRequestedImpl>
+    implements _$$OnLoginRequestedImplCopyWith<$Res> {
+  __$$OnLoginRequestedImplCopyWithImpl(_$OnLoginRequestedImpl _value,
+      $Res Function(_$OnLoginRequestedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -590,7 +564,7 @@ class __$$onLoginRequestedImplCopyWithImpl<$Res>
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$onLoginRequestedImpl(
+    return _then(_$OnLoginRequestedImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -605,8 +579,8 @@ class __$$onLoginRequestedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$onLoginRequestedImpl implements _onLoginRequested {
-  const _$onLoginRequestedImpl({required this.email, required this.password});
+class _$OnLoginRequestedImpl implements _OnLoginRequested {
+  const _$OnLoginRequestedImpl({required this.email, required this.password});
 
   @override
   final String email;
@@ -615,14 +589,14 @@ class _$onLoginRequestedImpl implements _onLoginRequested {
 
   @override
   String toString() {
-    return 'ArtistAuthEvent.onLoginRequested(email: $email, password: $password)';
+    return 'AuthEvent.onLoginRequested(email: $email, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$onLoginRequestedImpl &&
+            other is _$OnLoginRequestedImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -631,22 +605,21 @@ class _$onLoginRequestedImpl implements _onLoginRequested {
   @override
   int get hashCode => Object.hash(runtimeType, email, password);
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$onLoginRequestedImplCopyWith<_$onLoginRequestedImpl> get copyWith =>
-      __$$onLoginRequestedImplCopyWithImpl<_$onLoginRequestedImpl>(
+  _$$OnLoginRequestedImplCopyWith<_$OnLoginRequestedImpl> get copyWith =>
+      __$$OnLoginRequestedImplCopyWithImpl<_$OnLoginRequestedImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ArtistDto? artist) onArtistAuthChanged,
+    required TResult Function(UserCredentialsDto? user) onAuthChanged,
     required TResult Function() onSignOutRequested,
-    required TResult Function(String email, String password, String? username)
-        onSignUpRequested,
+    required TResult Function(String email, String password) onSignUpRequested,
     required TResult Function(String email, String password) onLoginRequested,
   }) {
     return onLoginRequested(email, password);
@@ -655,10 +628,9 @@ class _$onLoginRequestedImpl implements _onLoginRequested {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult? Function(UserCredentialsDto? user)? onAuthChanged,
     TResult? Function()? onSignOutRequested,
-    TResult? Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult? Function(String email, String password)? onSignUpRequested,
     TResult? Function(String email, String password)? onLoginRequested,
   }) {
     return onLoginRequested?.call(email, password);
@@ -667,10 +639,9 @@ class _$onLoginRequestedImpl implements _onLoginRequested {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ArtistDto? artist)? onArtistAuthChanged,
+    TResult Function(UserCredentialsDto? user)? onAuthChanged,
     TResult Function()? onSignOutRequested,
-    TResult Function(String email, String password, String? username)?
-        onSignUpRequested,
+    TResult Function(String email, String password)? onSignUpRequested,
     TResult Function(String email, String password)? onLoginRequested,
     required TResult orElse(),
   }) {
@@ -683,10 +654,10 @@ class _$onLoginRequestedImpl implements _onLoginRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_onArtistAuthChanged value) onArtistAuthChanged,
-    required TResult Function(_onSignOutRequested value) onSignOutRequested,
-    required TResult Function(_onSigUpRequested value) onSignUpRequested,
-    required TResult Function(_onLoginRequested value) onLoginRequested,
+    required TResult Function(_OnAuthChanged value) onAuthChanged,
+    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(_OnLoginRequested value) onLoginRequested,
   }) {
     return onLoginRequested(this);
   }
@@ -694,10 +665,10 @@ class _$onLoginRequestedImpl implements _onLoginRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult? Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult? Function(_onLoginRequested value)? onLoginRequested,
+    TResult? Function(_OnAuthChanged value)? onAuthChanged,
+    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(_OnLoginRequested value)? onLoginRequested,
   }) {
     return onLoginRequested?.call(this);
   }
@@ -705,10 +676,10 @@ class _$onLoginRequestedImpl implements _onLoginRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_onArtistAuthChanged value)? onArtistAuthChanged,
-    TResult Function(_onSignOutRequested value)? onSignOutRequested,
-    TResult Function(_onSigUpRequested value)? onSignUpRequested,
-    TResult Function(_onLoginRequested value)? onLoginRequested,
+    TResult Function(_OnAuthChanged value)? onAuthChanged,
+    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(_OnLoginRequested value)? onLoginRequested,
     required TResult orElse(),
   }) {
     if (onLoginRequested != null) {
@@ -718,45 +689,48 @@ class _$onLoginRequestedImpl implements _onLoginRequested {
   }
 }
 
-abstract class _onLoginRequested implements ArtistAuthEvent {
-  const factory _onLoginRequested(
+abstract class _OnLoginRequested implements AuthEvent {
+  const factory _OnLoginRequested(
       {required final String email,
-      required final String password}) = _$onLoginRequestedImpl;
+      required final String password}) = _$OnLoginRequestedImpl;
 
   String get email;
   String get password;
 
-  /// Create a copy of ArtistAuthEvent
+  /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$onLoginRequestedImplCopyWith<_$onLoginRequestedImpl> get copyWith =>
+  _$$OnLoginRequestedImplCopyWith<_$OnLoginRequestedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$ArtistAuthState {
+mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
-    required TResult Function(ArtistDto artist) authenticated,
+    required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String uid, String email) needsRoleSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
-    TResult? Function(ArtistDto artist)? authenticated,
+    TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String uid, String email)? needsRoleSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
-    TResult Function(ArtistDto artist)? authenticated,
+    TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String uid, String email)? needsRoleSelection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -766,6 +740,7 @@ mixin _$ArtistAuthState {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -774,6 +749,7 @@ mixin _$ArtistAuthState {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -782,29 +758,29 @@ mixin _$ArtistAuthState {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ArtistAuthStateCopyWith<$Res> {
-  factory $ArtistAuthStateCopyWith(
-          ArtistAuthState value, $Res Function(ArtistAuthState) then) =
-      _$ArtistAuthStateCopyWithImpl<$Res, ArtistAuthState>;
+abstract class $AuthStateCopyWith<$Res> {
+  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
+      _$AuthStateCopyWithImpl<$Res, AuthState>;
 }
 
 /// @nodoc
-class _$ArtistAuthStateCopyWithImpl<$Res, $Val extends ArtistAuthState>
-    implements $ArtistAuthStateCopyWith<$Res> {
-  _$ArtistAuthStateCopyWithImpl(this._value, this._then);
+class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
+    implements $AuthStateCopyWith<$Res> {
+  _$AuthStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ArtistAuthState
+  /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -817,13 +793,13 @@ abstract class _$$UnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnknownImplCopyWithImpl<$Res>
-    extends _$ArtistAuthStateCopyWithImpl<$Res, _$UnknownImpl>
+    extends _$AuthStateCopyWithImpl<$Res, _$UnknownImpl>
     implements _$$UnknownImplCopyWith<$Res> {
   __$$UnknownImplCopyWithImpl(
       _$UnknownImpl _value, $Res Function(_$UnknownImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistAuthState
+  /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -834,7 +810,7 @@ class _$UnknownImpl implements _Unknown {
 
   @override
   String toString() {
-    return 'ArtistAuthState.unknown()';
+    return 'AuthState.unknown()';
   }
 
   @override
@@ -850,9 +826,10 @@ class _$UnknownImpl implements _Unknown {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
-    required TResult Function(ArtistDto artist) authenticated,
+    required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String uid, String email) needsRoleSelection,
   }) {
     return unknown();
   }
@@ -861,9 +838,10 @@ class _$UnknownImpl implements _Unknown {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
-    TResult? Function(ArtistDto artist)? authenticated,
+    TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String uid, String email)? needsRoleSelection,
   }) {
     return unknown?.call();
   }
@@ -872,9 +850,10 @@ class _$UnknownImpl implements _Unknown {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
-    TResult Function(ArtistDto artist)? authenticated,
+    TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String uid, String email)? needsRoleSelection,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -890,6 +869,7 @@ class _$UnknownImpl implements _Unknown {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
   }) {
     return unknown(this);
   }
@@ -901,6 +881,7 @@ class _$UnknownImpl implements _Unknown {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
   }) {
     return unknown?.call(this);
   }
@@ -912,6 +893,7 @@ class _$UnknownImpl implements _Unknown {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -921,7 +903,7 @@ class _$UnknownImpl implements _Unknown {
   }
 }
 
-abstract class _Unknown implements ArtistAuthState {
+abstract class _Unknown implements AuthState {
   const factory _Unknown() = _$UnknownImpl;
 }
 
@@ -931,41 +913,41 @@ abstract class _$$AuthenticatedImplCopyWith<$Res> {
           _$AuthenticatedImpl value, $Res Function(_$AuthenticatedImpl) then) =
       __$$AuthenticatedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ArtistDto artist});
+  $Res call({UserCredentialsDto user});
 
-  $ArtistDtoCopyWith<$Res> get artist;
+  $UserCredentialsDtoCopyWith<$Res> get user;
 }
 
 /// @nodoc
 class __$$AuthenticatedImplCopyWithImpl<$Res>
-    extends _$ArtistAuthStateCopyWithImpl<$Res, _$AuthenticatedImpl>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthenticatedImpl>
     implements _$$AuthenticatedImplCopyWith<$Res> {
   __$$AuthenticatedImplCopyWithImpl(
       _$AuthenticatedImpl _value, $Res Function(_$AuthenticatedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistAuthState
+  /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? artist = null,
+    Object? user = null,
   }) {
     return _then(_$AuthenticatedImpl(
-      null == artist
-          ? _value.artist
-          : artist // ignore: cast_nullable_to_non_nullable
-              as ArtistDto,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserCredentialsDto,
     ));
   }
 
-  /// Create a copy of ArtistAuthState
+  /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ArtistDtoCopyWith<$Res> get artist {
-    return $ArtistDtoCopyWith<$Res>(_value.artist, (value) {
-      return _then(_value.copyWith(artist: value));
+  $UserCredentialsDtoCopyWith<$Res> get user {
+    return $UserCredentialsDtoCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
     });
   }
 }
@@ -973,14 +955,14 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthenticatedImpl implements _Authenticated {
-  const _$AuthenticatedImpl(this.artist);
+  const _$AuthenticatedImpl({required this.user});
 
   @override
-  final ArtistDto artist;
+  final UserCredentialsDto user;
 
   @override
   String toString() {
-    return 'ArtistAuthState.authenticated(artist: $artist)';
+    return 'AuthState.authenticated(user: $user)';
   }
 
   @override
@@ -988,13 +970,13 @@ class _$AuthenticatedImpl implements _Authenticated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthenticatedImpl &&
-            (identical(other.artist, artist) || other.artist == artist));
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, artist);
+  int get hashCode => Object.hash(runtimeType, user);
 
-  /// Create a copy of ArtistAuthState
+  /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -1006,35 +988,38 @@ class _$AuthenticatedImpl implements _Authenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
-    required TResult Function(ArtistDto artist) authenticated,
+    required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String uid, String email) needsRoleSelection,
   }) {
-    return authenticated(artist);
+    return authenticated(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
-    TResult? Function(ArtistDto artist)? authenticated,
+    TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String uid, String email)? needsRoleSelection,
   }) {
-    return authenticated?.call(artist);
+    return authenticated?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
-    TResult Function(ArtistDto artist)? authenticated,
+    TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String uid, String email)? needsRoleSelection,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated(artist);
+      return authenticated(user);
     }
     return orElse();
   }
@@ -1046,6 +1031,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
   }) {
     return authenticated(this);
   }
@@ -1057,6 +1043,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
   }) {
     return authenticated?.call(this);
   }
@@ -1068,6 +1055,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -1077,12 +1065,13 @@ class _$AuthenticatedImpl implements _Authenticated {
   }
 }
 
-abstract class _Authenticated implements ArtistAuthState {
-  const factory _Authenticated(final ArtistDto artist) = _$AuthenticatedImpl;
+abstract class _Authenticated implements AuthState {
+  const factory _Authenticated({required final UserCredentialsDto user}) =
+      _$AuthenticatedImpl;
 
-  ArtistDto get artist;
+  UserCredentialsDto get user;
 
-  /// Create a copy of ArtistAuthState
+  /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
@@ -1098,13 +1087,13 @@ abstract class _$$UnauthenticatedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnauthenticatedImplCopyWithImpl<$Res>
-    extends _$ArtistAuthStateCopyWithImpl<$Res, _$UnauthenticatedImpl>
+    extends _$AuthStateCopyWithImpl<$Res, _$UnauthenticatedImpl>
     implements _$$UnauthenticatedImplCopyWith<$Res> {
   __$$UnauthenticatedImplCopyWithImpl(
       _$UnauthenticatedImpl _value, $Res Function(_$UnauthenticatedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistAuthState
+  /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -1115,7 +1104,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
 
   @override
   String toString() {
-    return 'ArtistAuthState.unauthenticated()';
+    return 'AuthState.unauthenticated()';
   }
 
   @override
@@ -1131,9 +1120,10 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
-    required TResult Function(ArtistDto artist) authenticated,
+    required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String uid, String email) needsRoleSelection,
   }) {
     return unauthenticated();
   }
@@ -1142,9 +1132,10 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
-    TResult? Function(ArtistDto artist)? authenticated,
+    TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String uid, String email)? needsRoleSelection,
   }) {
     return unauthenticated?.call();
   }
@@ -1153,9 +1144,10 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
-    TResult Function(ArtistDto artist)? authenticated,
+    TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String uid, String email)? needsRoleSelection,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -1171,6 +1163,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
   }) {
     return unauthenticated(this);
   }
@@ -1182,6 +1175,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
   }) {
     return unauthenticated?.call(this);
   }
@@ -1193,6 +1187,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -1202,7 +1197,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   }
 }
 
-abstract class _Unauthenticated implements ArtistAuthState {
+abstract class _Unauthenticated implements AuthState {
   const factory _Unauthenticated() = _$UnauthenticatedImpl;
 }
 
@@ -1215,13 +1210,13 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$ArtistAuthStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$AuthStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistAuthState
+  /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -1232,7 +1227,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'ArtistAuthState.loading()';
+    return 'AuthState.loading()';
   }
 
   @override
@@ -1248,9 +1243,10 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
-    required TResult Function(ArtistDto artist) authenticated,
+    required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String uid, String email) needsRoleSelection,
   }) {
     return loading();
   }
@@ -1259,9 +1255,10 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
-    TResult? Function(ArtistDto artist)? authenticated,
+    TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String uid, String email)? needsRoleSelection,
   }) {
     return loading?.call();
   }
@@ -1270,9 +1267,10 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
-    TResult Function(ArtistDto artist)? authenticated,
+    TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String uid, String email)? needsRoleSelection,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1288,6 +1286,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
   }) {
     return loading(this);
   }
@@ -1299,6 +1298,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
   }) {
     return loading?.call(this);
   }
@@ -1310,6 +1310,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1319,6 +1320,176 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements ArtistAuthState {
+abstract class _Loading implements AuthState {
   const factory _Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$NeedsRoleSelectionImplCopyWith<$Res> {
+  factory _$$NeedsRoleSelectionImplCopyWith(_$NeedsRoleSelectionImpl value,
+          $Res Function(_$NeedsRoleSelectionImpl) then) =
+      __$$NeedsRoleSelectionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String uid, String email});
+}
+
+/// @nodoc
+class __$$NeedsRoleSelectionImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$NeedsRoleSelectionImpl>
+    implements _$$NeedsRoleSelectionImplCopyWith<$Res> {
+  __$$NeedsRoleSelectionImplCopyWithImpl(_$NeedsRoleSelectionImpl _value,
+      $Res Function(_$NeedsRoleSelectionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uid = null,
+    Object? email = null,
+  }) {
+    return _then(_$NeedsRoleSelectionImpl(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
+  const _$NeedsRoleSelectionImpl({required this.uid, required this.email});
+
+  @override
+  final String uid;
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'AuthState.needsRoleSelection(uid: $uid, email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NeedsRoleSelectionImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, uid, email);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NeedsRoleSelectionImplCopyWith<_$NeedsRoleSelectionImpl> get copyWith =>
+      __$$NeedsRoleSelectionImplCopyWithImpl<_$NeedsRoleSelectionImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unknown,
+    required TResult Function(UserCredentialsDto user) authenticated,
+    required TResult Function() unauthenticated,
+    required TResult Function() loading,
+    required TResult Function(String uid, String email) needsRoleSelection,
+  }) {
+    return needsRoleSelection(uid, email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unknown,
+    TResult? Function(UserCredentialsDto user)? authenticated,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? loading,
+    TResult? Function(String uid, String email)? needsRoleSelection,
+  }) {
+    return needsRoleSelection?.call(uid, email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unknown,
+    TResult Function(UserCredentialsDto user)? authenticated,
+    TResult Function()? unauthenticated,
+    TResult Function()? loading,
+    TResult Function(String uid, String email)? needsRoleSelection,
+    required TResult orElse(),
+  }) {
+    if (needsRoleSelection != null) {
+      return needsRoleSelection(uid, email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unknown value) unknown,
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
+  }) {
+    return needsRoleSelection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_Unauthenticated value)? unauthenticated,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
+  }) {
+    return needsRoleSelection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unknown value)? unknown,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
+    required TResult orElse(),
+  }) {
+    if (needsRoleSelection != null) {
+      return needsRoleSelection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NeedsRoleSelection implements AuthState {
+  const factory _NeedsRoleSelection(
+      {required final String uid,
+      required final String email}) = _$NeedsRoleSelectionImpl;
+
+  String get uid;
+  String get email;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NeedsRoleSelectionImplCopyWith<_$NeedsRoleSelectionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,0 +1,65 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "nextone",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "nextone (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "nextone (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "models",
+            "cwd": "packages/models",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "models (profile mode)",
+            "cwd": "packages/models",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "models (release mode)",
+            "cwd": "packages/models",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "nextone_core",
+            "cwd": "packages/nextone_core",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "nextone_core (profile mode)",
+            "cwd": "packages/nextone_core",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "nextone_core (release mode)",
+            "cwd": "packages/nextone_core",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

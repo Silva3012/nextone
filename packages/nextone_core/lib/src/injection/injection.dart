@@ -2,17 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:models/models.dart';
 import 'package:nextone_core/src/injection/injection.config.dart';
 
-final getItSL = GetIt.instance;
+final nextOneCoreSL = GetIt.instance;
 
 @InjectableInit(
   initializerName: 'init',
   preferRelativeImports: true,
   asExtension: true,
 )
-Future<void> configureDependencies() async => getItSL.init();
+Future<void> configureDependencies() async => nextOneCoreSL.init();
 
 @module
 abstract class FirebaseModule {
@@ -21,7 +20,4 @@ abstract class FirebaseModule {
 
   @lazySingleton
   FirebaseFirestore get firestore => FirebaseFirestore.instance;
-
-  @lazySingleton
-  FirebaseUserDtoMapper get firebaseUserDtoMapper => FirebaseUserDtoMapper();
 }

@@ -14,9 +14,9 @@ class AppProviders extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ArtistAuthBloc>(
-          create: (context) => getItSL<ArtistAuthBloc>(),
-        ),
+        BlocProvider<AuthBloc>(
+          create: (context) => nextOneCoreSL<AuthBloc>(),
+        )
       ],
       child: child,
     );

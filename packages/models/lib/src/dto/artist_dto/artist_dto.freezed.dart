@@ -21,12 +21,11 @@ ArtistDto _$ArtistDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ArtistDto {
   String get uid => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String? get username => throw _privateConstructorUsedError;
-  String? get profilePictureUrl => throw _privateConstructorUsedError;
+  String get stageName => throw _privateConstructorUsedError;
+  String? get location => throw _privateConstructorUsedError;
   String? get biography => throw _privateConstructorUsedError;
   String? get genre => throw _privateConstructorUsedError;
-  int? get supporterCount => throw _privateConstructorUsedError;
+  String? get profilePictureUrl => throw _privateConstructorUsedError;
 
   /// Serializes this ArtistDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,12 +44,11 @@ abstract class $ArtistDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {String uid,
-      String email,
-      String? username,
-      String? profilePictureUrl,
+      String stageName,
+      String? location,
       String? biography,
       String? genre,
-      int? supporterCount});
+      String? profilePictureUrl});
 }
 
 /// @nodoc
@@ -69,29 +67,24 @@ class _$ArtistDtoCopyWithImpl<$Res, $Val extends ArtistDto>
   @override
   $Res call({
     Object? uid = null,
-    Object? email = null,
-    Object? username = freezed,
-    Object? profilePictureUrl = freezed,
+    Object? stageName = null,
+    Object? location = freezed,
     Object? biography = freezed,
     Object? genre = freezed,
-    Object? supporterCount = freezed,
+    Object? profilePictureUrl = freezed,
   }) {
     return _then(_value.copyWith(
       uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      stageName: null == stageName
+          ? _value.stageName
+          : stageName // ignore: cast_nullable_to_non_nullable
               as String,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      profilePictureUrl: freezed == profilePictureUrl
-          ? _value.profilePictureUrl
-          : profilePictureUrl // ignore: cast_nullable_to_non_nullable
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String?,
       biography: freezed == biography
           ? _value.biography
@@ -101,10 +94,10 @@ class _$ArtistDtoCopyWithImpl<$Res, $Val extends ArtistDto>
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as String?,
-      supporterCount: freezed == supporterCount
-          ? _value.supporterCount
-          : supporterCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+      profilePictureUrl: freezed == profilePictureUrl
+          ? _value.profilePictureUrl
+          : profilePictureUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -119,12 +112,11 @@ abstract class _$$ArtistDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {String uid,
-      String email,
-      String? username,
-      String? profilePictureUrl,
+      String stageName,
+      String? location,
       String? biography,
       String? genre,
-      int? supporterCount});
+      String? profilePictureUrl});
 }
 
 /// @nodoc
@@ -141,29 +133,24 @@ class __$$ArtistDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uid = null,
-    Object? email = null,
-    Object? username = freezed,
-    Object? profilePictureUrl = freezed,
+    Object? stageName = null,
+    Object? location = freezed,
     Object? biography = freezed,
     Object? genre = freezed,
-    Object? supporterCount = freezed,
+    Object? profilePictureUrl = freezed,
   }) {
     return _then(_$ArtistDtoImpl(
       uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      stageName: null == stageName
+          ? _value.stageName
+          : stageName // ignore: cast_nullable_to_non_nullable
               as String,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      profilePictureUrl: freezed == profilePictureUrl
-          ? _value.profilePictureUrl
-          : profilePictureUrl // ignore: cast_nullable_to_non_nullable
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String?,
       biography: freezed == biography
           ? _value.biography
@@ -173,25 +160,24 @@ class __$$ArtistDtoImplCopyWithImpl<$Res>
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
               as String?,
-      supporterCount: freezed == supporterCount
-          ? _value.supporterCount
-          : supporterCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+      profilePictureUrl: freezed == profilePictureUrl
+          ? _value.profilePictureUrl
+          : profilePictureUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ArtistDtoImpl with DiagnosticableTreeMixin implements _ArtistDto {
-  _$ArtistDtoImpl(
+class _$ArtistDtoImpl implements _ArtistDto {
+  const _$ArtistDtoImpl(
       {required this.uid,
-      required this.email,
-      this.username,
-      this.profilePictureUrl,
+      required this.stageName,
+      this.location,
       this.biography,
       this.genre,
-      this.supporterCount});
+      this.profilePictureUrl});
 
   factory _$ArtistDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArtistDtoImplFromJson(json);
@@ -199,35 +185,19 @@ class _$ArtistDtoImpl with DiagnosticableTreeMixin implements _ArtistDto {
   @override
   final String uid;
   @override
-  final String email;
+  final String stageName;
   @override
-  final String? username;
-  @override
-  final String? profilePictureUrl;
+  final String? location;
   @override
   final String? biography;
   @override
   final String? genre;
   @override
-  final int? supporterCount;
+  final String? profilePictureUrl;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ArtistDto(uid: $uid, email: $email, username: $username, profilePictureUrl: $profilePictureUrl, biography: $biography, genre: $genre, supporterCount: $supporterCount)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ArtistDto'))
-      ..add(DiagnosticsProperty('uid', uid))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('username', username))
-      ..add(DiagnosticsProperty('profilePictureUrl', profilePictureUrl))
-      ..add(DiagnosticsProperty('biography', biography))
-      ..add(DiagnosticsProperty('genre', genre))
-      ..add(DiagnosticsProperty('supporterCount', supporterCount));
+  String toString() {
+    return 'ArtistDto(uid: $uid, stageName: $stageName, location: $location, biography: $biography, genre: $genre, profilePictureUrl: $profilePictureUrl)';
   }
 
   @override
@@ -236,22 +206,21 @@ class _$ArtistDtoImpl with DiagnosticableTreeMixin implements _ArtistDto {
         (other.runtimeType == runtimeType &&
             other is _$ArtistDtoImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.profilePictureUrl, profilePictureUrl) ||
-                other.profilePictureUrl == profilePictureUrl) &&
+            (identical(other.stageName, stageName) ||
+                other.stageName == stageName) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
             (identical(other.biography, biography) ||
                 other.biography == biography) &&
             (identical(other.genre, genre) || other.genre == genre) &&
-            (identical(other.supporterCount, supporterCount) ||
-                other.supporterCount == supporterCount));
+            (identical(other.profilePictureUrl, profilePictureUrl) ||
+                other.profilePictureUrl == profilePictureUrl));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, email, username,
-      profilePictureUrl, biography, genre, supporterCount);
+  int get hashCode => Object.hash(runtimeType, uid, stageName, location,
+      biography, genre, profilePictureUrl);
 
   /// Create a copy of ArtistDto
   /// with the given fields replaced by the non-null parameter values.
@@ -270,14 +239,13 @@ class _$ArtistDtoImpl with DiagnosticableTreeMixin implements _ArtistDto {
 }
 
 abstract class _ArtistDto implements ArtistDto {
-  factory _ArtistDto(
+  const factory _ArtistDto(
       {required final String uid,
-      required final String email,
-      final String? username,
-      final String? profilePictureUrl,
+      required final String stageName,
+      final String? location,
       final String? biography,
       final String? genre,
-      final int? supporterCount}) = _$ArtistDtoImpl;
+      final String? profilePictureUrl}) = _$ArtistDtoImpl;
 
   factory _ArtistDto.fromJson(Map<String, dynamic> json) =
       _$ArtistDtoImpl.fromJson;
@@ -285,17 +253,15 @@ abstract class _ArtistDto implements ArtistDto {
   @override
   String get uid;
   @override
-  String get email;
+  String get stageName;
   @override
-  String? get username;
-  @override
-  String? get profilePictureUrl;
+  String? get location;
   @override
   String? get biography;
   @override
   String? get genre;
   @override
-  int? get supporterCount;
+  String? get profilePictureUrl;
 
   /// Create a copy of ArtistDto
   /// with the given fields replaced by the non-null parameter values.
