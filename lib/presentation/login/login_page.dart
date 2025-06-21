@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:nextone/app/router/app_router.gr.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/presentation/shared/validators/nextone_validator.dart';
@@ -27,27 +28,21 @@ class LoginPage extends HookWidget {
 
     final isFormValid = isEmailValid.value && isPasswordValid.value;
 
-    final isLoading = context.watch<ArtistAuthBloc>().state.maybeMap(
+    final isLoading = context.watch<AuthBloc>().state.maybeMap(
           loading: (_) => true,
           orElse: () => false,
         );
 
     return Scaffold(
-      body: BlocListener<ArtistAuthBloc, ArtistAuthState>(
+      body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           state.mapOrNull(
             authenticated: (_) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Login successful'),
-                ),
-              );
+              context.router.navigate(const DashboardRoute());
             },
             unauthenticated: (_) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Login failed'),
-                ),
+              context.router.popAndPush(
+                const LoginRoute(),
               );
             },
           );
@@ -121,10 +116,10 @@ class LoginPage extends HookWidget {
                             NextoneButton(
                               text: 'Login',
                               onPressed: (!isFormValid || isLoading)
-                                  ? () {}
+                                  ? null
                                   : () {
-                                      context.read<ArtistAuthBloc>().add(
-                                            ArtistAuthEvent.onLoginRequested(
+                                      context.read<AuthBloc>().add(
+                                            AuthEvent.onLoginRequested(
                                               email: emailController.text,
                                               password: passwordController.text,
                                             ),
@@ -133,18 +128,18 @@ class LoginPage extends HookWidget {
                               type: NextoneButtonType.primary,
                               isLoading: isLoading,
                             ),
-                            height16,
-                            NextoneButton(
-                              text: 'Google',
-                              onPressed: () {},
-                              type: NextoneButtonType.secondary,
-                            ),
-                            height16,
-                            NextoneButton(
-                              text: 'Facebook',
-                              onPressed: () {},
-                              type: NextoneButtonType.secondary,
-                            ),
+                            // height16,
+                            // NextoneButton(
+                            //   text: 'Google',
+                            //   onPressed: () {},
+                            //   type: NextoneButtonType.secondary,
+                            // ),
+                            // height16,
+                            // NextoneButton(
+                            //   text: 'Facebook',
+                            //   onPressed: () {},
+                            //   type: NextoneButtonType.secondary,
+                            // ),
                           ],
                         ),
                       ),

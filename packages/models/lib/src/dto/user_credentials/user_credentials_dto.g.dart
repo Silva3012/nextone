@@ -1,25 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'firebase_user_dto.dart';
+part of 'user_credentials_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FirebaseUserDtoImpl _$$FirebaseUserDtoImplFromJson(
+_$UserCredentialsDtoImpl _$$UserCredentialsDtoImplFromJson(
         Map<String, dynamic> json) =>
-    _$FirebaseUserDtoImpl(
+    _$UserCredentialsDtoImpl(
       uid: json['uid'] as String,
       email: json['email'] as String,
-      displayName: json['displayName'] as String?,
-      photoUrl: json['photoUrl'] as String?,
+      role: json['role'] as String?,
     );
 
-Map<String, dynamic> _$$FirebaseUserDtoImplToJson(
-        _$FirebaseUserDtoImpl instance) =>
+Map<String, dynamic> _$$UserCredentialsDtoImplToJson(
+        _$UserCredentialsDtoImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'email': instance.email,
-      'displayName': instance.displayName,
-      'photoUrl': instance.photoUrl,
+      'role': instance.role,
     };

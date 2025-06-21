@@ -12,12 +12,10 @@ import 'package:cloud_firestore/cloud_firestore.dart' as _i974;
 import 'package:firebase_auth/firebase_auth.dart' as _i59;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:models/models.dart' as _i669;
 
-import '../../nextone_core_export.dart' as _i315;
-import '../application/artist_auth/artist_auth_bloc.dart' as _i822;
-import '../repositories/implementations/artist_auth/firebase_artist_auth.dart'
-    as _i970;
+import '../application/auth/auth_bloc.dart' as _i122;
+import '../services/implementations/auth_service.dart' as _i527;
+import '../services/services_exports.dart' as _i668;
 import 'injection.dart' as _i464;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -34,15 +32,10 @@ extension GetItInjectableX on _i174.GetIt {
     final firebaseModule = _$FirebaseModule();
     gh.lazySingleton<_i59.FirebaseAuth>(() => firebaseModule.firebaseAuth);
     gh.lazySingleton<_i974.FirebaseFirestore>(() => firebaseModule.firestore);
-    gh.lazySingleton<_i669.FirebaseUserDtoMapper>(
-        () => firebaseModule.firebaseUserDtoMapper);
-    gh.lazySingleton<_i315.IFirebaseArtistAuth>(() => _i970.FirebaseArtistAuth(
-          gh<_i59.FirebaseAuth>(),
-          gh<_i974.FirebaseFirestore>(),
-          gh<_i669.FirebaseUserDtoMapper>(),
-        ));
-    gh.lazySingleton<_i822.ArtistAuthBloc>(
-        () => _i822.ArtistAuthBloc(gh<_i315.IFirebaseArtistAuth>()));
+    gh.lazySingleton<_i668.IAuthService>(
+        () => _i527.AuthService(firebaseAuth: gh<_i59.FirebaseAuth>()));
+    gh.lazySingleton<_i122.AuthBloc>(
+        () => _i122.AuthBloc(gh<_i668.IAuthService>()));
     return this;
   }
 }

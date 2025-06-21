@@ -9,21 +9,19 @@ part of 'artist_dto.dart';
 _$ArtistDtoImpl _$$ArtistDtoImplFromJson(Map<String, dynamic> json) =>
     _$ArtistDtoImpl(
       uid: json['uid'] as String,
-      email: json['email'] as String,
-      username: json['username'] as String?,
-      profilePictureUrl: json['profilePictureUrl'] as String?,
+      stageName: json['stageName'] as String,
+      location: json['location'] as String?,
       biography: json['biography'] as String?,
       genre: json['genre'] as String?,
-      supporterCount: (json['supporterCount'] as num?)?.toInt(),
+      profilePictureUrl: json['profilePictureUrl'] as String?,
     );
 
 Map<String, dynamic> _$$ArtistDtoImplToJson(_$ArtistDtoImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
-      'email': instance.email,
-      'username': instance.username,
-      'profilePictureUrl': instance.profilePictureUrl,
+      'stageName': instance.stageName,
+      'location': instance.location,
       'biography': instance.biography,
       'genre': instance.genre,
-      'supporterCount': instance.supporterCount,
+      'profilePictureUrl': instance.profilePictureUrl,
     };

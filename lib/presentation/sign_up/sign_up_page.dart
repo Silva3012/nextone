@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:nextone/app/router/app_router.gr.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/presentation/shared/validators/nextone_validator.dart';
 import 'package:nextone/presentation/sign_up/widgets/sign_up_footer.dart';
@@ -27,29 +28,34 @@ class SignUpPage extends HookWidget {
 
     final isFormValid = isEmailValid.value && isPasswordValid.value;
 
-    final isLoading = context.watch<ArtistAuthBloc>().state.maybeMap(
+    final isLoading = context.watch<AuthBloc>().state.maybeMap(
           loading: (_) => true,
           orElse: () => false,
         );
 
     return Scaffold(
-      body: BlocListener<ArtistAuthBloc, ArtistAuthState>(
+      body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-          state.mapOrNull(loading: (_) {
-            const CircularProgressIndicator();
-          }, authenticated: (_) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Sign up successful'),
-              ),
-            );
-          }, unauthenticated: (_) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Sign up failed'),
-              ),
-            );
-          });
+          state.mapOrNull(
+            loading: (_) {
+              const CircularProgressIndicator();
+            },
+            authenticated: (_) {
+              context.router.navigate(
+                const LoginRoute(),
+              );
+            },
+            unauthenticated: (_) {
+              context.router.popAndPush(
+                const LoginRoute(),
+              );
+            },
+            needsRoleSelection: (_) {
+              context.router.navigate(
+                const RoleSelectionRoute(),
+              );
+            },
+          );
         },
         child: Stack(
           children: [
@@ -100,8 +106,8 @@ class SignUpPage extends HookWidget {
                               onPressed: (!isFormValid || isLoading)
                                   ? null
                                   : () {
-                                      context.read<ArtistAuthBloc>().add(
-                                            ArtistAuthEvent.onSignUpRequested(
+                                      context.read<AuthBloc>().add(
+                                            AuthEvent.onSignUpRequested(
                                               email: emailController.text,
                                               password: passwordController.text,
                                             ),
@@ -110,18 +116,18 @@ class SignUpPage extends HookWidget {
                               type: NextoneButtonType.primary,
                               isLoading: isLoading,
                             ),
-                            height16,
-                            NextoneButton(
-                              text: 'Google',
-                              onPressed: () {},
-                              type: NextoneButtonType.secondary,
-                            ),
-                            height16,
-                            NextoneButton(
-                              text: 'Facebook',
-                              onPressed: () {},
-                              type: NextoneButtonType.secondary,
-                            ),
+                            // height16,
+                            // NextoneButton(
+                            //   text: 'Google',
+                            //   onPressed: () {},
+                            //   type: NextoneButtonType.secondary,
+                            // ),
+                            // height16,
+                            // NextoneButton(
+                            //   text: 'Facebook',
+                            //   onPressed: () {},
+                            //   type: NextoneButtonType.secondary,
+                            // ),
                           ],
                         ),
                       ),

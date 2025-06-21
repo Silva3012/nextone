@@ -1,30 +1,26 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter/foundation.dart';
 
 part 'artist_dto.freezed.dart';
-
 part 'artist_dto.g.dart';
 
 @freezed
 class ArtistDto with _$ArtistDto {
-  factory ArtistDto({
+  const factory ArtistDto({
     required String uid,
-    required String email,
-    String? username,
-    String? profilePictureUrl,
+    required String stageName,
+    String? location,
     String? biography,
     String? genre,
-    int? supporterCount,
+    String? profilePictureUrl,
   }) = _ArtistDto;
 
-  factory ArtistDto.empty() => ArtistDto(
+  factory ArtistDto.empty() => const ArtistDto(
         uid: '',
-        username: '',
-        email: '',
-        profilePictureUrl: '',
-        biography: '',
-        genre: '',
-        supporterCount: 0,
+        stageName: '',
+        location: null,
+        biography: null,
+        genre: null,
+        profilePictureUrl: null,
       );
 
   factory ArtistDto.fromJson(Map<String, dynamic> json) =>

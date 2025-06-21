@@ -1,2 +1,2 @@
-export 'artist/artist_dto.dart';
-export 'firebase_user_dto/firebase_user_dto.dart';
+export 'user_credentials/user_credentials_dto.dart';
+export 'artist_dto/artist_dto.dart';
