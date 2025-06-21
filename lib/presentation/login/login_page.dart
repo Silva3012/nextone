@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
+import 'package:nextone/presentation/shared/validators/nextone_validator.dart';
 import 'package:nextone/presentation/shared/widgets/background_image.dart';
 import 'package:nextone/presentation/login/widgets/login_footer.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
@@ -21,14 +22,20 @@ class LoginPage extends HookWidget {
     final isPasswordVisible = useState(true);
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
+    final isEmailValid = useState(false);
+    final isPasswordValid = useState(false);
+
+    final isFormValid = isEmailValid.value && isPasswordValid.value;
+
+    final isLoading = context.watch<ArtistAuthBloc>().state.maybeMap(
+          loading: (_) => true,
+          orElse: () => false,
+        );
 
     return Scaffold(
       body: BlocListener<ArtistAuthBloc, ArtistAuthState>(
         listener: (context, state) {
           state.mapOrNull(
-            loading: (_) {
-              const CircularProgressIndicator();
-            },
             authenticated: (_) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
@@ -63,16 +70,22 @@ class LoginPage extends HookWidget {
                             SizedBox(height: screenHeight * 0.2),
                             NextoneTextField(
                               hintText: 'Email',
+                              validator: NextoneValidator.validateEmail,
                               controller: emailController,
                               keyboardType: TextInputType.text,
                               prefixIcon: const Icon(Icons.email),
+                              onValidChanged: (valid) =>
+                                  isEmailValid.value = valid,
                             ),
                             height16,
                             NextoneTextField(
                               hintText: 'Password',
+                              validator: NextoneValidator.validatePassword,
                               controller: passwordController,
                               keyboardType: TextInputType.text,
                               prefixIcon: const Icon(Icons.lock),
+                              onValidChanged: (valid) =>
+                                  isPasswordValid.value = valid,
                               obscureText: isPasswordVisible.value,
                               suffixIcon: IconButton(
                                 icon: isPasswordVisible.value
@@ -107,15 +120,18 @@ class LoginPage extends HookWidget {
                             height16,
                             NextoneButton(
                               text: 'Login',
-                              onPressed: () {
-                                context.read<ArtistAuthBloc>().add(
-                                      ArtistAuthEvent.onLoginRequested(
-                                        email: emailController.text,
-                                        password: passwordController.text,
-                                      ),
-                                    );
-                              },
+                              onPressed: (!isFormValid || isLoading)
+                                  ? () {}
+                                  : () {
+                                      context.read<ArtistAuthBloc>().add(
+                                            ArtistAuthEvent.onLoginRequested(
+                                              email: emailController.text,
+                                              password: passwordController.text,
+                                            ),
+                                          );
+                                    },
                               type: NextoneButtonType.primary,
+                              isLoading: isLoading,
                             ),
                             height16,
                             NextoneButton(

@@ -8,13 +8,15 @@ class NextoneButton extends StatelessWidget {
   const NextoneButton({
     super.key,
     required this.text,
-    required this.onPressed,
+    this.onPressed,
     this.type = NextoneButtonType.primary,
+    this.isLoading = false,
   });
 
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final NextoneButtonType type;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +34,25 @@ class NextoneButton extends StatelessWidget {
         minimumSize: const Size(308, 54));
 
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: isLoading ? null : onPressed,
       style: style,
-      child: Text(
-        text,
-        style: NextOneTextStyles.bodyText1.copyWith(
-          color: NextOneColors.textPrimary,
-        ),
-      ),
+      child: isLoading
+          ? const SizedBox(
+              height: 24,
+              width: 24,
+              child: CircularProgressIndicator(
+                strokeWidth: 2.5,
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  NextOneColors.textPrimary,
+                ),
+              ),
+            )
+          : Text(
+              text,
+              style: NextOneTextStyles.bodyText1.copyWith(
+                color: NextOneColors.textPrimary,
+              ),
+            ),
     );
   }
 }
