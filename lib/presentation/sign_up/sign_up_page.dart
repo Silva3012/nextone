@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
+import 'package:nextone/presentation/shared/validators/nextone_validator.dart';
 import 'package:nextone/presentation/sign_up/widgets/sign_up_footer.dart';
 import 'package:nextone/presentation/shared/widgets/background_image.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
@@ -20,6 +21,16 @@ class SignUpPage extends HookWidget {
     final isPasswordVisible = useState(true);
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
+
+    final isEmailValid = useState(false);
+    final isPasswordValid = useState(false);
+
+    final isFormValid = isEmailValid.value && isPasswordValid.value;
+
+    final isLoading = context.watch<ArtistAuthBloc>().state.maybeMap(
+          loading: (_) => true,
+          orElse: () => false,
+        );
 
     return Scaffold(
       body: BlocListener<ArtistAuthBloc, ArtistAuthState>(
@@ -58,13 +69,17 @@ class SignUpPage extends HookWidget {
                             SizedBox(height: screenHeight * 0.20),
                             NextoneTextField(
                               hintText: 'Email',
+                              validator: NextoneValidator.validateEmail,
                               controller: emailController,
                               keyboardType: TextInputType.text,
                               prefixIcon: const Icon(Icons.email),
+                              onValidChanged: (isValid) =>
+                                  isEmailValid.value = isValid,
                             ),
                             height16,
                             NextoneTextField(
                               hintText: 'Password',
+                              validator: NextoneValidator.validatePassword,
                               controller: passwordController,
                               keyboardType: TextInputType.text,
                               prefixIcon: const Icon(Icons.lock),
@@ -76,19 +91,24 @@ class SignUpPage extends HookWidget {
                                 onPressed: () => isPasswordVisible.value =
                                     !isPasswordVisible.value,
                               ),
+                              onValidChanged: (isValid) =>
+                                  isPasswordValid.value = isValid,
                             ),
                             height80,
                             NextoneButton(
                               text: 'Sign Up',
-                              onPressed: () {
-                                context.read<ArtistAuthBloc>().add(
-                                      ArtistAuthEvent.onSignUpRequested(
-                                        email: emailController.text,
-                                        password: passwordController.text,
-                                      ),
-                                    );
-                              },
+                              onPressed: (!isFormValid || isLoading)
+                                  ? null
+                                  : () {
+                                      context.read<ArtistAuthBloc>().add(
+                                            ArtistAuthEvent.onSignUpRequested(
+                                              email: emailController.text,
+                                              password: passwordController.text,
+                                            ),
+                                          );
+                                    },
                               type: NextoneButtonType.primary,
+                              isLoading: isLoading,
                             ),
                             height16,
                             NextoneButton(
