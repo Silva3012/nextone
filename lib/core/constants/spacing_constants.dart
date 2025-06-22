@@ -6,6 +6,8 @@ const paddindLeft12top4bottom4 = EdgeInsets.only(left: 12, top: 4, bottom: 4);
 /// Left padding of 120 logical pixels and top padding of 80 logical pixels.
 const paddingLeft120top80 = EdgeInsets.only(left: 120, top: 80);
 
+const paddingTop32 = EdgeInsets.only(top: 32);
+
 /// Padding of 24 logical pixels on all sides.
 const paddingAll24 = EdgeInsets.all(24);
 

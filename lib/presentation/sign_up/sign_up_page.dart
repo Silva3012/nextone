@@ -51,15 +51,13 @@ class SignUpPage extends HookWidget {
           }, needsOnboarding: (userRole) {
             final role = userRole.user.role;
             if (role == 'artist') {
-              // context.router.navigate(
-              //   const ArtistOnboardingRoute(user: userRole.user),
-              // );
-              const PlaceholderRoute();
+              context.router.navigate(
+                const ProfileSetupRoute(),
+              );
             } else if (role == 'supporter') {
-              // context.router.navigate(
-              //   const SupporterOnboardingRoute(user: userRole.user),
-              // );
-              const PlaceholderRoute();
+              context.router.navigate(
+                const ProfileSetupRoute(),
+              );
             }
           });
         },
