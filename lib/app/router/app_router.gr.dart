@@ -9,10 +9,11 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:flutter/material.dart' as _i7;
 import 'package:nextone/presentation/dashboard/dashboard_page.dart' as _i1;
 import 'package:nextone/presentation/login/login_page.dart' as _i2;
 import 'package:nextone/presentation/placeholder/placeholder.dart' as _i3;
-import 'package:nextone/presentation/sign_up/role_selection/role_selection.dart'
+import 'package:nextone/presentation/sign_up/role_selection/role_selection_page.dart'
     as _i4;
 import 'package:nextone/presentation/sign_up/sign_up_page.dart' as _i5;
 
@@ -75,10 +76,19 @@ class PlaceholderRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.RoleSelectionPage]
-class RoleSelectionRoute extends _i6.PageRouteInfo<void> {
-  const RoleSelectionRoute({List<_i6.PageRouteInfo>? children})
-      : super(
+class RoleSelectionRoute extends _i6.PageRouteInfo<RoleSelectionRouteArgs> {
+  RoleSelectionRoute({
+    _i7.Key? key,
+    required String email,
+    required String uid,
+    List<_i6.PageRouteInfo>? children,
+  }) : super(
           RoleSelectionRoute.name,
+          args: RoleSelectionRouteArgs(
+            key: key,
+            email: email,
+            uid: uid,
+          ),
           initialChildren: children,
         );
 
@@ -87,9 +97,33 @@ class RoleSelectionRoute extends _i6.PageRouteInfo<void> {
   static _i6.PageInfo page = _i6.PageInfo(
     name,
     builder: (data) {
-      return const _i4.RoleSelectionPage();
+      final args = data.argsAs<RoleSelectionRouteArgs>();
+      return _i4.RoleSelectionPage(
+        key: args.key,
+        email: args.email,
+        uid: args.uid,
+      );
     },
   );
+}
+
+class RoleSelectionRouteArgs {
+  const RoleSelectionRouteArgs({
+    this.key,
+    required this.email,
+    required this.uid,
+  });
+
+  final _i7.Key? key;
+
+  final String email;
+
+  final String uid;
+
+  @override
+  String toString() {
+    return 'RoleSelectionRouteArgs{key: $key, email: $email, uid: $uid}';
+  }
 }
 
 /// generated route for

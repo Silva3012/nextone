@@ -16,4 +16,14 @@ class AuthEvent with _$AuthEvent {
     required String email,
     required String password,
   }) = _OnLoginRequested;
+
+  const factory AuthEvent.onRoleSelected({
+    required String uid,
+    required String email,
+    required String role,
+  }) = _OnRoleSelected;
+
+  const factory AuthEvent.onProfileCompleted({
+    required UserCredentialsDto user,
+  }) = _OnProfileCompleted;
 }

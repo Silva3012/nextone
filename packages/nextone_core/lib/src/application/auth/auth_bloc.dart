@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:models/models.dart';
+import 'package:nextone_core/src/repositories/repositories_export.dart';
 import 'package:nextone_core/src/services/services_exports.dart';
 
 part 'auth_event.dart';
@@ -15,26 +18,36 @@ part 'auth_bloc.freezed.dart';
 @LazySingleton()
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthService _authService;
+  final IUserRepository _userRepository;
   late final StreamSubscription<String?> _authStateSubscription;
   // This flag is used to suppress the auth changed event during sign up
   // to prevent emitting an authenticated state before the user role is selected.
   // This is a temporary solution until we implement a proper user role selection flow.
   bool _suppressAuthChanged = false;
 
-  AuthBloc(this._authService) : super(const AuthState.unknown()) {
+  AuthBloc(this._authService, this._userRepository)
+      : super(const AuthState.unknown()) {
     _authStateSubscription =
         _authService.getAuthStateChanges.listen((uid) async {
+      if (_suppressAuthChanged) return;
+
       if (uid != null) {
-        // TODO (auth): Load user data from repository/Firestore
-        // For now, we will just emit authenticated state with the user object
-        final currentUser = FirebaseAuth.instance.currentUser;
-        if (currentUser != null) {
-          add(AuthEvent.onAuthChanged(
-              user: UserCredentialsDto(
-            uid: currentUser.uid,
-            email: currentUser.email ?? '',
-            role: null,
-          )));
+        final user = await _userRepository.getUser(userId: uid);
+        if (user != null) {
+          add(AuthEvent.onAuthChanged(user: user));
+        } else {
+          // Role has not been selected yet
+          final currentUser = FirebaseAuth.instance.currentUser;
+          if (currentUser != null) {
+            add(AuthEvent.onAuthChanged(
+                user: UserCredentialsDto(
+              uid: currentUser.uid,
+              email: currentUser.email ?? '',
+              role: '',
+              profileCompleted: false,
+              createdAt: null,
+            )));
+          }
         }
       } else {
         add(AuthEvent.onAuthChanged(user: UserCredentialsDto.empty()));
@@ -44,12 +57,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEvent>((event, emit) async {
       await event.map(
         onAuthChanged: (e) async {
-          if (_suppressAuthChanged) return;
-
-          if (e.user!.uid.isNotEmpty) {
-            emit(AuthState.authenticated(user: e.user!));
-          } else {
+          final user = e.user;
+          if (user == null || user.uid.isEmpty) {
             emit(const AuthState.unauthenticated());
+            return;
+          }
+
+          if (user.role == null || user.role!.isEmpty) {
+            emit(
+                AuthState.needsRoleSelection(email: user.email, uid: user.uid));
+          } else if (!user.profileCompleted) {
+            log('Redirecting to onboarding for ${user.uid}');
+            emit(AuthState.needsOnboarding(user: user));
+          } else {
+            emit(AuthState.authenticated(user: user));
           }
         },
         onSignUpRequested: (e) async {
@@ -59,7 +80,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             final uid = await _authService.signUpWithEmailAndPassword(
                 email: e.email, password: e.password);
             emit(AuthState.needsRoleSelection(uid: uid, email: e.email));
-            // _suppressAuthChanged = false;
           } catch (e) {
             emit(const AuthState.unauthenticated());
             addError(e, StackTrace.current);
@@ -70,10 +90,50 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           try {
             final uid = await _authService.logInWithEmailAndPassword(
                 email: e.email, password: e.password);
-            // TODO (auth): Load user data from repository/Firestore
-            emit(AuthState.authenticated(
-                user:
-                    UserCredentialsDto(uid: uid, email: e.email, role: null)));
+            final user = await _userRepository.getUser(userId: uid);
+            if (user != null) {
+              if (user.role == null || user.role!.isEmpty) {
+                emit(AuthState.needsRoleSelection(
+                    email: user.email, uid: user.uid));
+              } else if (!user.profileCompleted) {
+                emit(AuthState.needsOnboarding(user: user));
+              } else {
+                log('User logged in: ${user.uid} — profileCompleted: ${user.profileCompleted}');
+                emit(AuthState.authenticated(user: user));
+              }
+            } else {
+              //TODO(auth) User not found in the repository, handle accordingly
+              emit(const AuthState.unauthenticated());
+            }
+          } catch (e) {
+            emit(const AuthState.unauthenticated());
+            addError(e, StackTrace.current);
+          }
+        },
+        onRoleSelected: (e) async {
+          emit(const AuthState.loading());
+          try {
+            final user = UserCredentialsDto(
+              uid: e.uid,
+              email: e.email,
+              role: e.role,
+              profileCompleted: false,
+              createdAt: DateTime.now(),
+            );
+            await _userRepository.saveUserWithRole(userCredentials: user);
+            emit(AuthState.needsOnboarding(user: user));
+          } catch (e) {
+            emit(const AuthState.unauthenticated());
+            addError(e, StackTrace.current);
+          }
+        },
+        onProfileCompleted: (e) async {
+          emit(const AuthState.loading());
+          try {
+            final completedUser = e.user.copyWith(profileCompleted: true);
+            await _userRepository.saveUserWithRole(
+                userCredentials: completedUser);
+            emit(AuthState.authenticated(user: completedUser));
           } catch (e) {
             emit(const AuthState.unauthenticated());
             addError(e, StackTrace.current);

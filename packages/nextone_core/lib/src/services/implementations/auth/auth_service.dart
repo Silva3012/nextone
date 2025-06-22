@@ -2,8 +2,7 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
-
-import '../services_exports.dart';
+import 'package:nextone_core/src/services/services_exports.dart';
 
 @LazySingleton(as: IAuthService)
 class AuthService implements IAuthService {

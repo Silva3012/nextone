@@ -13,4 +13,7 @@ class AuthState with _$AuthState {
 
   const factory AuthState.needsRoleSelection(
       {required String uid, required String email}) = _NeedsRoleSelection;
+
+  const factory AuthState.needsOnboarding({required UserCredentialsDto user}) =
+      _NeedsOnboarding;
 }
