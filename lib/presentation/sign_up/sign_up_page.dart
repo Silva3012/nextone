@@ -36,26 +36,30 @@ class SignUpPage extends HookWidget {
     return Scaffold(
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-          state.mapOrNull(
-            loading: (_) {
-              const CircularProgressIndicator();
-            },
-            authenticated: (_) {
+          state.mapOrNull(authenticated: (_) {
+            context.router.navigate(
+              const LoginRoute(),
+            );
+          }, unauthenticated: (_) {
+            context.router.popAndPush(
+              const LoginRoute(),
+            );
+          }, needsRoleSelection: (user) {
+            context.router.navigate(
+              RoleSelectionRoute(email: user.email, uid: user.uid),
+            );
+          }, needsOnboarding: (userRole) {
+            final role = userRole.user.role;
+            if (role == 'artist') {
               context.router.navigate(
-                const LoginRoute(),
+                const ProfileSetupRoute(),
               );
-            },
-            unauthenticated: (_) {
-              context.router.popAndPush(
-                const LoginRoute(),
-              );
-            },
-            needsRoleSelection: (_) {
+            } else if (role == 'supporter') {
               context.router.navigate(
-                const RoleSelectionRoute(),
+                const ProfileSetupRoute(),
               );
-            },
-          );
+            }
+          });
         },
         child: Stack(
           children: [

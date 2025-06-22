@@ -45,6 +45,11 @@ class LoginPage extends HookWidget {
                 const LoginRoute(),
               );
             },
+            needsOnboarding: (_) {
+              context.router.navigate(
+                const ProfileSetupRoute(),
+              );
+            },
           );
         },
         child: Stack(

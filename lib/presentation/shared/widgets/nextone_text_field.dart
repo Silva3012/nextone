@@ -17,6 +17,9 @@ class NextoneTextField extends HookWidget {
     this.validator,
     this.filled = false,
     this.onValidChanged,
+    this.maxLines,
+    this.minLines,
+    this.useOutlineBorder = false,
   });
 
   final String? hintText;
@@ -30,6 +33,9 @@ class NextoneTextField extends HookWidget {
   final Widget? suffixIcon;
   final String? Function(String?)? validator;
   final void Function(bool isValid)? onValidChanged;
+  final bool useOutlineBorder;
+  final int? maxLines;
+  final int? minLines;
 
   @override
   Widget build(BuildContext context) {
@@ -63,29 +69,53 @@ class NextoneTextField extends HookWidget {
       children: [
         TextField(
           controller: textController,
-          keyboardType: keyboardType,
-          textInputAction: textInputAction,
+          keyboardType: keyboardType ??
+              (useOutlineBorder ? TextInputType.multiline : TextInputType.text),
+          textInputAction: textInputAction ??
+              (useOutlineBorder
+                  ? TextInputAction.newline
+                  : TextInputAction.done),
           obscureText: obscureText ?? false,
           enabled: enabled,
+          minLines: useOutlineBorder ? (minLines ?? 3) : 1,
+          maxLines: useOutlineBorder ? (maxLines ?? 10) : 1,
           onChanged: (_) {},
           decoration: InputDecoration(
             hintText: hintText,
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             filled: filled,
-            border: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: underlineBorderColour,
-              ),
-            ),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: underlineBorderColour,
-              ),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: underlineBorderColour, width: 2),
-            ),
+            fillColor: filled ? NextOneColors.surface.withOpacity(0.9) : null,
+            border: useOutlineBorder
+                ? OutlineInputBorder(
+                    borderRadius: const BorderRadius.all(Radius.circular(8)),
+                    borderSide:
+                        BorderSide(color: underlineBorderColour, width: 1))
+                : UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: underlineBorderColour,
+                    ),
+                  ),
+            enabledBorder: useOutlineBorder
+                ? OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: underlineBorderColour),
+                  )
+                : UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: underlineBorderColour,
+                    ),
+                  ),
+            focusedBorder: useOutlineBorder
+                ? OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide:
+                        BorderSide(color: underlineBorderColour, width: 2),
+                  )
+                : UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: underlineBorderColour, width: 2),
+                  ),
             errorText: null,
           ),
         ),
