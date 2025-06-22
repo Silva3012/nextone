@@ -27,7 +27,9 @@ class RoleSelectionPage extends HookWidget {
 
     return Stack(
       children: [
-        const BackgroundImage(),
+        const BackgroundImage(
+          overlayColor: Colors.black45,
+        ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

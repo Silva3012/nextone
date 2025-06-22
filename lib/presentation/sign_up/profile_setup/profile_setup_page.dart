@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:nextone/app/router/app_router.gr.dart';
 import 'package:nextone/app/theme/nextone_text_styles.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/presentation/shared/widgets/background_image.dart';
@@ -17,17 +18,16 @@ class ProfileSetupPage extends StatelessWidget {
       body: const Stack(
         children: [
           BackgroundImage(
-            blur: true,
-            overlayColor: Colors.black45,
+            overlayColor: Colors.black54,
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
+              padding: paddingHorizontal32,
               child: Column(
                 children: [
                   Expanded(
                     child: SingleChildScrollView(
-                      padding: EdgeInsets.only(top: 32, bottom: 32),
+                      padding: paddingTop32bottom32,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -64,13 +64,14 @@ class ProfileSetupPage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: SafeArea(
-        minimum: const EdgeInsets.only(left: 32, right: 32, bottom: 24),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 16.0),
-          child: NextoneButton(
-            text: 'Next',
-            onPressed: () {},
-          ),
+        minimum: paddingVertical32Horizontal16,
+        child: NextoneButton(
+          text: 'Next',
+          onPressed: () {
+            context.router.navigate(
+              const UploadProfilePictureRoute(),
+            );
+          },
         ),
       ),
     );

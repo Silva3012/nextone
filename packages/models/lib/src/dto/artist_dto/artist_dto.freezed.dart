@@ -20,11 +20,16 @@ ArtistDto _$ArtistDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ArtistDto {
-  String get uid => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
+  String get artistId => throw _privateConstructorUsedError;
   String get stageName => throw _privateConstructorUsedError;
-  String? get location => throw _privateConstructorUsedError;
-  String? get biography => throw _privateConstructorUsedError;
-  String? get genre => throw _privateConstructorUsedError;
+  String get location => throw _privateConstructorUsedError;
+  String get biography => throw _privateConstructorUsedError;
+  String get genre => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  List<String> get socialLinks => throw _privateConstructorUsedError;
+  List<String> get profileImages => throw _privateConstructorUsedError;
+  int get supporterCount => throw _privateConstructorUsedError;
   String? get profilePictureUrl => throw _privateConstructorUsedError;
 
   /// Serializes this ArtistDto to a JSON map.
@@ -43,11 +48,16 @@ abstract class $ArtistDtoCopyWith<$Res> {
       _$ArtistDtoCopyWithImpl<$Res, ArtistDto>;
   @useResult
   $Res call(
-      {String uid,
+      {String userId,
+      String artistId,
       String stageName,
-      String? location,
-      String? biography,
-      String? genre,
+      String location,
+      String biography,
+      String genre,
+      DateTime? createdAt,
+      List<String> socialLinks,
+      List<String> profileImages,
+      int supporterCount,
       String? profilePictureUrl});
 }
 
@@ -66,34 +76,59 @@ class _$ArtistDtoCopyWithImpl<$Res, $Val extends ArtistDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = null,
+    Object? userId = null,
+    Object? artistId = null,
     Object? stageName = null,
-    Object? location = freezed,
-    Object? biography = freezed,
-    Object? genre = freezed,
+    Object? location = null,
+    Object? biography = null,
+    Object? genre = null,
+    Object? createdAt = freezed,
+    Object? socialLinks = null,
+    Object? profileImages = null,
+    Object? supporterCount = null,
     Object? profilePictureUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      uid: null == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistId: null == artistId
+          ? _value.artistId
+          : artistId // ignore: cast_nullable_to_non_nullable
               as String,
       stageName: null == stageName
           ? _value.stageName
           : stageName // ignore: cast_nullable_to_non_nullable
               as String,
-      location: freezed == location
+      location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      biography: freezed == biography
+              as String,
+      biography: null == biography
           ? _value.biography
           : biography // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genre: freezed == genre
+              as String,
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      socialLinks: null == socialLinks
+          ? _value.socialLinks
+          : socialLinks // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      profileImages: null == profileImages
+          ? _value.profileImages
+          : profileImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      supporterCount: null == supporterCount
+          ? _value.supporterCount
+          : supporterCount // ignore: cast_nullable_to_non_nullable
+              as int,
       profilePictureUrl: freezed == profilePictureUrl
           ? _value.profilePictureUrl
           : profilePictureUrl // ignore: cast_nullable_to_non_nullable
@@ -111,11 +146,16 @@ abstract class _$$ArtistDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String uid,
+      {String userId,
+      String artistId,
       String stageName,
-      String? location,
-      String? biography,
-      String? genre,
+      String location,
+      String biography,
+      String genre,
+      DateTime? createdAt,
+      List<String> socialLinks,
+      List<String> profileImages,
+      int supporterCount,
       String? profilePictureUrl});
 }
 
@@ -132,34 +172,59 @@ class __$$ArtistDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = null,
+    Object? userId = null,
+    Object? artistId = null,
     Object? stageName = null,
-    Object? location = freezed,
-    Object? biography = freezed,
-    Object? genre = freezed,
+    Object? location = null,
+    Object? biography = null,
+    Object? genre = null,
+    Object? createdAt = freezed,
+    Object? socialLinks = null,
+    Object? profileImages = null,
+    Object? supporterCount = null,
     Object? profilePictureUrl = freezed,
   }) {
     return _then(_$ArtistDtoImpl(
-      uid: null == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistId: null == artistId
+          ? _value.artistId
+          : artistId // ignore: cast_nullable_to_non_nullable
               as String,
       stageName: null == stageName
           ? _value.stageName
           : stageName // ignore: cast_nullable_to_non_nullable
               as String,
-      location: freezed == location
+      location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      biography: freezed == biography
+              as String,
+      biography: null == biography
           ? _value.biography
           : biography // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genre: freezed == genre
+              as String,
+      genre: null == genre
           ? _value.genre
           : genre // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      socialLinks: null == socialLinks
+          ? _value._socialLinks
+          : socialLinks // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      profileImages: null == profileImages
+          ? _value._profileImages
+          : profileImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      supporterCount: null == supporterCount
+          ? _value.supporterCount
+          : supporterCount // ignore: cast_nullable_to_non_nullable
+              as int,
       profilePictureUrl: freezed == profilePictureUrl
           ? _value.profilePictureUrl
           : profilePictureUrl // ignore: cast_nullable_to_non_nullable
@@ -172,32 +237,64 @@ class __$$ArtistDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArtistDtoImpl implements _ArtistDto {
   const _$ArtistDtoImpl(
-      {required this.uid,
+      {required this.userId,
+      required this.artistId,
       required this.stageName,
-      this.location,
-      this.biography,
-      this.genre,
-      this.profilePictureUrl});
+      required this.location,
+      required this.biography,
+      required this.genre,
+      this.createdAt,
+      final List<String> socialLinks = const [],
+      final List<String> profileImages = const [],
+      this.supporterCount = 0,
+      this.profilePictureUrl})
+      : _socialLinks = socialLinks,
+        _profileImages = profileImages;
 
   factory _$ArtistDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArtistDtoImplFromJson(json);
 
   @override
-  final String uid;
+  final String userId;
+  @override
+  final String artistId;
   @override
   final String stageName;
   @override
-  final String? location;
+  final String location;
   @override
-  final String? biography;
+  final String biography;
   @override
-  final String? genre;
+  final String genre;
+  @override
+  final DateTime? createdAt;
+  final List<String> _socialLinks;
+  @override
+  @JsonKey()
+  List<String> get socialLinks {
+    if (_socialLinks is EqualUnmodifiableListView) return _socialLinks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_socialLinks);
+  }
+
+  final List<String> _profileImages;
+  @override
+  @JsonKey()
+  List<String> get profileImages {
+    if (_profileImages is EqualUnmodifiableListView) return _profileImages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_profileImages);
+  }
+
+  @override
+  @JsonKey()
+  final int supporterCount;
   @override
   final String? profilePictureUrl;
 
   @override
   String toString() {
-    return 'ArtistDto(uid: $uid, stageName: $stageName, location: $location, biography: $biography, genre: $genre, profilePictureUrl: $profilePictureUrl)';
+    return 'ArtistDto(userId: $userId, artistId: $artistId, stageName: $stageName, location: $location, biography: $biography, genre: $genre, createdAt: $createdAt, socialLinks: $socialLinks, profileImages: $profileImages, supporterCount: $supporterCount, profilePictureUrl: $profilePictureUrl)';
   }
 
   @override
@@ -205,7 +302,9 @@ class _$ArtistDtoImpl implements _ArtistDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ArtistDtoImpl &&
-            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.artistId, artistId) ||
+                other.artistId == artistId) &&
             (identical(other.stageName, stageName) ||
                 other.stageName == stageName) &&
             (identical(other.location, location) ||
@@ -213,14 +312,33 @@ class _$ArtistDtoImpl implements _ArtistDto {
             (identical(other.biography, biography) ||
                 other.biography == biography) &&
             (identical(other.genre, genre) || other.genre == genre) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._socialLinks, _socialLinks) &&
+            const DeepCollectionEquality()
+                .equals(other._profileImages, _profileImages) &&
+            (identical(other.supporterCount, supporterCount) ||
+                other.supporterCount == supporterCount) &&
             (identical(other.profilePictureUrl, profilePictureUrl) ||
                 other.profilePictureUrl == profilePictureUrl));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, stageName, location,
-      biography, genre, profilePictureUrl);
+  int get hashCode => Object.hash(
+      runtimeType,
+      userId,
+      artistId,
+      stageName,
+      location,
+      biography,
+      genre,
+      createdAt,
+      const DeepCollectionEquality().hash(_socialLinks),
+      const DeepCollectionEquality().hash(_profileImages),
+      supporterCount,
+      profilePictureUrl);
 
   /// Create a copy of ArtistDto
   /// with the given fields replaced by the non-null parameter values.
@@ -240,26 +358,41 @@ class _$ArtistDtoImpl implements _ArtistDto {
 
 abstract class _ArtistDto implements ArtistDto {
   const factory _ArtistDto(
-      {required final String uid,
+      {required final String userId,
+      required final String artistId,
       required final String stageName,
-      final String? location,
-      final String? biography,
-      final String? genre,
+      required final String location,
+      required final String biography,
+      required final String genre,
+      final DateTime? createdAt,
+      final List<String> socialLinks,
+      final List<String> profileImages,
+      final int supporterCount,
       final String? profilePictureUrl}) = _$ArtistDtoImpl;
 
   factory _ArtistDto.fromJson(Map<String, dynamic> json) =
       _$ArtistDtoImpl.fromJson;
 
   @override
-  String get uid;
+  String get userId;
+  @override
+  String get artistId;
   @override
   String get stageName;
   @override
-  String? get location;
+  String get location;
   @override
-  String? get biography;
+  String get biography;
   @override
-  String? get genre;
+  String get genre;
+  @override
+  DateTime? get createdAt;
+  @override
+  List<String> get socialLinks;
+  @override
+  List<String> get profileImages;
+  @override
+  int get supporterCount;
   @override
   String? get profilePictureUrl;
 

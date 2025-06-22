@@ -6,20 +6,30 @@ part 'artist_dto.g.dart';
 @freezed
 class ArtistDto with _$ArtistDto {
   const factory ArtistDto({
-    required String uid,
+    required String userId,
+    required String artistId,
     required String stageName,
-    String? location,
-    String? biography,
-    String? genre,
+    required String location,
+    required String biography,
+    required String genre,
+    DateTime? createdAt,
+    @Default([]) List<String> socialLinks,
+    @Default([]) List<String> profileImages,
+    @Default(0) int supporterCount,
     String? profilePictureUrl,
   }) = _ArtistDto;
 
   factory ArtistDto.empty() => const ArtistDto(
-        uid: '',
+        userId: '',
+        artistId: '',
         stageName: '',
-        location: null,
-        biography: null,
-        genre: null,
+        location: '',
+        biography: '',
+        genre: '',
+        createdAt: null,
+        socialLinks: [],
+        profileImages: [],
+        supporterCount: 0,
         profilePictureUrl: null,
       );
 
