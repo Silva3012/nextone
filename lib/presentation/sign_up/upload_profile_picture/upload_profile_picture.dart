@@ -112,7 +112,7 @@ class UploadProfilePicturePage extends HookWidget {
           listener: (context, state) {
             state.maybeWhen(
               authenticated: (_) =>
-                  context.router.popAndPush(const DashboardRoute()),
+                  context.router.navigate(const LoadingSplashRoute()),
               unauthenticated: () => error.value = 'Failed to complete profile',
               orElse: () {},
             );
