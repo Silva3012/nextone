@@ -20,16 +20,27 @@ ArtistDto _$ArtistDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ArtistDto {
+  @JsonKey(name: 'user_id')
   String get userId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'artist_id')
   String get artistId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'stage_name')
   String get stageName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'location')
   String get location => throw _privateConstructorUsedError;
+  @JsonKey(name: 'biography')
   String get biography => throw _privateConstructorUsedError;
+  @JsonKey(name: 'genre')
   String get genre => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'social_links')
   List<String> get socialLinks => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_images')
   List<String> get profileImages => throw _privateConstructorUsedError;
+  @JsonKey(name: 'supporter_count')
   int get supporterCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_picture_url')
   String? get profilePictureUrl => throw _privateConstructorUsedError;
 
   /// Serializes this ArtistDto to a JSON map.
@@ -48,17 +59,17 @@ abstract class $ArtistDtoCopyWith<$Res> {
       _$ArtistDtoCopyWithImpl<$Res, ArtistDto>;
   @useResult
   $Res call(
-      {String userId,
-      String artistId,
-      String stageName,
-      String location,
-      String biography,
-      String genre,
-      DateTime? createdAt,
-      List<String> socialLinks,
-      List<String> profileImages,
-      int supporterCount,
-      String? profilePictureUrl});
+      {@JsonKey(name: 'user_id') String userId,
+      @JsonKey(name: 'artist_id') String artistId,
+      @JsonKey(name: 'stage_name') String stageName,
+      @JsonKey(name: 'location') String location,
+      @JsonKey(name: 'biography') String biography,
+      @JsonKey(name: 'genre') String genre,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'social_links') List<String> socialLinks,
+      @JsonKey(name: 'profile_images') List<String> profileImages,
+      @JsonKey(name: 'supporter_count') int supporterCount,
+      @JsonKey(name: 'profile_picture_url') String? profilePictureUrl});
 }
 
 /// @nodoc
@@ -146,17 +157,17 @@ abstract class _$$ArtistDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String userId,
-      String artistId,
-      String stageName,
-      String location,
-      String biography,
-      String genre,
-      DateTime? createdAt,
-      List<String> socialLinks,
-      List<String> profileImages,
-      int supporterCount,
-      String? profilePictureUrl});
+      {@JsonKey(name: 'user_id') String userId,
+      @JsonKey(name: 'artist_id') String artistId,
+      @JsonKey(name: 'stage_name') String stageName,
+      @JsonKey(name: 'location') String location,
+      @JsonKey(name: 'biography') String biography,
+      @JsonKey(name: 'genre') String genre,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'social_links') List<String> socialLinks,
+      @JsonKey(name: 'profile_images') List<String> profileImages,
+      @JsonKey(name: 'supporter_count') int supporterCount,
+      @JsonKey(name: 'profile_picture_url') String? profilePictureUrl});
 }
 
 /// @nodoc
@@ -237,17 +248,18 @@ class __$$ArtistDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArtistDtoImpl implements _ArtistDto {
   const _$ArtistDtoImpl(
-      {required this.userId,
-      required this.artistId,
-      required this.stageName,
-      required this.location,
-      required this.biography,
-      required this.genre,
-      this.createdAt,
-      final List<String> socialLinks = const [],
+      {@JsonKey(name: 'user_id') required this.userId,
+      @JsonKey(name: 'artist_id') required this.artistId,
+      @JsonKey(name: 'stage_name') required this.stageName,
+      @JsonKey(name: 'location') required this.location,
+      @JsonKey(name: 'biography') required this.biography,
+      @JsonKey(name: 'genre') required this.genre,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'social_links') final List<String> socialLinks = const [],
+      @JsonKey(name: 'profile_images')
       final List<String> profileImages = const [],
-      this.supporterCount = 0,
-      this.profilePictureUrl})
+      @JsonKey(name: 'supporter_count') this.supporterCount = 0,
+      @JsonKey(name: 'profile_picture_url') this.profilePictureUrl})
       : _socialLinks = socialLinks,
         _profileImages = profileImages;
 
@@ -255,22 +267,29 @@ class _$ArtistDtoImpl implements _ArtistDto {
       _$$ArtistDtoImplFromJson(json);
 
   @override
+  @JsonKey(name: 'user_id')
   final String userId;
   @override
+  @JsonKey(name: 'artist_id')
   final String artistId;
   @override
+  @JsonKey(name: 'stage_name')
   final String stageName;
   @override
+  @JsonKey(name: 'location')
   final String location;
   @override
+  @JsonKey(name: 'biography')
   final String biography;
   @override
+  @JsonKey(name: 'genre')
   final String genre;
   @override
+  @JsonKey(name: 'created_at')
   final DateTime? createdAt;
   final List<String> _socialLinks;
   @override
-  @JsonKey()
+  @JsonKey(name: 'social_links')
   List<String> get socialLinks {
     if (_socialLinks is EqualUnmodifiableListView) return _socialLinks;
     // ignore: implicit_dynamic_type
@@ -279,7 +298,7 @@ class _$ArtistDtoImpl implements _ArtistDto {
 
   final List<String> _profileImages;
   @override
-  @JsonKey()
+  @JsonKey(name: 'profile_images')
   List<String> get profileImages {
     if (_profileImages is EqualUnmodifiableListView) return _profileImages;
     // ignore: implicit_dynamic_type
@@ -287,9 +306,10 @@ class _$ArtistDtoImpl implements _ArtistDto {
   }
 
   @override
-  @JsonKey()
+  @JsonKey(name: 'supporter_count')
   final int supporterCount;
   @override
+  @JsonKey(name: 'profile_picture_url')
   final String? profilePictureUrl;
 
   @override
@@ -358,42 +378,54 @@ class _$ArtistDtoImpl implements _ArtistDto {
 
 abstract class _ArtistDto implements ArtistDto {
   const factory _ArtistDto(
-      {required final String userId,
-      required final String artistId,
-      required final String stageName,
-      required final String location,
-      required final String biography,
-      required final String genre,
-      final DateTime? createdAt,
-      final List<String> socialLinks,
-      final List<String> profileImages,
-      final int supporterCount,
+      {@JsonKey(name: 'user_id') required final String userId,
+      @JsonKey(name: 'artist_id') required final String artistId,
+      @JsonKey(name: 'stage_name') required final String stageName,
+      @JsonKey(name: 'location') required final String location,
+      @JsonKey(name: 'biography') required final String biography,
+      @JsonKey(name: 'genre') required final String genre,
+      @JsonKey(name: 'created_at') final DateTime? createdAt,
+      @JsonKey(name: 'social_links') final List<String> socialLinks,
+      @JsonKey(name: 'profile_images') final List<String> profileImages,
+      @JsonKey(name: 'supporter_count') final int supporterCount,
+      @JsonKey(name: 'profile_picture_url')
       final String? profilePictureUrl}) = _$ArtistDtoImpl;
 
   factory _ArtistDto.fromJson(Map<String, dynamic> json) =
       _$ArtistDtoImpl.fromJson;
 
   @override
+  @JsonKey(name: 'user_id')
   String get userId;
   @override
+  @JsonKey(name: 'artist_id')
   String get artistId;
   @override
+  @JsonKey(name: 'stage_name')
   String get stageName;
   @override
+  @JsonKey(name: 'location')
   String get location;
   @override
+  @JsonKey(name: 'biography')
   String get biography;
   @override
+  @JsonKey(name: 'genre')
   String get genre;
   @override
+  @JsonKey(name: 'created_at')
   DateTime? get createdAt;
   @override
+  @JsonKey(name: 'social_links')
   List<String> get socialLinks;
   @override
+  @JsonKey(name: 'profile_images')
   List<String> get profileImages;
   @override
+  @JsonKey(name: 'supporter_count')
   int get supporterCount;
   @override
+  @JsonKey(name: 'profile_picture_url')
   String? get profilePictureUrl;
 
   /// Create a copy of ArtistDto
