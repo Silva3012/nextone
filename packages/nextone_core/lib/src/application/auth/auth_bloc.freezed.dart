@@ -25,6 +25,9 @@ mixin _$AuthEvent {
     required TResult Function(String uid, String email, String role)
         onRoleSelected,
     required TResult Function(UserCredentialsDto user) onProfileCompleted,
+    required TResult Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)
+        completeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +38,9 @@ mixin _$AuthEvent {
     TResult? Function(String email, String password)? onLoginRequested,
     TResult? Function(String uid, String email, String role)? onRoleSelected,
     TResult? Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult? Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)?
+        completeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +51,9 @@ mixin _$AuthEvent {
     TResult Function(String email, String password)? onLoginRequested,
     TResult Function(String uid, String email, String role)? onRoleSelected,
     TResult Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult Function(UserCredentialsDto user, String stageName, String location,
+            String biography, String genre, File profileImage)?
+        completeOnboarding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +65,7 @@ mixin _$AuthEvent {
     required TResult Function(_OnLoginRequested value) onLoginRequested,
     required TResult Function(_OnRoleSelected value) onRoleSelected,
     required TResult Function(_OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(_CompleteOnboarding value) completeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +76,7 @@ mixin _$AuthEvent {
     TResult? Function(_OnLoginRequested value)? onLoginRequested,
     TResult? Function(_OnRoleSelected value)? onRoleSelected,
     TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +87,7 @@ mixin _$AuthEvent {
     TResult Function(_OnLoginRequested value)? onLoginRequested,
     TResult Function(_OnRoleSelected value)? onRoleSelected,
     TResult Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(_CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -192,6 +204,9 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
     required TResult Function(String uid, String email, String role)
         onRoleSelected,
     required TResult Function(UserCredentialsDto user) onProfileCompleted,
+    required TResult Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)
+        completeOnboarding,
   }) {
     return onAuthChanged(user);
   }
@@ -205,6 +220,9 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
     TResult? Function(String email, String password)? onLoginRequested,
     TResult? Function(String uid, String email, String role)? onRoleSelected,
     TResult? Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult? Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)?
+        completeOnboarding,
   }) {
     return onAuthChanged?.call(user);
   }
@@ -218,6 +236,9 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
     TResult Function(String email, String password)? onLoginRequested,
     TResult Function(String uid, String email, String role)? onRoleSelected,
     TResult Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult Function(UserCredentialsDto user, String stageName, String location,
+            String biography, String genre, File profileImage)?
+        completeOnboarding,
     required TResult orElse(),
   }) {
     if (onAuthChanged != null) {
@@ -235,6 +256,7 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
     required TResult Function(_OnLoginRequested value) onLoginRequested,
     required TResult Function(_OnRoleSelected value) onRoleSelected,
     required TResult Function(_OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(_CompleteOnboarding value) completeOnboarding,
   }) {
     return onAuthChanged(this);
   }
@@ -248,6 +270,7 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
     TResult? Function(_OnLoginRequested value)? onLoginRequested,
     TResult? Function(_OnRoleSelected value)? onRoleSelected,
     TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
   }) {
     return onAuthChanged?.call(this);
   }
@@ -261,6 +284,7 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
     TResult Function(_OnLoginRequested value)? onLoginRequested,
     TResult Function(_OnRoleSelected value)? onRoleSelected,
     TResult Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(_CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onAuthChanged != null) {
@@ -331,6 +355,9 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
     required TResult Function(String uid, String email, String role)
         onRoleSelected,
     required TResult Function(UserCredentialsDto user) onProfileCompleted,
+    required TResult Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)
+        completeOnboarding,
   }) {
     return onSignOutRequested();
   }
@@ -344,6 +371,9 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
     TResult? Function(String email, String password)? onLoginRequested,
     TResult? Function(String uid, String email, String role)? onRoleSelected,
     TResult? Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult? Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)?
+        completeOnboarding,
   }) {
     return onSignOutRequested?.call();
   }
@@ -357,6 +387,9 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
     TResult Function(String email, String password)? onLoginRequested,
     TResult Function(String uid, String email, String role)? onRoleSelected,
     TResult Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult Function(UserCredentialsDto user, String stageName, String location,
+            String biography, String genre, File profileImage)?
+        completeOnboarding,
     required TResult orElse(),
   }) {
     if (onSignOutRequested != null) {
@@ -374,6 +407,7 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
     required TResult Function(_OnLoginRequested value) onLoginRequested,
     required TResult Function(_OnRoleSelected value) onRoleSelected,
     required TResult Function(_OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(_CompleteOnboarding value) completeOnboarding,
   }) {
     return onSignOutRequested(this);
   }
@@ -387,6 +421,7 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
     TResult? Function(_OnLoginRequested value)? onLoginRequested,
     TResult? Function(_OnRoleSelected value)? onRoleSelected,
     TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
   }) {
     return onSignOutRequested?.call(this);
   }
@@ -400,6 +435,7 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
     TResult Function(_OnLoginRequested value)? onLoginRequested,
     TResult Function(_OnRoleSelected value)? onRoleSelected,
     TResult Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(_CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onSignOutRequested != null) {
@@ -498,6 +534,9 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
     required TResult Function(String uid, String email, String role)
         onRoleSelected,
     required TResult Function(UserCredentialsDto user) onProfileCompleted,
+    required TResult Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)
+        completeOnboarding,
   }) {
     return onSignUpRequested(email, password);
   }
@@ -511,6 +550,9 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
     TResult? Function(String email, String password)? onLoginRequested,
     TResult? Function(String uid, String email, String role)? onRoleSelected,
     TResult? Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult? Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)?
+        completeOnboarding,
   }) {
     return onSignUpRequested?.call(email, password);
   }
@@ -524,6 +566,9 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
     TResult Function(String email, String password)? onLoginRequested,
     TResult Function(String uid, String email, String role)? onRoleSelected,
     TResult Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult Function(UserCredentialsDto user, String stageName, String location,
+            String biography, String genre, File profileImage)?
+        completeOnboarding,
     required TResult orElse(),
   }) {
     if (onSignUpRequested != null) {
@@ -541,6 +586,7 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
     required TResult Function(_OnLoginRequested value) onLoginRequested,
     required TResult Function(_OnRoleSelected value) onRoleSelected,
     required TResult Function(_OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(_CompleteOnboarding value) completeOnboarding,
   }) {
     return onSignUpRequested(this);
   }
@@ -554,6 +600,7 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
     TResult? Function(_OnLoginRequested value)? onLoginRequested,
     TResult? Function(_OnRoleSelected value)? onRoleSelected,
     TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
   }) {
     return onSignUpRequested?.call(this);
   }
@@ -567,6 +614,7 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
     TResult Function(_OnLoginRequested value)? onLoginRequested,
     TResult Function(_OnRoleSelected value)? onRoleSelected,
     TResult Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(_CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onSignUpRequested != null) {
@@ -676,6 +724,9 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
     required TResult Function(String uid, String email, String role)
         onRoleSelected,
     required TResult Function(UserCredentialsDto user) onProfileCompleted,
+    required TResult Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)
+        completeOnboarding,
   }) {
     return onLoginRequested(email, password);
   }
@@ -689,6 +740,9 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
     TResult? Function(String email, String password)? onLoginRequested,
     TResult? Function(String uid, String email, String role)? onRoleSelected,
     TResult? Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult? Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)?
+        completeOnboarding,
   }) {
     return onLoginRequested?.call(email, password);
   }
@@ -702,6 +756,9 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
     TResult Function(String email, String password)? onLoginRequested,
     TResult Function(String uid, String email, String role)? onRoleSelected,
     TResult Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult Function(UserCredentialsDto user, String stageName, String location,
+            String biography, String genre, File profileImage)?
+        completeOnboarding,
     required TResult orElse(),
   }) {
     if (onLoginRequested != null) {
@@ -719,6 +776,7 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
     required TResult Function(_OnLoginRequested value) onLoginRequested,
     required TResult Function(_OnRoleSelected value) onRoleSelected,
     required TResult Function(_OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(_CompleteOnboarding value) completeOnboarding,
   }) {
     return onLoginRequested(this);
   }
@@ -732,6 +790,7 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
     TResult? Function(_OnLoginRequested value)? onLoginRequested,
     TResult? Function(_OnRoleSelected value)? onRoleSelected,
     TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
   }) {
     return onLoginRequested?.call(this);
   }
@@ -745,6 +804,7 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
     TResult Function(_OnLoginRequested value)? onLoginRequested,
     TResult Function(_OnRoleSelected value)? onRoleSelected,
     TResult Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(_CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onLoginRequested != null) {
@@ -862,6 +922,9 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
     required TResult Function(String uid, String email, String role)
         onRoleSelected,
     required TResult Function(UserCredentialsDto user) onProfileCompleted,
+    required TResult Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)
+        completeOnboarding,
   }) {
     return onRoleSelected(uid, email, role);
   }
@@ -875,6 +938,9 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
     TResult? Function(String email, String password)? onLoginRequested,
     TResult? Function(String uid, String email, String role)? onRoleSelected,
     TResult? Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult? Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)?
+        completeOnboarding,
   }) {
     return onRoleSelected?.call(uid, email, role);
   }
@@ -888,6 +954,9 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
     TResult Function(String email, String password)? onLoginRequested,
     TResult Function(String uid, String email, String role)? onRoleSelected,
     TResult Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult Function(UserCredentialsDto user, String stageName, String location,
+            String biography, String genre, File profileImage)?
+        completeOnboarding,
     required TResult orElse(),
   }) {
     if (onRoleSelected != null) {
@@ -905,6 +974,7 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
     required TResult Function(_OnLoginRequested value) onLoginRequested,
     required TResult Function(_OnRoleSelected value) onRoleSelected,
     required TResult Function(_OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(_CompleteOnboarding value) completeOnboarding,
   }) {
     return onRoleSelected(this);
   }
@@ -918,6 +988,7 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
     TResult? Function(_OnLoginRequested value)? onLoginRequested,
     TResult? Function(_OnRoleSelected value)? onRoleSelected,
     TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
   }) {
     return onRoleSelected?.call(this);
   }
@@ -931,6 +1002,7 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
     TResult Function(_OnLoginRequested value)? onLoginRequested,
     TResult Function(_OnRoleSelected value)? onRoleSelected,
     TResult Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(_CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onRoleSelected != null) {
@@ -1045,6 +1117,9 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
     required TResult Function(String uid, String email, String role)
         onRoleSelected,
     required TResult Function(UserCredentialsDto user) onProfileCompleted,
+    required TResult Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)
+        completeOnboarding,
   }) {
     return onProfileCompleted(user);
   }
@@ -1058,6 +1133,9 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
     TResult? Function(String email, String password)? onLoginRequested,
     TResult? Function(String uid, String email, String role)? onRoleSelected,
     TResult? Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult? Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)?
+        completeOnboarding,
   }) {
     return onProfileCompleted?.call(user);
   }
@@ -1071,6 +1149,9 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
     TResult Function(String email, String password)? onLoginRequested,
     TResult Function(String uid, String email, String role)? onRoleSelected,
     TResult Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult Function(UserCredentialsDto user, String stageName, String location,
+            String biography, String genre, File profileImage)?
+        completeOnboarding,
     required TResult orElse(),
   }) {
     if (onProfileCompleted != null) {
@@ -1088,6 +1169,7 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
     required TResult Function(_OnLoginRequested value) onLoginRequested,
     required TResult Function(_OnRoleSelected value) onRoleSelected,
     required TResult Function(_OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(_CompleteOnboarding value) completeOnboarding,
   }) {
     return onProfileCompleted(this);
   }
@@ -1101,6 +1183,7 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
     TResult? Function(_OnLoginRequested value)? onLoginRequested,
     TResult? Function(_OnRoleSelected value)? onRoleSelected,
     TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
   }) {
     return onProfileCompleted?.call(this);
   }
@@ -1114,6 +1197,7 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
     TResult Function(_OnLoginRequested value)? onLoginRequested,
     TResult Function(_OnRoleSelected value)? onRoleSelected,
     TResult Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(_CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onProfileCompleted != null) {
@@ -1133,6 +1217,267 @@ abstract class _OnProfileCompleted implements AuthEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnProfileCompletedImplCopyWith<_$OnProfileCompletedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CompleteOnboardingImplCopyWith<$Res> {
+  factory _$$CompleteOnboardingImplCopyWith(_$CompleteOnboardingImpl value,
+          $Res Function(_$CompleteOnboardingImpl) then) =
+      __$$CompleteOnboardingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {UserCredentialsDto user,
+      String stageName,
+      String location,
+      String biography,
+      String genre,
+      File profileImage});
+
+  $UserCredentialsDtoCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$CompleteOnboardingImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$CompleteOnboardingImpl>
+    implements _$$CompleteOnboardingImplCopyWith<$Res> {
+  __$$CompleteOnboardingImplCopyWithImpl(_$CompleteOnboardingImpl _value,
+      $Res Function(_$CompleteOnboardingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+    Object? stageName = null,
+    Object? location = null,
+    Object? biography = null,
+    Object? genre = null,
+    Object? profileImage = null,
+  }) {
+    return _then(_$CompleteOnboardingImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserCredentialsDto,
+      stageName: null == stageName
+          ? _value.stageName
+          : stageName // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
+      biography: null == biography
+          ? _value.biography
+          : biography // ignore: cast_nullable_to_non_nullable
+              as String,
+      genre: null == genre
+          ? _value.genre
+          : genre // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImage: null == profileImage
+          ? _value.profileImage
+          : profileImage // ignore: cast_nullable_to_non_nullable
+              as File,
+    ));
+  }
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCredentialsDtoCopyWith<$Res> get user {
+    return $UserCredentialsDtoCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$CompleteOnboardingImpl implements _CompleteOnboarding {
+  const _$CompleteOnboardingImpl(
+      {required this.user,
+      required this.stageName,
+      required this.location,
+      required this.biography,
+      required this.genre,
+      required this.profileImage});
+
+  @override
+  final UserCredentialsDto user;
+  @override
+  final String stageName;
+  @override
+  final String location;
+  @override
+  final String biography;
+  @override
+  final String genre;
+  @override
+  final File profileImage;
+
+  @override
+  String toString() {
+    return 'AuthEvent.completeOnboarding(user: $user, stageName: $stageName, location: $location, biography: $biography, genre: $genre, profileImage: $profileImage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CompleteOnboardingImpl &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.stageName, stageName) ||
+                other.stageName == stageName) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
+            (identical(other.biography, biography) ||
+                other.biography == biography) &&
+            (identical(other.genre, genre) || other.genre == genre) &&
+            (identical(other.profileImage, profileImage) ||
+                other.profileImage == profileImage));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, user, stageName, location, biography, genre, profileImage);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CompleteOnboardingImplCopyWith<_$CompleteOnboardingImpl> get copyWith =>
+      __$$CompleteOnboardingImplCopyWithImpl<_$CompleteOnboardingImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(UserCredentialsDto? user) onAuthChanged,
+    required TResult Function() onSignOutRequested,
+    required TResult Function(String email, String password) onSignUpRequested,
+    required TResult Function(String email, String password) onLoginRequested,
+    required TResult Function(String uid, String email, String role)
+        onRoleSelected,
+    required TResult Function(UserCredentialsDto user) onProfileCompleted,
+    required TResult Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)
+        completeOnboarding,
+  }) {
+    return completeOnboarding(
+        user, stageName, location, biography, genre, profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(UserCredentialsDto? user)? onAuthChanged,
+    TResult? Function()? onSignOutRequested,
+    TResult? Function(String email, String password)? onSignUpRequested,
+    TResult? Function(String email, String password)? onLoginRequested,
+    TResult? Function(String uid, String email, String role)? onRoleSelected,
+    TResult? Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult? Function(UserCredentialsDto user, String stageName,
+            String location, String biography, String genre, File profileImage)?
+        completeOnboarding,
+  }) {
+    return completeOnboarding?.call(
+        user, stageName, location, biography, genre, profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(UserCredentialsDto? user)? onAuthChanged,
+    TResult Function()? onSignOutRequested,
+    TResult Function(String email, String password)? onSignUpRequested,
+    TResult Function(String email, String password)? onLoginRequested,
+    TResult Function(String uid, String email, String role)? onRoleSelected,
+    TResult Function(UserCredentialsDto user)? onProfileCompleted,
+    TResult Function(UserCredentialsDto user, String stageName, String location,
+            String biography, String genre, File profileImage)?
+        completeOnboarding,
+    required TResult orElse(),
+  }) {
+    if (completeOnboarding != null) {
+      return completeOnboarding(
+          user, stageName, location, biography, genre, profileImage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnAuthChanged value) onAuthChanged,
+    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(_OnLoginRequested value) onLoginRequested,
+    required TResult Function(_OnRoleSelected value) onRoleSelected,
+    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+  }) {
+    return completeOnboarding(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnAuthChanged value)? onAuthChanged,
+    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(_OnLoginRequested value)? onLoginRequested,
+    TResult? Function(_OnRoleSelected value)? onRoleSelected,
+    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+  }) {
+    return completeOnboarding?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnAuthChanged value)? onAuthChanged,
+    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(_OnLoginRequested value)? onLoginRequested,
+    TResult Function(_OnRoleSelected value)? onRoleSelected,
+    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    required TResult orElse(),
+  }) {
+    if (completeOnboarding != null) {
+      return completeOnboarding(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CompleteOnboarding implements AuthEvent {
+  const factory _CompleteOnboarding(
+      {required final UserCredentialsDto user,
+      required final String stageName,
+      required final String location,
+      required final String biography,
+      required final String genre,
+      required final File profileImage}) = _$CompleteOnboardingImpl;
+
+  UserCredentialsDto get user;
+  String get stageName;
+  String get location;
+  String get biography;
+  String get genre;
+  File get profileImage;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CompleteOnboardingImplCopyWith<_$CompleteOnboardingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
