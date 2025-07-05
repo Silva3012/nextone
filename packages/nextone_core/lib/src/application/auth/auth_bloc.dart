@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -36,11 +36,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           add(AuthEvent.onAuthChanged(user: user));
         } else {
           // Role has not been selected yet
-          final currentUser = FirebaseAuth.instance.currentUser;
+          final currentUser = Supabase.instance.client.auth.currentUser;
           if (currentUser != null) {
             add(AuthEvent.onAuthChanged(
                 user: UserCredentialsDto(
-              uid: currentUser.uid,
+              uid: currentUser.id,
               email: currentUser.email ?? '',
               role: '',
               profileCompleted: false,

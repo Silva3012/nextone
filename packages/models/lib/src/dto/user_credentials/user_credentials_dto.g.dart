@@ -12,8 +12,8 @@ _$UserCredentialsDtoImpl _$$UserCredentialsDtoImplFromJson(
       uid: json['uid'] as String,
       email: json['email'] as String,
       role: json['role'] as String?,
-      profileCompleted: json['profileCompleted'] as bool? ?? false,
-      createdAt: _fromTimestamp(json['createdAt']),
+      profileCompleted: json['profile_completed'] as bool? ?? false,
+      createdAt: _fromTimestamp(json['created_at']),
     );
 
 Map<String, dynamic> _$$UserCredentialsDtoImplToJson(
@@ -22,6 +22,6 @@ Map<String, dynamic> _$$UserCredentialsDtoImplToJson(
       'uid': instance.uid,
       'email': instance.email,
       'role': instance.role,
-      'profileCompleted': instance.profileCompleted,
-      'createdAt': _toTimestamp(instance.createdAt),
+      'profile_completed': instance.profileCompleted,
+      'created_at': _toTimestamp(instance.createdAt),
     };

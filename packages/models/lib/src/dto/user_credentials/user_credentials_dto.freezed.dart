@@ -20,11 +20,15 @@ UserCredentialsDto _$UserCredentialsDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserCredentialsDto {
+  @JsonKey(name: 'uid')
   String get uid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email')
   String get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'role')
   String? get role => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_completed')
   bool get profileCompleted => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _fromTimestamp, toJson: _toTimestamp)
+  @JsonKey(name: 'created_at', fromJson: _fromTimestamp, toJson: _toTimestamp)
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
   /// Serializes this UserCredentialsDto to a JSON map.
@@ -44,11 +48,12 @@ abstract class $UserCredentialsDtoCopyWith<$Res> {
       _$UserCredentialsDtoCopyWithImpl<$Res, UserCredentialsDto>;
   @useResult
   $Res call(
-      {String uid,
-      String email,
-      String? role,
-      bool profileCompleted,
-      @JsonKey(fromJson: _fromTimestamp, toJson: _toTimestamp)
+      {@JsonKey(name: 'uid') String uid,
+      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'role') String? role,
+      @JsonKey(name: 'profile_completed') bool profileCompleted,
+      @JsonKey(
+          name: 'created_at', fromJson: _fromTimestamp, toJson: _toTimestamp)
       DateTime? createdAt});
 }
 
@@ -107,11 +112,12 @@ abstract class _$$UserCredentialsDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String uid,
-      String email,
-      String? role,
-      bool profileCompleted,
-      @JsonKey(fromJson: _fromTimestamp, toJson: _toTimestamp)
+      {@JsonKey(name: 'uid') String uid,
+      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'role') String? role,
+      @JsonKey(name: 'profile_completed') bool profileCompleted,
+      @JsonKey(
+          name: 'created_at', fromJson: _fromTimestamp, toJson: _toTimestamp)
       DateTime? createdAt});
 }
 
@@ -163,26 +169,31 @@ class __$$UserCredentialsDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserCredentialsDtoImpl implements _UserCredentialsDto {
   const _$UserCredentialsDtoImpl(
-      {required this.uid,
-      required this.email,
-      this.role,
-      this.profileCompleted = false,
-      @JsonKey(fromJson: _fromTimestamp, toJson: _toTimestamp) this.createdAt});
+      {@JsonKey(name: 'uid') required this.uid,
+      @JsonKey(name: 'email') required this.email,
+      @JsonKey(name: 'role') this.role,
+      @JsonKey(name: 'profile_completed') this.profileCompleted = false,
+      @JsonKey(
+          name: 'created_at', fromJson: _fromTimestamp, toJson: _toTimestamp)
+      this.createdAt});
 
   factory _$UserCredentialsDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserCredentialsDtoImplFromJson(json);
 
   @override
+  @JsonKey(name: 'uid')
   final String uid;
   @override
+  @JsonKey(name: 'email')
   final String email;
   @override
+  @JsonKey(name: 'role')
   final String? role;
   @override
-  @JsonKey()
+  @JsonKey(name: 'profile_completed')
   final bool profileCompleted;
   @override
-  @JsonKey(fromJson: _fromTimestamp, toJson: _toTimestamp)
+  @JsonKey(name: 'created_at', fromJson: _fromTimestamp, toJson: _toTimestamp)
   final DateTime? createdAt;
 
   @override
@@ -228,26 +239,31 @@ class _$UserCredentialsDtoImpl implements _UserCredentialsDto {
 
 abstract class _UserCredentialsDto implements UserCredentialsDto {
   const factory _UserCredentialsDto(
-      {required final String uid,
-      required final String email,
-      final String? role,
-      final bool profileCompleted,
-      @JsonKey(fromJson: _fromTimestamp, toJson: _toTimestamp)
+      {@JsonKey(name: 'uid') required final String uid,
+      @JsonKey(name: 'email') required final String email,
+      @JsonKey(name: 'role') final String? role,
+      @JsonKey(name: 'profile_completed') final bool profileCompleted,
+      @JsonKey(
+          name: 'created_at', fromJson: _fromTimestamp, toJson: _toTimestamp)
       final DateTime? createdAt}) = _$UserCredentialsDtoImpl;
 
   factory _UserCredentialsDto.fromJson(Map<String, dynamic> json) =
       _$UserCredentialsDtoImpl.fromJson;
 
   @override
+  @JsonKey(name: 'uid')
   String get uid;
   @override
+  @JsonKey(name: 'email')
   String get email;
   @override
+  @JsonKey(name: 'role')
   String? get role;
   @override
+  @JsonKey(name: 'profile_completed')
   bool get profileCompleted;
   @override
-  @JsonKey(fromJson: _fromTimestamp, toJson: _toTimestamp)
+  @JsonKey(name: 'created_at', fromJson: _fromTimestamp, toJson: _toTimestamp)
   DateTime? get createdAt;
 
   /// Create a copy of UserCredentialsDto

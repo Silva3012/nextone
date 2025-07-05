@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'sign_up_response.freezed.dart';
@@ -10,8 +9,8 @@ class SignUpResponse with _$SignUpResponse {
     required String uid,
   }) = _SignUpResponse;
 
-  factory SignUpResponse.fromUserCredential(UserCredential userCredential) {
-    return SignUpResponse(uid: userCredential.user!.uid);
+  factory SignUpResponse.fromSupabaseUser(Map<String, dynamic> user) {
+    return SignUpResponse(uid: user['id'] ?? '');
   }
 
   factory SignUpResponse.empty() => const SignUpResponse(uid: '');

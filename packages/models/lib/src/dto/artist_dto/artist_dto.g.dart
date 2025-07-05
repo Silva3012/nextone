@@ -8,38 +8,38 @@ part of 'artist_dto.dart';
 
 _$ArtistDtoImpl _$$ArtistDtoImplFromJson(Map<String, dynamic> json) =>
     _$ArtistDtoImpl(
-      userId: json['userId'] as String,
-      artistId: json['artistId'] as String,
-      stageName: json['stageName'] as String,
+      userId: json['user_id'] as String,
+      artistId: json['artist_id'] as String,
+      stageName: json['stage_name'] as String,
       location: json['location'] as String,
       biography: json['biography'] as String,
       genre: json['genre'] as String,
-      createdAt: json['createdAt'] == null
+      createdAt: json['created_at'] == null
           ? null
-          : DateTime.parse(json['createdAt'] as String),
-      socialLinks: (json['socialLinks'] as List<dynamic>?)
+          : DateTime.parse(json['created_at'] as String),
+      socialLinks: (json['social_links'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      profileImages: (json['profileImages'] as List<dynamic>?)
+      profileImages: (json['profile_images'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      supporterCount: (json['supporterCount'] as num?)?.toInt() ?? 0,
-      profilePictureUrl: json['profilePictureUrl'] as String?,
+      supporterCount: (json['supporter_count'] as num?)?.toInt() ?? 0,
+      profilePictureUrl: json['profile_picture_url'] as String?,
     );
 
 Map<String, dynamic> _$$ArtistDtoImplToJson(_$ArtistDtoImpl instance) =>
     <String, dynamic>{
-      'userId': instance.userId,
-      'artistId': instance.artistId,
-      'stageName': instance.stageName,
+      'user_id': instance.userId,
+      'artist_id': instance.artistId,
+      'stage_name': instance.stageName,
       'location': instance.location,
       'biography': instance.biography,
       'genre': instance.genre,
-      'createdAt': instance.createdAt?.toIso8601String(),
-      'socialLinks': instance.socialLinks,
-      'profileImages': instance.profileImages,
-      'supporterCount': instance.supporterCount,
-      'profilePictureUrl': instance.profilePictureUrl,
+      'created_at': instance.createdAt?.toIso8601String(),
+      'social_links': instance.socialLinks,
+      'profile_images': instance.profileImages,
+      'supporter_count': instance.supporterCount,
+      'profile_picture_url': instance.profilePictureUrl,
     };
