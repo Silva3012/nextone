@@ -46,6 +46,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i122.AuthBloc>(() => _i122.AuthBloc(
           gh<_i668.IAuthService>(),
           gh<_i233.IUserRepository>(),
+          gh<_i233.IArtistRepository>(),
         ));
     return this;
   }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,13 +19,14 @@ part 'auth_bloc.freezed.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthService _authService;
   final IUserRepository _userRepository;
+  final IArtistRepository _artistRepository;
   late final StreamSubscription<String?> _authStateSubscription;
   // This flag is used to suppress the auth changed event during sign up
   // to prevent emitting an authenticated state before the user role is selected.
   // This is a temporary solution until we implement a proper user role selection flow.
   bool _suppressAuthChanged = false;
 
-  AuthBloc(this._authService, this._userRepository)
+  AuthBloc(this._authService, this._userRepository, this._artistRepository)
       : super(const AuthState.unknown()) {
     _authStateSubscription =
         _authService.getAuthStateChanges.listen((uid) async {
@@ -142,6 +144,40 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(const AuthState.loading());
           await _authService.signOut();
           emit(const AuthState.unauthenticated());
+        },
+        completeOnboarding: (e) async {
+          emit(const AuthState.loading());
+          try {
+            // 1. Create artist profile
+            final artist = ArtistDto(
+              userId: e.user.uid,
+              artistId: e.user.uid, // Using userId as artistId
+              stageName: e.stageName,
+              location: e.location,
+              biography: e.biography,
+              genre: e.genre,
+              createdAt: DateTime.now(),
+            );
+            await _artistRepository.saveArtist(artist: artist);
+            // 2. Upload profile image
+            final imageUrl = await _artistRepository.uploadProfileImage(
+              artistId: e.user.uid,
+              filePath: e.profileImage.path,
+            );
+            // 3. Update artist profile with image URL
+            await _artistRepository.updateProdilePictureUrl(
+              artistId: e.user.uid,
+              profilePictureUrl: imageUrl,
+            );
+            // 4. Mark user as profile completed
+            final completedUser = e.user.copyWith(profileCompleted: true);
+            await _userRepository.saveUserWithRole(
+                userCredentials: completedUser);
+            emit(AuthState.authenticated(user: completedUser));
+          } catch (err) {
+            emit(const AuthState.unauthenticated());
+            addError(err, StackTrace.current);
+          }
         },
       );
     });

@@ -26,4 +26,13 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.onProfileCompleted({
     required UserCredentialsDto user,
   }) = _OnProfileCompleted;
+
+  const factory AuthEvent.completeOnboarding({
+    required UserCredentialsDto user,
+    required String stageName,
+    required String location,
+    required String biography,
+    required String genre,
+    required File profileImage,
+  }) = _CompleteOnboarding;
 }

@@ -19,6 +19,9 @@ dependencies:
   flutter_bloc: ^9.1.1
   nextone_core:
     path: packages/nextone_core
+  image_picker: ^1.0.7
+  models:
+    path: packages/models
 
 dev_dependencies:
   flutter_test:

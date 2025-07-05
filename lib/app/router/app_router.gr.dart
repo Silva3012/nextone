@@ -170,10 +170,24 @@ class SignUpRoute extends _i8.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.UploadProfilePicturePage]
-class UploadProfilePictureRoute extends _i8.PageRouteInfo<void> {
-  const UploadProfilePictureRoute({List<_i8.PageRouteInfo>? children})
-      : super(
+class UploadProfilePictureRoute
+    extends _i8.PageRouteInfo<UploadProfilePictureRouteArgs> {
+  UploadProfilePictureRoute({
+    _i9.Key? key,
+    required String stageName,
+    required String location,
+    required String biography,
+    required String genre,
+    List<_i8.PageRouteInfo>? children,
+  }) : super(
           UploadProfilePictureRoute.name,
+          args: UploadProfilePictureRouteArgs(
+            key: key,
+            stageName: stageName,
+            location: location,
+            biography: biography,
+            genre: genre,
+          ),
           initialChildren: children,
         );
 
@@ -182,7 +196,39 @@ class UploadProfilePictureRoute extends _i8.PageRouteInfo<void> {
   static _i8.PageInfo page = _i8.PageInfo(
     name,
     builder: (data) {
-      return const _i7.UploadProfilePicturePage();
+      final args = data.argsAs<UploadProfilePictureRouteArgs>();
+      return _i7.UploadProfilePicturePage(
+        key: args.key,
+        stageName: args.stageName,
+        location: args.location,
+        biography: args.biography,
+        genre: args.genre,
+      );
     },
   );
+}
+
+class UploadProfilePictureRouteArgs {
+  const UploadProfilePictureRouteArgs({
+    this.key,
+    required this.stageName,
+    required this.location,
+    required this.biography,
+    required this.genre,
+  });
+
+  final _i9.Key? key;
+
+  final String stageName;
+
+  final String location;
+
+  final String biography;
+
+  final String genre;
+
+  @override
+  String toString() {
+    return 'UploadProfilePictureRouteArgs{key: $key, stageName: $stageName, location: $location, biography: $biography, genre: $genre}';
+  }
 }

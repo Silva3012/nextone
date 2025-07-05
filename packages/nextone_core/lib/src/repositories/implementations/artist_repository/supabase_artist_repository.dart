@@ -61,11 +61,12 @@ class SupabaseArtistRepository implements IArtistRepository {
   }) async {
     try {
       final file = await _supabaseClient.storage
-          .from('artist-profiles')
+          .from('artist-profile-images')
           .upload('$artistId/profile.jpg', File(filePath));
 
-      final publicUrl =
-          _supabaseClient.storage.from('artist-profiles').getPublicUrl(file);
+      final publicUrl = _supabaseClient.storage
+          .from('artist-profile-images')
+          .getPublicUrl(file);
 
       return publicUrl;
     } catch (e) {
