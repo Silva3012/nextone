@@ -71,22 +71,22 @@ jobs:
           git commit -m "chore: increment build number to $BUILD_NUMBER [skip ci]" || echo "No changes to commit"
           git push
 
-      - name: Build APK
-        run: flutter build apk --debug --build-number=$BUILD_NUMBER
+      # - name: Build APK
+      #   run: flutter build apk --debug --build-number=$BUILD_NUMBER
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug.apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+      # - name: Upload APK
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: app-debug.apk
+      #     path: build/app/outputs/flutter-apk/app-debug.apk
 
-      - name: upload artifact to Firebase App Distribution
-        uses: emertozd/Firebase-Distribution-Github-Action@v2
-        with:
-          appId: ${{secrets.FIREBASE_ANDROID_APP_ID}}
-          serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
-          groups: testers
-          file: build/app/outputs/flutter-apk/app-debug.apk
+      # - name: upload artifact to Firebase App Distribution
+      #   uses: emertozd/Firebase-Distribution-Github-Action@v2
+      #   with:
+      #     appId: ${{secrets.FIREBASE_ANDROID_APP_ID}}
+      #     serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
+      #     groups: testers
+      #     file: build/app/outputs/flutter-apk/app-debug.apk
 
       ## Need to sort out iOS distribution and my developer account
       # - name: Set up CocoaPods
