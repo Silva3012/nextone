@@ -1,7 +1,8 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class SupabaseConfig {
-  static const String supabaseUrl = 'https://swucblugebjdyhzzsonb.supabase.co';
-  static const String supabaseAnonKey =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN3dWNibHVnZWJqZHloenpzb25iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2ODIzNzEsImV4cCI6MjA2NzI1ODM3MX0.1JfJ_kJ3qR_-jTQ-moP6nO06d50ClZHiEUEHK3vTPjQ';
+  static String get supabaseUrl => dotenv.env['SUPABASE_URL']!;
+  static String get supabaseAnonKey => dotenv.env['SUPABASE_ANON_KEY']!;
 
   static const String authRedirectUrl = 'io.supabase.nextone://login-callback/';
 }

@@ -5,10 +5,10 @@ import 'package:injectable/injectable.dart';
 import 'package:nextone_core/src/services/services_exports.dart';
 
 @LazySingleton(as: IAuthService)
-class SupabaseAuthService implements IAuthService {
+class AuthService implements IAuthService {
   final SupabaseClient _supabaseClient;
 
-  SupabaseAuthService({required SupabaseClient supabaseClient})
+  AuthService({required SupabaseClient supabaseClient})
       : _supabaseClient = supabaseClient;
 
   @override

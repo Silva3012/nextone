@@ -6,10 +6,10 @@ import 'package:models/models.dart';
 import 'package:nextone_core/nextone_core_export.dart';
 
 @LazySingleton(as: IUserRepository)
-class SupabaseUserRepository implements IUserRepository {
+class UserRepository implements IUserRepository {
   final SupabaseClient _supabaseClient;
 
-  SupabaseUserRepository({required SupabaseClient supabaseClient})
+  UserRepository({required SupabaseClient supabaseClient})
       : _supabaseClient = supabaseClient;
 
   @override
