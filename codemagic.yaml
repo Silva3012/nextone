@@ -89,3 +89,10 @@ workflows:
       - build/ios/ipa/*.ipa
 
     
+    publishing:
+      email:
+        recipients:
+          - silvano.n92@gmail.com
+        notify:
+          success: true
+          failure: true
