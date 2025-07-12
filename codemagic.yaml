@@ -58,6 +58,15 @@ workflows:
           # Set env var for Codemagic builds
           echo "BUILD_NUMBER=$new_build" >> $CM_ENV
 
+      - name: Increase Gradle Heap Size
+        script: |
+          echo "org.gradle.jvmargs=-Xmx4096m" >> gradle.properties
+
+      - name: Clean before building
+        script: |
+          ./gradlew clean
+          flutter clean
+
       - name: Build Android APK
         script: |
           flutter build apk --debug --build-number=$BUILD_NUMBER
