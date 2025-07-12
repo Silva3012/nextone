@@ -21,6 +21,9 @@ const paddingVertical32Horizontal16 =
 /// Padding of 24 logical pixels on all sides.
 const paddingAll24 = EdgeInsets.all(24);
 
+/// Padding of 16 logical pixels on all sides
+const paddingAll16 = EdgeInsets.all(16);
+
 /// Height of 20 logical pixels
 const height200 = SizedBox(height: 200);
 

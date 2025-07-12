@@ -81,9 +81,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             final uid = await _authService.signUpWithEmailAndPassword(
                 email: e.email, password: e.password);
             emit(AuthState.needsRoleSelection(uid: uid, email: e.email));
-          } catch (e) {
-            emit(const AuthState.unauthenticated());
-            addError(e, StackTrace.current);
+          } catch (error) {
+            final errorMessage = _getErrorMessage(error);
+            emit(AuthState.error(message: errorMessage));
           }
         },
         onLoginRequested: (e) async {
@@ -104,11 +104,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               }
             } else {
               //TODO(auth) User not found in the repository, handle accordingly
-              emit(const AuthState.unauthenticated());
+              emit(const AuthState.error(
+                  message: 'User account not found. Please contact support.'));
             }
-          } catch (e) {
-            emit(const AuthState.unauthenticated());
-            addError(e, StackTrace.current);
+          } catch (error) {
+            final errorMessage = _getErrorMessage(error);
+            emit(AuthState.error(message: errorMessage));
           }
         },
         onRoleSelected: (e) async {
@@ -123,9 +124,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             );
             await _userRepository.saveUserWithRole(userCredentials: user);
             emit(AuthState.needsOnboarding(user: user));
-          } catch (e) {
-            emit(const AuthState.unauthenticated());
-            addError(e, StackTrace.current);
+          } catch (error) {
+            final errorMessage = _getErrorMessage(error);
+            emit(AuthState.error(message: errorMessage));
           }
         },
         onProfileCompleted: (e) async {
@@ -135,9 +136,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             await _userRepository.saveUserWithRole(
                 userCredentials: completedUser);
             emit(AuthState.authenticated(user: completedUser));
-          } catch (e) {
-            emit(const AuthState.unauthenticated());
-            addError(e, StackTrace.current);
+          } catch (error) {
+            final errorMessage = _getErrorMessage(error);
+            emit(AuthState.error(message: errorMessage));
           }
         },
         onSignOutRequested: (e) async {
@@ -174,13 +175,43 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             await _userRepository.saveUserWithRole(
                 userCredentials: completedUser);
             emit(AuthState.authenticated(user: completedUser));
-          } catch (err) {
-            emit(const AuthState.unauthenticated());
-            addError(err, StackTrace.current);
+          } catch (error) {
+            final errorMessage = _getErrorMessage(error);
+            emit(AuthState.error(message: errorMessage));
           }
         },
       );
     });
+  }
+
+  /// Converts various error types to user-friendly messages
+  String _getErrorMessage(dynamic error) {
+    if (error is AuthException) {
+      switch (error.message) {
+        case 'Invalid login credentials':
+          return 'Invalid email or password. Please try again.';
+        case 'Email not confirmed':
+          return 'Please check your email and confirm your account before signing in.';
+        case 'User already registered':
+          return 'An account with this email already exists. Please try signing in instead.';
+        case 'Password should be at least 6 characters':
+          return 'Password must be at least 6 characters long.';
+        case 'Unable to validate email address: invalid format':
+          return 'Please enter a valid email address.';
+        default:
+          return error.message;
+      }
+    } else if (error is SocketException) {
+      return 'Network error. Please check your connection and try again.';
+    } else if (error is TimeoutException) {
+      return 'An unexpected error occurred. Please try again.';
+    } else if (error.toString().contains('SocketException') ||
+        error.toString().contains('Failed host lookup') ||
+        error.toString().contains('nodename nor servname provided')) {
+      return 'Network error. Please check your connection and try again.';
+    } else {
+      return 'An unexpected error occurred. Please try again.';
+    }
   }
 
   @override

@@ -6,6 +6,7 @@ import 'package:nextone/app/router/app_router.gr.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/presentation/shared/validators/nextone_validator.dart';
+import 'package:nextone/presentation/shared/widgets/auth_error_widget.dart';
 import 'package:nextone/presentation/shared/widgets/background_image.dart';
 import 'package:nextone/presentation/login/widgets/login_footer.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
@@ -25,13 +26,32 @@ class LoginPage extends HookWidget {
     final passwordController = useTextEditingController();
     final isEmailValid = useState(false);
     final isPasswordValid = useState(false);
+    final showError = useState(false);
+    final errorMessage = useState('');
 
     final isFormValid = isEmailValid.value && isPasswordValid.value;
 
-    final isLoading = context.watch<AuthBloc>().state.maybeMap(
-          loading: (_) => true,
-          orElse: () => false,
-        );
+    final authState = context.watch<AuthBloc>().state;
+    final isLoading = authState.maybeMap(
+      loading: (_) => true,
+      orElse: () => false,
+    );
+
+    // Handle error states
+    authState.maybeMap(
+      error: (errorState) {
+        if (!showError.value || errorMessage.value != errorState.message) {
+          showError.value = true;
+          errorMessage.value = errorState.message;
+        }
+      },
+      orElse: () {
+        if (showError.value) {
+          showError.value = false;
+          errorMessage.value = '';
+        }
+      },
+    );
 
     return Scaffold(
       body: BlocListener<AuthBloc, AuthState>(
@@ -54,7 +74,9 @@ class LoginPage extends HookWidget {
         },
         child: Stack(
           children: [
-            const BackgroundImage(),
+            const BackgroundImage(
+              overlayColor: Colors.black54,
+            ),
             SafeArea(
               child: Padding(
                 padding: paddingAll24,
@@ -68,6 +90,20 @@ class LoginPage extends HookWidget {
                           children: [
                             const NextoneLogo(),
                             SizedBox(height: screenHeight * 0.2),
+                            // Error widget
+                            if (showError.value)
+                              AuthErrorWidget(
+                                message: errorMessage.value,
+                                onDismiss: () {
+                                  showError.value = false;
+                                  errorMessage.value = '';
+                                  // Clear the error state in the bloc
+                                  context.read<AuthBloc>().add(
+                                        const AuthEvent.onAuthChanged(
+                                            user: null),
+                                      );
+                                },
+                              ),
                             NextoneTextField(
                               hintText: 'Email',
                               validator: NextoneValidator.validateEmail,
@@ -123,6 +159,11 @@ class LoginPage extends HookWidget {
                               onPressed: (!isFormValid || isLoading)
                                   ? null
                                   : () {
+                                      // Clear any existing errors when attempting login
+                                      if (showError.value) {
+                                        showError.value = false;
+                                        errorMessage.value = '';
+                                      }
                                       context.read<AuthBloc>().add(
                                             AuthEvent.onLoginRequested(
                                               email: emailController.text,
