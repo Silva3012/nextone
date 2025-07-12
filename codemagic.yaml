@@ -88,13 +88,4 @@ workflows:
       - build/app/outputs/flutter-apk/app-debug.apk
       - build/ios/ipa/*.ipa
 
-    publishing:
-      scripts:
-        - name: Commit updated pubspec.yaml to repo
-          script: |
-            git config --global user.email "codemagic-bot@codemagic.io"
-            git config --global user.name "Codemagic Bot"
-
-            git add pubspec.yaml
-            git commit -m "chore: increment build number to $BUILD_NUMBER [skip ci]" || echo "No changes to commit"
-            git push origin HEAD:develop
+    
