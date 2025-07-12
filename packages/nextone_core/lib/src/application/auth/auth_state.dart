@@ -11,6 +11,11 @@ class AuthState with _$AuthState {
 
   const factory AuthState.loading() = _Loading;
 
+  const factory AuthState.error({
+    required String message,
+    String? details,
+  }) = _Error;
+
   const factory AuthState.needsRoleSelection(
       {required String uid, required String email}) = _NeedsRoleSelection;
 

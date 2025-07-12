@@ -1489,6 +1489,7 @@ mixin _$AuthState {
     required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String message, String? details) error,
     required TResult Function(String uid, String email) needsRoleSelection,
     required TResult Function(UserCredentialsDto user) needsOnboarding,
   }) =>
@@ -1499,6 +1500,7 @@ mixin _$AuthState {
     TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String message, String? details)? error,
     TResult? Function(String uid, String email)? needsRoleSelection,
     TResult? Function(UserCredentialsDto user)? needsOnboarding,
   }) =>
@@ -1509,6 +1511,7 @@ mixin _$AuthState {
     TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String message, String? details)? error,
     TResult Function(String uid, String email)? needsRoleSelection,
     TResult Function(UserCredentialsDto user)? needsOnboarding,
     required TResult orElse(),
@@ -1520,6 +1523,7 @@ mixin _$AuthState {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
     required TResult Function(_NeedsOnboarding value) needsOnboarding,
   }) =>
@@ -1530,6 +1534,7 @@ mixin _$AuthState {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult? Function(_NeedsOnboarding value)? needsOnboarding,
   }) =>
@@ -1540,6 +1545,7 @@ mixin _$AuthState {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult Function(_NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
@@ -1612,6 +1618,7 @@ class _$UnknownImpl implements _Unknown {
     required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String message, String? details) error,
     required TResult Function(String uid, String email) needsRoleSelection,
     required TResult Function(UserCredentialsDto user) needsOnboarding,
   }) {
@@ -1625,6 +1632,7 @@ class _$UnknownImpl implements _Unknown {
     TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String message, String? details)? error,
     TResult? Function(String uid, String email)? needsRoleSelection,
     TResult? Function(UserCredentialsDto user)? needsOnboarding,
   }) {
@@ -1638,6 +1646,7 @@ class _$UnknownImpl implements _Unknown {
     TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String message, String? details)? error,
     TResult Function(String uid, String email)? needsRoleSelection,
     TResult Function(UserCredentialsDto user)? needsOnboarding,
     required TResult orElse(),
@@ -1655,6 +1664,7 @@ class _$UnknownImpl implements _Unknown {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
     required TResult Function(_NeedsOnboarding value) needsOnboarding,
   }) {
@@ -1668,6 +1678,7 @@ class _$UnknownImpl implements _Unknown {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult? Function(_NeedsOnboarding value)? needsOnboarding,
   }) {
@@ -1681,6 +1692,7 @@ class _$UnknownImpl implements _Unknown {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult Function(_NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
@@ -1780,6 +1792,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String message, String? details) error,
     required TResult Function(String uid, String email) needsRoleSelection,
     required TResult Function(UserCredentialsDto user) needsOnboarding,
   }) {
@@ -1793,6 +1806,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String message, String? details)? error,
     TResult? Function(String uid, String email)? needsRoleSelection,
     TResult? Function(UserCredentialsDto user)? needsOnboarding,
   }) {
@@ -1806,6 +1820,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String message, String? details)? error,
     TResult Function(String uid, String email)? needsRoleSelection,
     TResult Function(UserCredentialsDto user)? needsOnboarding,
     required TResult orElse(),
@@ -1823,6 +1838,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
     required TResult Function(_NeedsOnboarding value) needsOnboarding,
   }) {
@@ -1836,6 +1852,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult? Function(_NeedsOnboarding value)? needsOnboarding,
   }) {
@@ -1849,6 +1866,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult Function(_NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
@@ -1918,6 +1936,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String message, String? details) error,
     required TResult Function(String uid, String email) needsRoleSelection,
     required TResult Function(UserCredentialsDto user) needsOnboarding,
   }) {
@@ -1931,6 +1950,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String message, String? details)? error,
     TResult? Function(String uid, String email)? needsRoleSelection,
     TResult? Function(UserCredentialsDto user)? needsOnboarding,
   }) {
@@ -1944,6 +1964,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String message, String? details)? error,
     TResult Function(String uid, String email)? needsRoleSelection,
     TResult Function(UserCredentialsDto user)? needsOnboarding,
     required TResult orElse(),
@@ -1961,6 +1982,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
     required TResult Function(_NeedsOnboarding value) needsOnboarding,
   }) {
@@ -1974,6 +1996,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult? Function(_NeedsOnboarding value)? needsOnboarding,
   }) {
@@ -1987,6 +2010,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult Function(_NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
@@ -2047,6 +2071,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String message, String? details) error,
     required TResult Function(String uid, String email) needsRoleSelection,
     required TResult Function(UserCredentialsDto user) needsOnboarding,
   }) {
@@ -2060,6 +2085,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String message, String? details)? error,
     TResult? Function(String uid, String email)? needsRoleSelection,
     TResult? Function(UserCredentialsDto user)? needsOnboarding,
   }) {
@@ -2073,6 +2099,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String message, String? details)? error,
     TResult Function(String uid, String email)? needsRoleSelection,
     TResult Function(UserCredentialsDto user)? needsOnboarding,
     required TResult orElse(),
@@ -2090,6 +2117,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
     required TResult Function(_NeedsOnboarding value) needsOnboarding,
   }) {
@@ -2103,6 +2131,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult? Function(_NeedsOnboarding value)? needsOnboarding,
   }) {
@@ -2116,6 +2145,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult Function(_NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
@@ -2129,6 +2159,186 @@ class _$LoadingImpl implements _Loading {
 
 abstract class _Loading implements AuthState {
   const factory _Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message, String? details});
+}
+
+/// @nodoc
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? details = freezed,
+  }) {
+    return _then(_$ErrorImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      details: freezed == details
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorImpl implements _Error {
+  const _$ErrorImpl({required this.message, this.details});
+
+  @override
+  final String message;
+  @override
+  final String? details;
+
+  @override
+  String toString() {
+    return 'AuthState.error(message: $message, details: $details)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.details, details) || other.details == details));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message, details);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unknown,
+    required TResult Function(UserCredentialsDto user) authenticated,
+    required TResult Function() unauthenticated,
+    required TResult Function() loading,
+    required TResult Function(String message, String? details) error,
+    required TResult Function(String uid, String email) needsRoleSelection,
+    required TResult Function(UserCredentialsDto user) needsOnboarding,
+  }) {
+    return error(message, details);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unknown,
+    TResult? Function(UserCredentialsDto user)? authenticated,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? loading,
+    TResult? Function(String message, String? details)? error,
+    TResult? Function(String uid, String email)? needsRoleSelection,
+    TResult? Function(UserCredentialsDto user)? needsOnboarding,
+  }) {
+    return error?.call(message, details);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unknown,
+    TResult Function(UserCredentialsDto user)? authenticated,
+    TResult Function()? unauthenticated,
+    TResult Function()? loading,
+    TResult Function(String message, String? details)? error,
+    TResult Function(String uid, String email)? needsRoleSelection,
+    TResult Function(UserCredentialsDto user)? needsOnboarding,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message, details);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unknown value) unknown,
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
+    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_Unauthenticated value)? unauthenticated,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
+    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unknown value)? unknown,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
+    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Error implements AuthState {
+  const factory _Error({required final String message, final String? details}) =
+      _$ErrorImpl;
+
+  String get message;
+  String? get details;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2212,6 +2422,7 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
     required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String message, String? details) error,
     required TResult Function(String uid, String email) needsRoleSelection,
     required TResult Function(UserCredentialsDto user) needsOnboarding,
   }) {
@@ -2225,6 +2436,7 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
     TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String message, String? details)? error,
     TResult? Function(String uid, String email)? needsRoleSelection,
     TResult? Function(UserCredentialsDto user)? needsOnboarding,
   }) {
@@ -2238,6 +2450,7 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
     TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String message, String? details)? error,
     TResult Function(String uid, String email)? needsRoleSelection,
     TResult Function(UserCredentialsDto user)? needsOnboarding,
     required TResult orElse(),
@@ -2255,6 +2468,7 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
     required TResult Function(_NeedsOnboarding value) needsOnboarding,
   }) {
@@ -2268,6 +2482,7 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult? Function(_NeedsOnboarding value)? needsOnboarding,
   }) {
@@ -2281,6 +2496,7 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult Function(_NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
@@ -2392,6 +2608,7 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
     required TResult Function(UserCredentialsDto user) authenticated,
     required TResult Function() unauthenticated,
     required TResult Function() loading,
+    required TResult Function(String message, String? details) error,
     required TResult Function(String uid, String email) needsRoleSelection,
     required TResult Function(UserCredentialsDto user) needsOnboarding,
   }) {
@@ -2405,6 +2622,7 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
     TResult? Function(UserCredentialsDto user)? authenticated,
     TResult? Function()? unauthenticated,
     TResult? Function()? loading,
+    TResult? Function(String message, String? details)? error,
     TResult? Function(String uid, String email)? needsRoleSelection,
     TResult? Function(UserCredentialsDto user)? needsOnboarding,
   }) {
@@ -2418,6 +2636,7 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
     TResult Function(UserCredentialsDto user)? authenticated,
     TResult Function()? unauthenticated,
     TResult Function()? loading,
+    TResult Function(String message, String? details)? error,
     TResult Function(String uid, String email)? needsRoleSelection,
     TResult Function(UserCredentialsDto user)? needsOnboarding,
     required TResult orElse(),
@@ -2435,6 +2654,7 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
     required TResult Function(_NeedsOnboarding value) needsOnboarding,
   }) {
@@ -2448,6 +2668,7 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult? Function(_NeedsOnboarding value)? needsOnboarding,
   }) {
@@ -2461,6 +2682,7 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
     TResult Function(_NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
