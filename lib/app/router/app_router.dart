@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:nextone/app/router/app_router.gr.dart';
-import 'package:nextone/presentation/artist_homepage/artist_dashboard.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
