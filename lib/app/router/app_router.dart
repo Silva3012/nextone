@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:nextone/app/router/app_router.gr.dart';
+import 'package:nextone/presentation/artist_homepage/artist_dashboard.dart';
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
@@ -9,10 +10,11 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SignUpRoute.page),
         AutoRoute(page: PlaceholderRoute.page),
         AutoRoute(page: RoleSelectionRoute.page),
-        AutoRoute(page: DashboardRoute.page),
+        AutoRoute(page: ArtistDashboardRoute.page),
         AutoRoute(page: ProfileSetupRoute.page),
         AutoRoute(page: UploadProfilePictureRoute.page),
         AutoRoute(page: LoadingSplashRoute.page),
+        AutoRoute(page: ForgotPasswordRoute.page)
       ];
 
   @override

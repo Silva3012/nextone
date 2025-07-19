@@ -16,6 +16,10 @@ class AuthState with _$AuthState {
     String? details,
   }) = _Error;
 
+  const factory AuthState.forgotPasswordEmailSent() = _ForgotPasswordEmailSent;
+  const factory AuthState.forgotPasswordError({required String message}) =
+      _ForgotPasswordError;
+
   const factory AuthState.needsRoleSelection(
       {required String uid, required String email}) = _NeedsRoleSelection;
 

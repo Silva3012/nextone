@@ -30,7 +30,7 @@ class LoadingSplashPage extends HookWidget {
           // Navigate to dashboard after completion
           final router = context.router;
           Future.delayed(const Duration(milliseconds: 500), () {
-            router.popAndPush(const DashboardRoute());
+            router.popAndPush(const ArtistDashboardRoute());
           });
         }
       });

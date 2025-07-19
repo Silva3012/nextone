@@ -17,7 +17,8 @@ abstract class IAuthService {
 
   /// Signs out the current user.
   Future<void> signOut();
+  Future<void> sendPasswordResetEmail({required String email});
 
   /// Resets the password for the given email.
-  Future<void> resetPassword(String email);
+  // Future<void> resetPassword(String email);
 }

@@ -41,7 +41,7 @@ class AuthService implements IAuthService {
   }
 
   @override
-  Future<void> resetPassword(String email) async {
+  Future<void> sendPasswordResetEmail({required String email}) async {
     try {
       await _supabaseClient.auth.resetPasswordForEmail(email);
     } catch (e) {

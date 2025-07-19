@@ -17,6 +17,10 @@ class AuthEvent with _$AuthEvent {
     required String password,
   }) = _OnLoginRequested;
 
+  const factory AuthEvent.onForgotPasswordRequested({
+    required String email,
+  }) = _OnForgotPasswordRequested;
+
   const factory AuthEvent.onRoleSelected({
     required String uid,
     required String email,
