@@ -58,7 +58,7 @@ class LoginPage extends HookWidget {
         listener: (context, state) {
           state.mapOrNull(
             authenticated: (_) {
-              context.router.navigate(const DashboardRoute());
+              context.router.navigate(const ArtistDashboardRoute());
             },
             unauthenticated: (_) {
               context.router.popAndPush(
@@ -75,7 +75,7 @@ class LoginPage extends HookWidget {
         child: Stack(
           children: [
             const BackgroundImage(
-              overlayColor: Colors.black54,
+              overlayColor: Colors.black87,
             ),
             SafeArea(
               child: Padding(
@@ -90,14 +90,12 @@ class LoginPage extends HookWidget {
                           children: [
                             const NextoneLogo(),
                             SizedBox(height: screenHeight * 0.2),
-                            // Error widget
                             if (showError.value)
                               AuthErrorWidget(
                                 message: errorMessage.value,
                                 onDismiss: () {
                                   showError.value = false;
                                   errorMessage.value = '';
-                                  // Clear the error state in the bloc
                                   context.read<AuthBloc>().add(
                                         const AuthEvent.onAuthChanged(
                                             user: null),
@@ -136,14 +134,8 @@ class LoginPage extends HookWidget {
                               alignment: Alignment.centerRight,
                               child: TextButton(
                                 onPressed: () {
-                                  // TODO: Implement forgot password functionality
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text(
-                                        'Forgot Password functionality not implemented yet.',
-                                      ),
-                                    ),
-                                  );
+                                  context.router
+                                      .push(const ForgotPasswordRoute());
                                 },
                                 child: const Text(
                                   'Forgot Password?',
@@ -174,18 +166,6 @@ class LoginPage extends HookWidget {
                               type: NextoneButtonType.primary,
                               isLoading: isLoading,
                             ),
-                            // height16,
-                            // NextoneButton(
-                            //   text: 'Google',
-                            //   onPressed: () {},
-                            //   type: NextoneButtonType.secondary,
-                            // ),
-                            // height16,
-                            // NextoneButton(
-                            //   text: 'Facebook',
-                            //   onPressed: () {},
-                            //   type: NextoneButtonType.secondary,
-                            // ),
                           ],
                         ),
                       ),

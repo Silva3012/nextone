@@ -5,8 +5,8 @@ import 'package:nextone/presentation/shared/widgets/background_image.dart';
 import 'package:nextone_core/nextone_core_export.dart';
 
 @RoutePage()
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
+class ArtistDashboardPage extends StatelessWidget {
+  const ArtistDashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {

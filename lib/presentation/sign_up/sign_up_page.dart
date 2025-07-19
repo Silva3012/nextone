@@ -84,7 +84,7 @@ class SignUpPage extends HookWidget {
         child: Stack(
           children: [
             const BackgroundImage(
-              overlayColor: Colors.black54,
+              overlayColor: Colors.black87,
             ),
             SafeArea(
               child: Padding(
@@ -99,7 +99,6 @@ class SignUpPage extends HookWidget {
                           children: [
                             const NextoneLogo(),
                             SizedBox(height: screenHeight * 0.20),
-                            // Error widget
                             if (showError.value)
                               AuthErrorWidget(
                                 message: errorMessage.value,
@@ -161,18 +160,6 @@ class SignUpPage extends HookWidget {
                               type: NextoneButtonType.primary,
                               isLoading: isLoading,
                             ),
-                            // height16,
-                            // NextoneButton(
-                            //   text: 'Google',
-                            //   onPressed: () {},
-                            //   type: NextoneButtonType.secondary,
-                            // ),
-                            // height16,
-                            // NextoneButton(
-                            //   text: 'Facebook',
-                            //   onPressed: () {},
-                            //   type: NextoneButtonType.secondary,
-                            // ),
                           ],
                         ),
                       ),

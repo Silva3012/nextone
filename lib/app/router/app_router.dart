@@ -9,10 +9,11 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SignUpRoute.page),
         AutoRoute(page: PlaceholderRoute.page),
         AutoRoute(page: RoleSelectionRoute.page),
-        AutoRoute(page: DashboardRoute.page),
+        AutoRoute(page: ArtistDashboardRoute.page),
         AutoRoute(page: ProfileSetupRoute.page),
         AutoRoute(page: UploadProfilePictureRoute.page),
         AutoRoute(page: LoadingSplashRoute.page),
+        AutoRoute(page: ForgotPasswordRoute.page)
       ];
 
   @override
