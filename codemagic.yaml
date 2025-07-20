@@ -25,10 +25,6 @@ workflows:
           flutter --version
           java -version
 
-      # - name: Create .env file
-      #   script: |
-      #     echo $ENV_FILE_BASE64 | base64 --decode > .env
-
       - name: Create google-services.json
         script: |
           echo $GOOGLE_SERVICES_JSON_BASE64 | base64 --decode > android/app/google-services.json
@@ -54,9 +50,6 @@ workflows:
 
           # Update pubspec.yaml
           sed -i'' -E "s/version: (.*)\+[0-9]+/version: \1+${new_build}/" pubspec.yaml
-
-          # Set env var for Codemagic builds
-          echo "BUILD_NUMBER=$new_build" >> $CM_ENV
 
       - name: Increase Gradle Heap Size
         script: |
