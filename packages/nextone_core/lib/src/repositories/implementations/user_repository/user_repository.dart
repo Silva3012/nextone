@@ -35,7 +35,7 @@ class UserRepository implements IUserRepository {
     try {
       await _supabaseClient.from('users').upsert({
         ...userCredentials.toJson(),
-        'created_at': DateTime.now().toIso8601String(),
+        'createdAt': DateTime.now().toIso8601String(),
       });
     } catch (e) {
       log(e.toString());

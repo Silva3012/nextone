@@ -24,8 +24,14 @@ const paddingAll24 = EdgeInsets.all(24);
 /// Padding of 16 logical pixels on all sides
 const paddingAll16 = EdgeInsets.all(16);
 
-/// Height of 20 logical pixels
+/// Height of 200 logical pixels
 const height200 = SizedBox(height: 200);
+
+/// Height of 120 logical pixels
+const height120 = SizedBox(height: 120);
+
+/// Height of 8 logical pixels
+const height8 = SizedBox(height: 8);
 
 /// Height of 16 logical pixels
 const height16 = SizedBox(height: 16);
