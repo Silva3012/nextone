@@ -25,9 +25,9 @@ workflows:
           flutter --version
           java -version
 
-      - name: Create .env file
-        script: |
-          echo $ENV_FILE_BASE64 | base64 --decode > .env
+      # - name: Create .env file
+      #   script: |
+      #     echo $ENV_FILE_BASE64 | base64 --decode > .env
 
       - name: Create google-services.json
         script: |

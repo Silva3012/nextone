@@ -20,7 +20,7 @@ class ArtistRepository implements IArtistRepository {
       final response = await _supabaseClient
           .from('artists')
           .select()
-          .eq('artist_id', artistId)
+          .eq('artistId', artistId)
           .single();
 
       return ArtistDto.fromJson(response);
@@ -47,7 +47,7 @@ class ArtistRepository implements IArtistRepository {
   }) async {
     try {
       await _supabaseClient.from('artists').update(
-          {'profile_picture_url': profilePictureUrl}).eq('artist_id', artistId);
+          {'profilePictureUrl': profilePictureUrl}).eq('artistId', artistId);
     } catch (e) {
       log(e.toString());
       rethrow;

@@ -67,7 +67,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           if (user.role == null || user.role!.isEmpty) {
             emit(
                 AuthState.needsRoleSelection(email: user.email, uid: user.uid));
-          } else if (!user.profileCompleted) {
+          } else if (user.profileCompleted != true) {
             log('Redirecting to onboarding for ${user.uid}');
             emit(AuthState.needsOnboarding(user: user));
           } else {
@@ -96,7 +96,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               if (user.role == null || user.role!.isEmpty) {
                 emit(AuthState.needsRoleSelection(
                     email: user.email, uid: user.uid));
-              } else if (!user.profileCompleted) {
+              } else if (user.profileCompleted != true) {
                 emit(AuthState.needsOnboarding(user: user));
               } else {
                 log('User logged in: ${user.uid} — profileCompleted: ${user.profileCompleted}');
