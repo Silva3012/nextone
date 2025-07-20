@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:nextone/app/app_providers.dart';
 import 'package:nextone/core/config/app_bloc_observer.dart';
@@ -10,7 +9,6 @@ import 'app/app.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
   await configureDependencies();
   await SupabaseInitializer.initialize();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
