@@ -10,7 +10,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i10;
 import 'package:flutter/material.dart' as _i11;
-import 'package:nextone/presentation/artist_homepage/artist_dashboard.dart'
+import 'package:nextone/presentation/artist_dashboard/artist_dashboard.dart'
     as _i1;
 import 'package:nextone/presentation/loading_splash/loading_splash_page.dart'
     as _i3;

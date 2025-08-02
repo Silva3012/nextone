@@ -20,11 +20,11 @@ ArtistApiResponse _$ArtistApiResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ArtistApiResponse {
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'userId')
   String get userId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'artist_id')
+  @JsonKey(name: 'artistId')
   String get artistId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'stage_name')
+  @JsonKey(name: 'stageName')
   String get stageName => throw _privateConstructorUsedError;
   @JsonKey(name: 'location')
   String get location => throw _privateConstructorUsedError;
@@ -32,15 +32,15 @@ mixin _$ArtistApiResponse {
   String get biography => throw _privateConstructorUsedError;
   @JsonKey(name: 'genre')
   String get genre => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created_at')
+  @JsonKey(name: 'createdAt')
   DateTime? get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'social_links')
+  @JsonKey(name: 'socialLinks')
   List<String>? get socialLinks => throw _privateConstructorUsedError;
-  @JsonKey(name: 'profile_images')
+  @JsonKey(name: 'profileImages')
   List<String>? get profileImages => throw _privateConstructorUsedError;
-  @JsonKey(name: 'supporter_count')
+  @JsonKey(name: 'supporterCount')
   int? get supporterCount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'profile_picture_url')
+  @JsonKey(name: 'profilePictureUrl')
   String? get profilePictureUrl => throw _privateConstructorUsedError;
 
   /// Serializes this ArtistApiResponse to a JSON map.
@@ -60,17 +60,17 @@ abstract class $ArtistApiResponseCopyWith<$Res> {
       _$ArtistApiResponseCopyWithImpl<$Res, ArtistApiResponse>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'user_id') String userId,
-      @JsonKey(name: 'artist_id') String artistId,
-      @JsonKey(name: 'stage_name') String stageName,
+      {@JsonKey(name: 'userId') String userId,
+      @JsonKey(name: 'artistId') String artistId,
+      @JsonKey(name: 'stageName') String stageName,
       @JsonKey(name: 'location') String location,
       @JsonKey(name: 'biography') String biography,
       @JsonKey(name: 'genre') String genre,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
-      @JsonKey(name: 'social_links') List<String>? socialLinks,
-      @JsonKey(name: 'profile_images') List<String>? profileImages,
-      @JsonKey(name: 'supporter_count') int? supporterCount,
-      @JsonKey(name: 'profile_picture_url') String? profilePictureUrl});
+      @JsonKey(name: 'createdAt') DateTime? createdAt,
+      @JsonKey(name: 'socialLinks') List<String>? socialLinks,
+      @JsonKey(name: 'profileImages') List<String>? profileImages,
+      @JsonKey(name: 'supporterCount') int? supporterCount,
+      @JsonKey(name: 'profilePictureUrl') String? profilePictureUrl});
 }
 
 /// @nodoc
@@ -158,17 +158,17 @@ abstract class _$$ArtistApiResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'user_id') String userId,
-      @JsonKey(name: 'artist_id') String artistId,
-      @JsonKey(name: 'stage_name') String stageName,
+      {@JsonKey(name: 'userId') String userId,
+      @JsonKey(name: 'artistId') String artistId,
+      @JsonKey(name: 'stageName') String stageName,
       @JsonKey(name: 'location') String location,
       @JsonKey(name: 'biography') String biography,
       @JsonKey(name: 'genre') String genre,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
-      @JsonKey(name: 'social_links') List<String>? socialLinks,
-      @JsonKey(name: 'profile_images') List<String>? profileImages,
-      @JsonKey(name: 'supporter_count') int? supporterCount,
-      @JsonKey(name: 'profile_picture_url') String? profilePictureUrl});
+      @JsonKey(name: 'createdAt') DateTime? createdAt,
+      @JsonKey(name: 'socialLinks') List<String>? socialLinks,
+      @JsonKey(name: 'profileImages') List<String>? profileImages,
+      @JsonKey(name: 'supporterCount') int? supporterCount,
+      @JsonKey(name: 'profilePictureUrl') String? profilePictureUrl});
 }
 
 /// @nodoc
@@ -249,17 +249,17 @@ class __$$ArtistApiResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArtistApiResponseImpl implements _ArtistApiResponse {
   const _$ArtistApiResponseImpl(
-      {@JsonKey(name: 'user_id') required this.userId,
-      @JsonKey(name: 'artist_id') required this.artistId,
-      @JsonKey(name: 'stage_name') required this.stageName,
+      {@JsonKey(name: 'userId') required this.userId,
+      @JsonKey(name: 'artistId') required this.artistId,
+      @JsonKey(name: 'stageName') required this.stageName,
       @JsonKey(name: 'location') required this.location,
       @JsonKey(name: 'biography') required this.biography,
       @JsonKey(name: 'genre') required this.genre,
-      @JsonKey(name: 'created_at') this.createdAt,
-      @JsonKey(name: 'social_links') final List<String>? socialLinks,
-      @JsonKey(name: 'profile_images') final List<String>? profileImages,
-      @JsonKey(name: 'supporter_count') this.supporterCount,
-      @JsonKey(name: 'profile_picture_url') this.profilePictureUrl})
+      @JsonKey(name: 'createdAt') this.createdAt,
+      @JsonKey(name: 'socialLinks') final List<String>? socialLinks,
+      @JsonKey(name: 'profileImages') final List<String>? profileImages,
+      @JsonKey(name: 'supporterCount') this.supporterCount,
+      @JsonKey(name: 'profilePictureUrl') this.profilePictureUrl})
       : _socialLinks = socialLinks,
         _profileImages = profileImages;
 
@@ -267,13 +267,13 @@ class _$ArtistApiResponseImpl implements _ArtistApiResponse {
       _$$ArtistApiResponseImplFromJson(json);
 
   @override
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'userId')
   final String userId;
   @override
-  @JsonKey(name: 'artist_id')
+  @JsonKey(name: 'artistId')
   final String artistId;
   @override
-  @JsonKey(name: 'stage_name')
+  @JsonKey(name: 'stageName')
   final String stageName;
   @override
   @JsonKey(name: 'location')
@@ -285,11 +285,11 @@ class _$ArtistApiResponseImpl implements _ArtistApiResponse {
   @JsonKey(name: 'genre')
   final String genre;
   @override
-  @JsonKey(name: 'created_at')
+  @JsonKey(name: 'createdAt')
   final DateTime? createdAt;
   final List<String>? _socialLinks;
   @override
-  @JsonKey(name: 'social_links')
+  @JsonKey(name: 'socialLinks')
   List<String>? get socialLinks {
     final value = _socialLinks;
     if (value == null) return null;
@@ -300,7 +300,7 @@ class _$ArtistApiResponseImpl implements _ArtistApiResponse {
 
   final List<String>? _profileImages;
   @override
-  @JsonKey(name: 'profile_images')
+  @JsonKey(name: 'profileImages')
   List<String>? get profileImages {
     final value = _profileImages;
     if (value == null) return null;
@@ -310,10 +310,10 @@ class _$ArtistApiResponseImpl implements _ArtistApiResponse {
   }
 
   @override
-  @JsonKey(name: 'supporter_count')
+  @JsonKey(name: 'supporterCount')
   final int? supporterCount;
   @override
-  @JsonKey(name: 'profile_picture_url')
+  @JsonKey(name: 'profilePictureUrl')
   final String? profilePictureUrl;
 
   @override
@@ -383,30 +383,30 @@ class _$ArtistApiResponseImpl implements _ArtistApiResponse {
 
 abstract class _ArtistApiResponse implements ArtistApiResponse {
   const factory _ArtistApiResponse(
-      {@JsonKey(name: 'user_id') required final String userId,
-      @JsonKey(name: 'artist_id') required final String artistId,
-      @JsonKey(name: 'stage_name') required final String stageName,
+      {@JsonKey(name: 'userId') required final String userId,
+      @JsonKey(name: 'artistId') required final String artistId,
+      @JsonKey(name: 'stageName') required final String stageName,
       @JsonKey(name: 'location') required final String location,
       @JsonKey(name: 'biography') required final String biography,
       @JsonKey(name: 'genre') required final String genre,
-      @JsonKey(name: 'created_at') final DateTime? createdAt,
-      @JsonKey(name: 'social_links') final List<String>? socialLinks,
-      @JsonKey(name: 'profile_images') final List<String>? profileImages,
-      @JsonKey(name: 'supporter_count') final int? supporterCount,
-      @JsonKey(name: 'profile_picture_url')
+      @JsonKey(name: 'createdAt') final DateTime? createdAt,
+      @JsonKey(name: 'socialLinks') final List<String>? socialLinks,
+      @JsonKey(name: 'profileImages') final List<String>? profileImages,
+      @JsonKey(name: 'supporterCount') final int? supporterCount,
+      @JsonKey(name: 'profilePictureUrl')
       final String? profilePictureUrl}) = _$ArtistApiResponseImpl;
 
   factory _ArtistApiResponse.fromJson(Map<String, dynamic> json) =
       _$ArtistApiResponseImpl.fromJson;
 
   @override
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'userId')
   String get userId;
   @override
-  @JsonKey(name: 'artist_id')
+  @JsonKey(name: 'artistId')
   String get artistId;
   @override
-  @JsonKey(name: 'stage_name')
+  @JsonKey(name: 'stageName')
   String get stageName;
   @override
   @JsonKey(name: 'location')
@@ -418,19 +418,19 @@ abstract class _ArtistApiResponse implements ArtistApiResponse {
   @JsonKey(name: 'genre')
   String get genre;
   @override
-  @JsonKey(name: 'created_at')
+  @JsonKey(name: 'createdAt')
   DateTime? get createdAt;
   @override
-  @JsonKey(name: 'social_links')
+  @JsonKey(name: 'socialLinks')
   List<String>? get socialLinks;
   @override
-  @JsonKey(name: 'profile_images')
+  @JsonKey(name: 'profileImages')
   List<String>? get profileImages;
   @override
-  @JsonKey(name: 'supporter_count')
+  @JsonKey(name: 'supporterCount')
   int? get supporterCount;
   @override
-  @JsonKey(name: 'profile_picture_url')
+  @JsonKey(name: 'profilePictureUrl')
   String? get profilePictureUrl;
 
   /// Create a copy of ArtistApiResponse

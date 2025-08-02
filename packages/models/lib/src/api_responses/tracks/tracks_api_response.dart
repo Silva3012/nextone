@@ -1,21 +1,27 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'user_credentials_api_response.freezed.dart';
-part 'user_credentials_api_response.g.dart';
+part 'tracks_api_response.freezed.dart';
+part 'tracks_api_response.g.dart';
 
 @freezed
-class UserCredentialsApiResponse with _$UserCredentialsApiResponse {
-  const factory UserCredentialsApiResponse({
-    @JsonKey(name: 'uid') required String uid,
-    @JsonKey(name: 'email') required String email,
-    @JsonKey(name: 'role') required String role,
-    @JsonKey(name: 'profileCompleted') required bool profileCompleted,
+class TracksApiResponse with _$TracksApiResponse {
+  const factory TracksApiResponse({
+    @JsonKey(name: 'trackId') required String trackId,
+    @JsonKey(name: 'artistId') required String artistId,
+    @JsonKey(name: 'title') required String title,
+    @JsonKey(name: 'genre') required String genre,
+    @JsonKey(name: 'price') required double price,
+    @JsonKey(name: 'audioUrl') required String audioUrl,
+    @JsonKey(name: 'coverArtUrl') required String coverArtUrl,
+    @JsonKey(name: 'metadata') Map<String, dynamic>? metadata,
+    @JsonKey(name: 'playCount') int? playCount,
+    @JsonKey(name: 'downloadCount') int? downloadCount,
     @JsonKey(name: 'createdAt', fromJson: _fromTimestamp, toJson: _toTimestamp)
     DateTime? createdAt,
-  }) = _UserCredentialsApiResponse;
+  }) = _TracksApiResponse;
 
-  factory UserCredentialsApiResponse.fromJson(Map<String, dynamic> json) =>
-      _$UserCredentialsApiResponseFromJson(json);
+  factory TracksApiResponse.fromJson(Map<String, dynamic> json) =>
+      _$TracksApiResponseFromJson(json);
 }
 
 DateTime? _fromTimestamp(dynamic timestamp) {
