@@ -13,4 +13,6 @@ abstract class IArtistRepository {
     required String artistId,
     required String profilePictureUrl,
   });
+
+  Future<List<TrackDto>> getArtistTracks({required String artistId});
 }

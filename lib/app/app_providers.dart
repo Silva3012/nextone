@@ -16,7 +16,10 @@ class AppProviders extends StatelessWidget {
       providers: [
         BlocProvider<AuthBloc>(
           create: (context) => nextOneCoreSL<AuthBloc>(),
-        )
+        ),
+        BlocProvider<ArtistDashboardBloc>(
+          create: (context) => nextOneCoreSL<ArtistDashboardBloc>(),
+        ),
       ],
       child: child,
     );

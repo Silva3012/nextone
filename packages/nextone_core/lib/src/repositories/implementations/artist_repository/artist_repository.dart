@@ -74,4 +74,19 @@ class ArtistRepository implements IArtistRepository {
       rethrow;
     }
   }
+
+  @override
+  Future<List<TrackDto>> getArtistTracks({required String artistId}) async {
+    try {
+      final response = await _supabaseClient
+          .from('tracks')
+          .select()
+          .eq('artistId', artistId);
+
+      return response.map((track) => TrackDto.fromJson(track)).toList();
+    } catch (e) {
+      log(e.toString());
+      rethrow;
+    }
+  }
 }

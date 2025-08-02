@@ -13,6 +13,7 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
 
 import '../../nextone_core_export.dart' as _i315;
+import '../application/artist_dashboard/artist_dashboard_bloc.dart' as _i689;
 import '../application/auth/auth_bloc.dart' as _i122;
 import '../repositories/implementations/artist_repository/artist_repository.dart'
     as _i656;
@@ -42,6 +43,8 @@ extension GetItInjectableX on _i174.GetIt {
         _i656.ArtistRepository(supabaseClient: gh<_i454.SupabaseClient>()));
     gh.lazySingleton<_i668.IAuthService>(
         () => _i545.AuthService(supabaseClient: gh<_i454.SupabaseClient>()));
+    gh.lazySingleton<_i689.ArtistDashboardBloc>(
+        () => _i689.ArtistDashboardBloc(gh<_i315.IArtistRepository>()));
     gh.lazySingleton<_i122.AuthBloc>(() => _i122.AuthBloc(
           gh<_i668.IAuthService>(),
           gh<_i233.IUserRepository>(),
