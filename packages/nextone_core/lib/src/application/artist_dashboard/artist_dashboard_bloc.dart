@@ -15,23 +15,33 @@ class ArtistDashboardBloc
     extends Bloc<ArtistDashboardEvent, ArtistDashboardState> {
   final IArtistRepository _artistRepository;
   ArtistDashboardBloc(this._artistRepository)
-      : super(const ArtistDashboardState.initial()) {
+      : super(ArtistDashboardState.initial()) {
     on<ArtistDashboardEvent>((event, emit) async {
       await event.map(onGetTracks: (e) async {
-        emit(const ArtistDashboardState.loading());
+        emit(state.copyWith(
+          isLoading: true,
+          errorMessage: null,
+          hasError: false,
+        ));
         try {
           final artist =
               await _artistRepository.getArtist(artistId: e.artistId);
           final tracks =
               await _artistRepository.getArtistTracks(artistId: e.artistId);
 
-          emit(ArtistDashboardState.loaded(
-              stageName: artist?.stageName ?? '',
-              tracks: tracks,
-              supporterCount: artist?.supporterCount ?? 0,
-              earnings: 0.0));
+          emit(state.copyWith(
+            artist: artist ?? ArtistDto.empty(),
+            tracks: tracks,
+            isLoading: false,
+            errorMessage: null,
+            hasError: false,
+          ));
         } catch (e) {
-          emit(ArtistDashboardState.error(message: e.toString()));
+          emit(state.copyWith(
+            isLoading: false,
+            errorMessage: e.toString(),
+            hasError: true,
+          ));
         }
       });
     });

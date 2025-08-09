@@ -3,33 +3,33 @@ part of 'auth_bloc.dart';
 @freezed
 class AuthEvent with _$AuthEvent {
   const factory AuthEvent.onAuthChanged({required UserCredentialsDto? user}) =
-      _OnAuthChanged;
+      OnAuthChanged;
 
-  const factory AuthEvent.onSignOutRequested() = _OnSignOutRequested;
+  const factory AuthEvent.onSignOutRequested() = OnSignOutRequested;
 
   const factory AuthEvent.onSignUpRequested({
     required String email,
     required String password,
-  }) = _OnSignUpRequested;
+  }) = OnSignUpRequested;
 
   const factory AuthEvent.onLoginRequested({
     required String email,
     required String password,
-  }) = _OnLoginRequested;
+  }) = OnLoginRequested;
 
   const factory AuthEvent.onForgotPasswordRequested({
     required String email,
-  }) = _OnForgotPasswordRequested;
+  }) = OnForgotPasswordRequested;
 
   const factory AuthEvent.onRoleSelected({
     required String uid,
     required String email,
     required String role,
-  }) = _OnRoleSelected;
+  }) = OnRoleSelected;
 
   const factory AuthEvent.onProfileCompleted({
     required UserCredentialsDto user,
-  }) = _OnProfileCompleted;
+  }) = OnProfileCompleted;
 
   const factory AuthEvent.completeOnboarding({
     required UserCredentialsDto user,
@@ -38,5 +38,5 @@ class AuthEvent with _$AuthEvent {
     required String biography,
     required String genre,
     required File profileImage,
-  }) = _CompleteOnboarding;
+  }) = CompleteOnboarding;
 }

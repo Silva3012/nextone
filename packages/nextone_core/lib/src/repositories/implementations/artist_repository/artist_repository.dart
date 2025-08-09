@@ -41,7 +41,7 @@ class ArtistRepository implements IArtistRepository {
   }
 
   @override
-  Future<void> updateProdilePictureUrl({
+  Future<void> updateProfilePictureUrl({
     required String artistId,
     required String profilePictureUrl,
   }) async {
@@ -60,13 +60,15 @@ class ArtistRepository implements IArtistRepository {
     required String filePath,
   }) async {
     try {
-      final file = await _supabaseClient.storage
+      final filePathInBucket = '$artistId/profile.jpg';
+
+      await _supabaseClient.storage
           .from('artist-profile-images')
-          .upload('$artistId/profile.jpg', File(filePath));
+          .upload(filePathInBucket, File(filePath));
 
       final publicUrl = _supabaseClient.storage
           .from('artist-profile-images')
-          .getPublicUrl(file);
+          .getPublicUrl(filePathInBucket);
 
       return publicUrl;
     } catch (e) {

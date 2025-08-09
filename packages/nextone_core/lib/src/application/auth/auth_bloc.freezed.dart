@@ -62,41 +62,41 @@ mixin _$AuthEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -173,7 +173,7 @@ class __$$OnAuthChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnAuthChangedImpl implements _OnAuthChanged {
+class _$OnAuthChangedImpl implements OnAuthChanged {
   const _$OnAuthChangedImpl({required this.user});
 
   @override
@@ -262,15 +262,15 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) {
     return onAuthChanged(this);
   }
@@ -278,15 +278,15 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) {
     return onAuthChanged?.call(this);
   }
@@ -294,15 +294,15 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onAuthChanged != null) {
@@ -312,8 +312,8 @@ class _$OnAuthChangedImpl implements _OnAuthChanged {
   }
 }
 
-abstract class _OnAuthChanged implements AuthEvent {
-  const factory _OnAuthChanged({required final UserCredentialsDto? user}) =
+abstract class OnAuthChanged implements AuthEvent {
+  const factory OnAuthChanged({required final UserCredentialsDto? user}) =
       _$OnAuthChangedImpl;
 
   UserCredentialsDto? get user;
@@ -346,7 +346,7 @@ class __$$OnSignOutRequestedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
+class _$OnSignOutRequestedImpl implements OnSignOutRequested {
   const _$OnSignOutRequestedImpl();
 
   @override
@@ -422,15 +422,15 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) {
     return onSignOutRequested(this);
   }
@@ -438,15 +438,15 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) {
     return onSignOutRequested?.call(this);
   }
@@ -454,15 +454,15 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onSignOutRequested != null) {
@@ -472,8 +472,8 @@ class _$OnSignOutRequestedImpl implements _OnSignOutRequested {
   }
 }
 
-abstract class _OnSignOutRequested implements AuthEvent {
-  const factory _OnSignOutRequested() = _$OnSignOutRequestedImpl;
+abstract class OnSignOutRequested implements AuthEvent {
+  const factory OnSignOutRequested() = _$OnSignOutRequestedImpl;
 }
 
 /// @nodoc
@@ -516,7 +516,7 @@ class __$$OnSignUpRequestedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
+class _$OnSignUpRequestedImpl implements OnSignUpRequested {
   const _$OnSignUpRequestedImpl({required this.email, required this.password});
 
   @override
@@ -610,15 +610,15 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) {
     return onSignUpRequested(this);
   }
@@ -626,15 +626,15 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) {
     return onSignUpRequested?.call(this);
   }
@@ -642,15 +642,15 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onSignUpRequested != null) {
@@ -660,8 +660,8 @@ class _$OnSignUpRequestedImpl implements _OnSignUpRequested {
   }
 }
 
-abstract class _OnSignUpRequested implements AuthEvent {
-  const factory _OnSignUpRequested(
+abstract class OnSignUpRequested implements AuthEvent {
+  const factory OnSignUpRequested(
       {required final String email,
       required final String password}) = _$OnSignUpRequestedImpl;
 
@@ -715,7 +715,7 @@ class __$$OnLoginRequestedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnLoginRequestedImpl implements _OnLoginRequested {
+class _$OnLoginRequestedImpl implements OnLoginRequested {
   const _$OnLoginRequestedImpl({required this.email, required this.password});
 
   @override
@@ -809,15 +809,15 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) {
     return onLoginRequested(this);
   }
@@ -825,15 +825,15 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) {
     return onLoginRequested?.call(this);
   }
@@ -841,15 +841,15 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onLoginRequested != null) {
@@ -859,8 +859,8 @@ class _$OnLoginRequestedImpl implements _OnLoginRequested {
   }
 }
 
-abstract class _OnLoginRequested implements AuthEvent {
-  const factory _OnLoginRequested(
+abstract class OnLoginRequested implements AuthEvent {
+  const factory OnLoginRequested(
       {required final String email,
       required final String password}) = _$OnLoginRequestedImpl;
 
@@ -911,7 +911,7 @@ class __$$OnForgotPasswordRequestedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnForgotPasswordRequestedImpl implements _OnForgotPasswordRequested {
+class _$OnForgotPasswordRequestedImpl implements OnForgotPasswordRequested {
   const _$OnForgotPasswordRequestedImpl({required this.email});
 
   @override
@@ -1001,15 +1001,15 @@ class _$OnForgotPasswordRequestedImpl implements _OnForgotPasswordRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) {
     return onForgotPasswordRequested(this);
   }
@@ -1017,15 +1017,15 @@ class _$OnForgotPasswordRequestedImpl implements _OnForgotPasswordRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) {
     return onForgotPasswordRequested?.call(this);
   }
@@ -1033,15 +1033,15 @@ class _$OnForgotPasswordRequestedImpl implements _OnForgotPasswordRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onForgotPasswordRequested != null) {
@@ -1051,8 +1051,8 @@ class _$OnForgotPasswordRequestedImpl implements _OnForgotPasswordRequested {
   }
 }
 
-abstract class _OnForgotPasswordRequested implements AuthEvent {
-  const factory _OnForgotPasswordRequested({required final String email}) =
+abstract class OnForgotPasswordRequested implements AuthEvent {
+  const factory OnForgotPasswordRequested({required final String email}) =
       _$OnForgotPasswordRequestedImpl;
 
   String get email;
@@ -1109,7 +1109,7 @@ class __$$OnRoleSelectedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnRoleSelectedImpl implements _OnRoleSelected {
+class _$OnRoleSelectedImpl implements OnRoleSelected {
   const _$OnRoleSelectedImpl(
       {required this.uid, required this.email, required this.role});
 
@@ -1206,15 +1206,15 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) {
     return onRoleSelected(this);
   }
@@ -1222,15 +1222,15 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) {
     return onRoleSelected?.call(this);
   }
@@ -1238,15 +1238,15 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onRoleSelected != null) {
@@ -1256,8 +1256,8 @@ class _$OnRoleSelectedImpl implements _OnRoleSelected {
   }
 }
 
-abstract class _OnRoleSelected implements AuthEvent {
-  const factory _OnRoleSelected(
+abstract class OnRoleSelected implements AuthEvent {
+  const factory OnRoleSelected(
       {required final String uid,
       required final String email,
       required final String role}) = _$OnRoleSelectedImpl;
@@ -1320,7 +1320,7 @@ class __$$OnProfileCompletedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnProfileCompletedImpl implements _OnProfileCompleted {
+class _$OnProfileCompletedImpl implements OnProfileCompleted {
   const _$OnProfileCompletedImpl({required this.user});
 
   @override
@@ -1410,15 +1410,15 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) {
     return onProfileCompleted(this);
   }
@@ -1426,15 +1426,15 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) {
     return onProfileCompleted?.call(this);
   }
@@ -1442,15 +1442,15 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (onProfileCompleted != null) {
@@ -1460,8 +1460,8 @@ class _$OnProfileCompletedImpl implements _OnProfileCompleted {
   }
 }
 
-abstract class _OnProfileCompleted implements AuthEvent {
-  const factory _OnProfileCompleted({required final UserCredentialsDto user}) =
+abstract class OnProfileCompleted implements AuthEvent {
+  const factory OnProfileCompleted({required final UserCredentialsDto user}) =
       _$OnProfileCompletedImpl;
 
   UserCredentialsDto get user;
@@ -1551,7 +1551,7 @@ class __$$CompleteOnboardingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CompleteOnboardingImpl implements _CompleteOnboarding {
+class _$CompleteOnboardingImpl implements CompleteOnboarding {
   const _$CompleteOnboardingImpl(
       {required this.user,
       required this.stageName,
@@ -1670,15 +1670,15 @@ class _$CompleteOnboardingImpl implements _CompleteOnboarding {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_OnAuthChanged value) onAuthChanged,
-    required TResult Function(_OnSignOutRequested value) onSignOutRequested,
-    required TResult Function(_OnSignUpRequested value) onSignUpRequested,
-    required TResult Function(_OnLoginRequested value) onLoginRequested,
-    required TResult Function(_OnForgotPasswordRequested value)
+    required TResult Function(OnAuthChanged value) onAuthChanged,
+    required TResult Function(OnSignOutRequested value) onSignOutRequested,
+    required TResult Function(OnSignUpRequested value) onSignUpRequested,
+    required TResult Function(OnLoginRequested value) onLoginRequested,
+    required TResult Function(OnForgotPasswordRequested value)
         onForgotPasswordRequested,
-    required TResult Function(_OnRoleSelected value) onRoleSelected,
-    required TResult Function(_OnProfileCompleted value) onProfileCompleted,
-    required TResult Function(_CompleteOnboarding value) completeOnboarding,
+    required TResult Function(OnRoleSelected value) onRoleSelected,
+    required TResult Function(OnProfileCompleted value) onProfileCompleted,
+    required TResult Function(CompleteOnboarding value) completeOnboarding,
   }) {
     return completeOnboarding(this);
   }
@@ -1686,15 +1686,15 @@ class _$CompleteOnboardingImpl implements _CompleteOnboarding {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_OnAuthChanged value)? onAuthChanged,
-    TResult? Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult? Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult? Function(_OnLoginRequested value)? onLoginRequested,
-    TResult? Function(_OnForgotPasswordRequested value)?
+    TResult? Function(OnAuthChanged value)? onAuthChanged,
+    TResult? Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult? Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult? Function(OnLoginRequested value)? onLoginRequested,
+    TResult? Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult? Function(_OnRoleSelected value)? onRoleSelected,
-    TResult? Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult? Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult? Function(OnRoleSelected value)? onRoleSelected,
+    TResult? Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult? Function(CompleteOnboarding value)? completeOnboarding,
   }) {
     return completeOnboarding?.call(this);
   }
@@ -1702,15 +1702,15 @@ class _$CompleteOnboardingImpl implements _CompleteOnboarding {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_OnAuthChanged value)? onAuthChanged,
-    TResult Function(_OnSignOutRequested value)? onSignOutRequested,
-    TResult Function(_OnSignUpRequested value)? onSignUpRequested,
-    TResult Function(_OnLoginRequested value)? onLoginRequested,
-    TResult Function(_OnForgotPasswordRequested value)?
+    TResult Function(OnAuthChanged value)? onAuthChanged,
+    TResult Function(OnSignOutRequested value)? onSignOutRequested,
+    TResult Function(OnSignUpRequested value)? onSignUpRequested,
+    TResult Function(OnLoginRequested value)? onLoginRequested,
+    TResult Function(OnForgotPasswordRequested value)?
         onForgotPasswordRequested,
-    TResult Function(_OnRoleSelected value)? onRoleSelected,
-    TResult Function(_OnProfileCompleted value)? onProfileCompleted,
-    TResult Function(_CompleteOnboarding value)? completeOnboarding,
+    TResult Function(OnRoleSelected value)? onRoleSelected,
+    TResult Function(OnProfileCompleted value)? onProfileCompleted,
+    TResult Function(CompleteOnboarding value)? completeOnboarding,
     required TResult orElse(),
   }) {
     if (completeOnboarding != null) {
@@ -1720,8 +1720,8 @@ class _$CompleteOnboardingImpl implements _CompleteOnboarding {
   }
 }
 
-abstract class _CompleteOnboarding implements AuthEvent {
-  const factory _CompleteOnboarding(
+abstract class CompleteOnboarding implements AuthEvent {
+  const factory CompleteOnboarding(
       {required final UserCredentialsDto user,
       required final String stageName,
       required final String location,
@@ -1787,42 +1787,42 @@ mixin _$AuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1869,7 +1869,7 @@ class __$$UnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnknownImpl implements _Unknown {
+class _$UnknownImpl implements Unknown {
   const _$UnknownImpl();
 
   @override
@@ -1941,16 +1941,16 @@ class _$UnknownImpl implements _Unknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return unknown(this);
   }
@@ -1958,15 +1958,15 @@ class _$UnknownImpl implements _Unknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return unknown?.call(this);
   }
@@ -1974,15 +1974,15 @@ class _$UnknownImpl implements _Unknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -1992,8 +1992,8 @@ class _$UnknownImpl implements _Unknown {
   }
 }
 
-abstract class _Unknown implements AuthState {
-  const factory _Unknown() = _$UnknownImpl;
+abstract class Unknown implements AuthState {
+  const factory Unknown() = _$UnknownImpl;
 }
 
 /// @nodoc
@@ -2128,16 +2128,16 @@ class _$AuthenticatedImpl implements _Authenticated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return authenticated(this);
   }
@@ -2145,15 +2145,15 @@ class _$AuthenticatedImpl implements _Authenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return authenticated?.call(this);
   }
@@ -2161,15 +2161,15 @@ class _$AuthenticatedImpl implements _Authenticated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -2213,7 +2213,7 @@ class __$$UnauthenticatedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnauthenticatedImpl implements _Unauthenticated {
+class _$UnauthenticatedImpl implements Unauthenticated {
   const _$UnauthenticatedImpl();
 
   @override
@@ -2285,16 +2285,16 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return unauthenticated(this);
   }
@@ -2302,15 +2302,15 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return unauthenticated?.call(this);
   }
@@ -2318,15 +2318,15 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -2336,8 +2336,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   }
 }
 
-abstract class _Unauthenticated implements AuthState {
-  const factory _Unauthenticated() = _$UnauthenticatedImpl;
+abstract class Unauthenticated implements AuthState {
+  const factory Unauthenticated() = _$UnauthenticatedImpl;
 }
 
 /// @nodoc
@@ -2361,7 +2361,7 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
+class _$LoadingImpl implements Loading {
   const _$LoadingImpl();
 
   @override
@@ -2433,16 +2433,16 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return loading(this);
   }
@@ -2450,15 +2450,15 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return loading?.call(this);
   }
@@ -2466,15 +2466,15 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2484,8 +2484,8 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements AuthState {
-  const factory _Loading() = _$LoadingImpl;
+abstract class Loading implements AuthState {
+  const factory Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
@@ -2616,16 +2616,16 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return error(this);
   }
@@ -2633,15 +2633,15 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return error?.call(this);
   }
@@ -2649,15 +2649,15 @@ class _$ErrorImpl implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2704,7 +2704,7 @@ class __$$ForgotPasswordEmailSentImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ForgotPasswordEmailSentImpl implements _ForgotPasswordEmailSent {
+class _$ForgotPasswordEmailSentImpl implements ForgotPasswordEmailSent {
   const _$ForgotPasswordEmailSentImpl();
 
   @override
@@ -2777,16 +2777,16 @@ class _$ForgotPasswordEmailSentImpl implements _ForgotPasswordEmailSent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return forgotPasswordEmailSent(this);
   }
@@ -2794,15 +2794,15 @@ class _$ForgotPasswordEmailSentImpl implements _ForgotPasswordEmailSent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return forgotPasswordEmailSent?.call(this);
   }
@@ -2810,15 +2810,15 @@ class _$ForgotPasswordEmailSentImpl implements _ForgotPasswordEmailSent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (forgotPasswordEmailSent != null) {
@@ -2828,8 +2828,8 @@ class _$ForgotPasswordEmailSentImpl implements _ForgotPasswordEmailSent {
   }
 }
 
-abstract class _ForgotPasswordEmailSent implements AuthState {
-  const factory _ForgotPasswordEmailSent() = _$ForgotPasswordEmailSentImpl;
+abstract class ForgotPasswordEmailSent implements AuthState {
+  const factory ForgotPasswordEmailSent() = _$ForgotPasswordEmailSentImpl;
 }
 
 /// @nodoc
@@ -2867,7 +2867,7 @@ class __$$ForgotPasswordErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ForgotPasswordErrorImpl implements _ForgotPasswordError {
+class _$ForgotPasswordErrorImpl implements ForgotPasswordError {
   const _$ForgotPasswordErrorImpl({required this.message});
 
   @override
@@ -2953,16 +2953,16 @@ class _$ForgotPasswordErrorImpl implements _ForgotPasswordError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return forgotPasswordError(this);
   }
@@ -2970,15 +2970,15 @@ class _$ForgotPasswordErrorImpl implements _ForgotPasswordError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return forgotPasswordError?.call(this);
   }
@@ -2986,15 +2986,15 @@ class _$ForgotPasswordErrorImpl implements _ForgotPasswordError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (forgotPasswordError != null) {
@@ -3004,8 +3004,8 @@ class _$ForgotPasswordErrorImpl implements _ForgotPasswordError {
   }
 }
 
-abstract class _ForgotPasswordError implements AuthState {
-  const factory _ForgotPasswordError({required final String message}) =
+abstract class ForgotPasswordError implements AuthState {
+  const factory ForgotPasswordError({required final String message}) =
       _$ForgotPasswordErrorImpl;
 
   String get message;
@@ -3146,16 +3146,16 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return needsRoleSelection(this);
   }
@@ -3163,15 +3163,15 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return needsRoleSelection?.call(this);
   }
@@ -3179,15 +3179,15 @@ class _$NeedsRoleSelectionImpl implements _NeedsRoleSelection {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (needsRoleSelection != null) {
@@ -3259,7 +3259,7 @@ class __$$NeedsOnboardingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NeedsOnboardingImpl implements _NeedsOnboarding {
+class _$NeedsOnboardingImpl implements NeedsOnboarding {
   const _$NeedsOnboardingImpl({required this.user});
 
   @override
@@ -3345,16 +3345,16 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Unknown value) unknown,
+    required TResult Function(Unknown value) unknown,
     required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_Unauthenticated value) unauthenticated,
-    required TResult Function(_Loading value) loading,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Loading value) loading,
     required TResult Function(_Error value) error,
-    required TResult Function(_ForgotPasswordEmailSent value)
+    required TResult Function(ForgotPasswordEmailSent value)
         forgotPasswordEmailSent,
-    required TResult Function(_ForgotPasswordError value) forgotPasswordError,
+    required TResult Function(ForgotPasswordError value) forgotPasswordError,
     required TResult Function(_NeedsRoleSelection value) needsRoleSelection,
-    required TResult Function(_NeedsOnboarding value) needsOnboarding,
+    required TResult Function(NeedsOnboarding value) needsOnboarding,
   }) {
     return needsOnboarding(this);
   }
@@ -3362,15 +3362,15 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(Unknown value)? unknown,
     TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_Unauthenticated value)? unauthenticated,
-    TResult? Function(_Loading value)? loading,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Loading value)? loading,
     TResult? Function(_Error value)? error,
-    TResult? Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult? Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult? Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult? Function(ForgotPasswordError value)? forgotPasswordError,
     TResult? Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult? Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult? Function(NeedsOnboarding value)? needsOnboarding,
   }) {
     return needsOnboarding?.call(this);
   }
@@ -3378,15 +3378,15 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Unknown value)? unknown,
+    TResult Function(Unknown value)? unknown,
     TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_Unauthenticated value)? unauthenticated,
-    TResult Function(_Loading value)? loading,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Loading value)? loading,
     TResult Function(_Error value)? error,
-    TResult Function(_ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
-    TResult Function(_ForgotPasswordError value)? forgotPasswordError,
+    TResult Function(ForgotPasswordEmailSent value)? forgotPasswordEmailSent,
+    TResult Function(ForgotPasswordError value)? forgotPasswordError,
     TResult Function(_NeedsRoleSelection value)? needsRoleSelection,
-    TResult Function(_NeedsOnboarding value)? needsOnboarding,
+    TResult Function(NeedsOnboarding value)? needsOnboarding,
     required TResult orElse(),
   }) {
     if (needsOnboarding != null) {
@@ -3396,8 +3396,8 @@ class _$NeedsOnboardingImpl implements _NeedsOnboarding {
   }
 }
 
-abstract class _NeedsOnboarding implements AuthState {
-  const factory _NeedsOnboarding({required final UserCredentialsDto user}) =
+abstract class NeedsOnboarding implements AuthState {
+  const factory NeedsOnboarding({required final UserCredentialsDto user}) =
       _$NeedsOnboardingImpl;
 
   UserCredentialsDto get user;
