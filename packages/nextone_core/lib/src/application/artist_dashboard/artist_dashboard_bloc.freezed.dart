@@ -35,17 +35,17 @@ mixin _$ArtistDashboardEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_onGetTracks value) onGetTracks,
+    required TResult Function(OnGetTracks value) onGetTracks,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_onGetTracks value)? onGetTracks,
+    TResult? Function(OnGetTracks value)? onGetTracks,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_onGetTracks value)? onGetTracks,
+    TResult Function(OnGetTracks value)? onGetTracks,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -94,22 +94,22 @@ class _$ArtistDashboardEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$onGetTracksImplCopyWith<$Res>
+abstract class _$$OnGetTracksImplCopyWith<$Res>
     implements $ArtistDashboardEventCopyWith<$Res> {
-  factory _$$onGetTracksImplCopyWith(
-          _$onGetTracksImpl value, $Res Function(_$onGetTracksImpl) then) =
-      __$$onGetTracksImplCopyWithImpl<$Res>;
+  factory _$$OnGetTracksImplCopyWith(
+          _$OnGetTracksImpl value, $Res Function(_$OnGetTracksImpl) then) =
+      __$$OnGetTracksImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String artistId});
 }
 
 /// @nodoc
-class __$$onGetTracksImplCopyWithImpl<$Res>
-    extends _$ArtistDashboardEventCopyWithImpl<$Res, _$onGetTracksImpl>
-    implements _$$onGetTracksImplCopyWith<$Res> {
-  __$$onGetTracksImplCopyWithImpl(
-      _$onGetTracksImpl _value, $Res Function(_$onGetTracksImpl) _then)
+class __$$OnGetTracksImplCopyWithImpl<$Res>
+    extends _$ArtistDashboardEventCopyWithImpl<$Res, _$OnGetTracksImpl>
+    implements _$$OnGetTracksImplCopyWith<$Res> {
+  __$$OnGetTracksImplCopyWithImpl(
+      _$OnGetTracksImpl _value, $Res Function(_$OnGetTracksImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ArtistDashboardEvent
@@ -119,7 +119,7 @@ class __$$onGetTracksImplCopyWithImpl<$Res>
   $Res call({
     Object? artistId = null,
   }) {
-    return _then(_$onGetTracksImpl(
+    return _then(_$OnGetTracksImpl(
       artistId: null == artistId
           ? _value.artistId
           : artistId // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$onGetTracksImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$onGetTracksImpl implements _onGetTracks {
-  const _$onGetTracksImpl({required this.artistId});
+class _$OnGetTracksImpl implements OnGetTracks {
+  const _$OnGetTracksImpl({required this.artistId});
 
   @override
   final String artistId;
@@ -145,7 +145,7 @@ class _$onGetTracksImpl implements _onGetTracks {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$onGetTracksImpl &&
+            other is _$OnGetTracksImpl &&
             (identical(other.artistId, artistId) ||
                 other.artistId == artistId));
   }
@@ -158,8 +158,8 @@ class _$onGetTracksImpl implements _onGetTracks {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$onGetTracksImplCopyWith<_$onGetTracksImpl> get copyWith =>
-      __$$onGetTracksImplCopyWithImpl<_$onGetTracksImpl>(this, _$identity);
+  _$$OnGetTracksImplCopyWith<_$OnGetTracksImpl> get copyWith =>
+      __$$OnGetTracksImplCopyWithImpl<_$OnGetTracksImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -192,7 +192,7 @@ class _$onGetTracksImpl implements _onGetTracks {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_onGetTracks value) onGetTracks,
+    required TResult Function(OnGetTracks value) onGetTracks,
   }) {
     return onGetTracks(this);
   }
@@ -200,7 +200,7 @@ class _$onGetTracksImpl implements _onGetTracks {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_onGetTracks value)? onGetTracks,
+    TResult? Function(OnGetTracks value)? onGetTracks,
   }) {
     return onGetTracks?.call(this);
   }
@@ -208,7 +208,7 @@ class _$onGetTracksImpl implements _onGetTracks {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_onGetTracks value)? onGetTracks,
+    TResult Function(OnGetTracks value)? onGetTracks,
     required TResult orElse(),
   }) {
     if (onGetTracks != null) {
@@ -218,9 +218,9 @@ class _$onGetTracksImpl implements _onGetTracks {
   }
 }
 
-abstract class _onGetTracks implements ArtistDashboardEvent {
-  const factory _onGetTracks({required final String artistId}) =
-      _$onGetTracksImpl;
+abstract class OnGetTracks implements ArtistDashboardEvent {
+  const factory OnGetTracks({required final String artistId}) =
+      _$OnGetTracksImpl;
 
   @override
   String get artistId;
@@ -229,67 +229,22 @@ abstract class _onGetTracks implements ArtistDashboardEvent {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$onGetTracksImplCopyWith<_$onGetTracksImpl> get copyWith =>
+  _$$OnGetTracksImplCopyWith<_$OnGetTracksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$ArtistDashboardState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)
-        loaded,
-    required TResult Function(String message) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult? Function(String message)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) =>
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get hasError => throw _privateConstructorUsedError;
+  ArtistDto get artist => throw _privateConstructorUsedError;
+  List<TrackDto> get tracks => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
+
+  /// Create a copy of ArtistDashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ArtistDashboardStateCopyWith<ArtistDashboardState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -298,6 +253,15 @@ abstract class $ArtistDashboardStateCopyWith<$Res> {
   factory $ArtistDashboardStateCopyWith(ArtistDashboardState value,
           $Res Function(ArtistDashboardState) then) =
       _$ArtistDashboardStateCopyWithImpl<$Res, ArtistDashboardState>;
+  @useResult
+  $Res call(
+      {bool isLoading,
+      bool hasError,
+      ArtistDto artist,
+      List<TrackDto> tracks,
+      String? errorMessage});
+
+  $ArtistDtoCopyWith<$Res> get artist;
 }
 
 /// @nodoc
@@ -313,273 +277,75 @@ class _$ArtistDashboardStateCopyWithImpl<$Res,
 
   /// Create a copy of ArtistDashboardState
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ArtistDashboardStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? hasError = null,
+    Object? artist = null,
+    Object? tracks = null,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasError: null == hasError
+          ? _value.hasError
+          : hasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      artist: null == artist
+          ? _value.artist
+          : artist // ignore: cast_nullable_to_non_nullable
+              as ArtistDto,
+      tracks: null == tracks
+          ? _value.tracks
+          : tracks // ignore: cast_nullable_to_non_nullable
+              as List<TrackDto>,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
 
   /// Create a copy of ArtistDashboardState
   /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ArtistDtoCopyWith<$Res> get artist {
+    return $ArtistDtoCopyWith<$Res>(_value.artist, (value) {
+      return _then(_value.copyWith(artist: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
-
+abstract class _$$ArtistDashboardStateImplCopyWith<$Res>
+    implements $ArtistDashboardStateCopyWith<$Res> {
+  factory _$$ArtistDashboardStateImplCopyWith(_$ArtistDashboardStateImpl value,
+          $Res Function(_$ArtistDashboardStateImpl) then) =
+      __$$ArtistDashboardStateImplCopyWithImpl<$Res>;
   @override
-  String toString() {
-    return 'ArtistDashboardState.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)
-        loaded,
-    required TResult Function(String message) error,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult? Function(String message)? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements ArtistDashboardState {
-  const factory _Initial() = _$InitialImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$ArtistDashboardStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl();
-
-  @override
-  String toString() {
-    return 'ArtistDashboardState.loading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)
-        loaded,
-    required TResult Function(String message) error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult? Function(String message)? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements ArtistDashboardState {
-  const factory _Loading() = _$LoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {List<TrackDto> tracks,
-      String stageName,
-      int supporterCount,
-      double earnings});
+      {bool isLoading,
+      bool hasError,
+      ArtistDto artist,
+      List<TrackDto> tracks,
+      String? errorMessage});
+
+  @override
+  $ArtistDtoCopyWith<$Res> get artist;
 }
 
 /// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$ArtistDashboardStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+class __$$ArtistDashboardStateImplCopyWithImpl<$Res>
+    extends _$ArtistDashboardStateCopyWithImpl<$Res, _$ArtistDashboardStateImpl>
+    implements _$$ArtistDashboardStateImplCopyWith<$Res> {
+  __$$ArtistDashboardStateImplCopyWithImpl(_$ArtistDashboardStateImpl _value,
+      $Res Function(_$ArtistDashboardStateImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ArtistDashboardState
@@ -587,42 +353,54 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isLoading = null,
+    Object? hasError = null,
+    Object? artist = null,
     Object? tracks = null,
-    Object? stageName = null,
-    Object? supporterCount = null,
-    Object? earnings = null,
+    Object? errorMessage = freezed,
   }) {
-    return _then(_$LoadedImpl(
+    return _then(_$ArtistDashboardStateImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasError: null == hasError
+          ? _value.hasError
+          : hasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      artist: null == artist
+          ? _value.artist
+          : artist // ignore: cast_nullable_to_non_nullable
+              as ArtistDto,
       tracks: null == tracks
           ? _value._tracks
           : tracks // ignore: cast_nullable_to_non_nullable
               as List<TrackDto>,
-      stageName: null == stageName
-          ? _value.stageName
-          : stageName // ignore: cast_nullable_to_non_nullable
-              as String,
-      supporterCount: null == supporterCount
-          ? _value.supporterCount
-          : supporterCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      earnings: null == earnings
-          ? _value.earnings
-          : earnings // ignore: cast_nullable_to_non_nullable
-              as double,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl(
-      {required final List<TrackDto> tracks,
-      required this.stageName,
-      required this.supporterCount,
-      required this.earnings})
+class _$ArtistDashboardStateImpl implements _ArtistDashboardState {
+  const _$ArtistDashboardStateImpl(
+      {required this.isLoading,
+      required this.hasError,
+      required this.artist,
+      required final List<TrackDto> tracks,
+      this.errorMessage})
       : _tracks = tracks;
 
+  @override
+  final bool isLoading;
+  @override
+  final bool hasError;
+  @override
+  final ArtistDto artist;
   final List<TrackDto> _tracks;
   @override
   List<TrackDto> get tracks {
@@ -632,301 +410,66 @@ class _$LoadedImpl implements _Loaded {
   }
 
   @override
-  final String stageName;
-  @override
-  final int supporterCount;
-  @override
-  final double earnings;
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'ArtistDashboardState.loaded(tracks: $tracks, stageName: $stageName, supporterCount: $supporterCount, earnings: $earnings)';
+    return 'ArtistDashboardState(isLoading: $isLoading, hasError: $hasError, artist: $artist, tracks: $tracks, errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedImpl &&
+            other is _$ArtistDashboardStateImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.hasError, hasError) ||
+                other.hasError == hasError) &&
+            (identical(other.artist, artist) || other.artist == artist) &&
             const DeepCollectionEquality().equals(other._tracks, _tracks) &&
-            (identical(other.stageName, stageName) ||
-                other.stageName == stageName) &&
-            (identical(other.supporterCount, supporterCount) ||
-                other.supporterCount == supporterCount) &&
-            (identical(other.earnings, earnings) ||
-                other.earnings == earnings));
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_tracks),
-      stageName,
-      supporterCount,
-      earnings);
+  int get hashCode => Object.hash(runtimeType, isLoading, hasError, artist,
+      const DeepCollectionEquality().hash(_tracks), errorMessage);
 
   /// Create a copy of ArtistDashboardState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)
-        loaded,
-    required TResult Function(String message) error,
-  }) {
-    return loaded(tracks, stageName, supporterCount, earnings);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult? Function(String message)? error,
-  }) {
-    return loaded?.call(tracks, stageName, supporterCount, earnings);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(tracks, stageName, supporterCount, earnings);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
+  _$$ArtistDashboardStateImplCopyWith<_$ArtistDashboardStateImpl>
+      get copyWith =>
+          __$$ArtistDashboardStateImplCopyWithImpl<_$ArtistDashboardStateImpl>(
+              this, _$identity);
 }
 
-abstract class _Loaded implements ArtistDashboardState {
-  const factory _Loaded(
-      {required final List<TrackDto> tracks,
-      required final String stageName,
-      required final int supporterCount,
-      required final double earnings}) = _$LoadedImpl;
+abstract class _ArtistDashboardState implements ArtistDashboardState {
+  const factory _ArtistDashboardState(
+      {required final bool isLoading,
+      required final bool hasError,
+      required final ArtistDto artist,
+      required final List<TrackDto> tracks,
+      final String? errorMessage}) = _$ArtistDashboardStateImpl;
 
+  @override
+  bool get isLoading;
+  @override
+  bool get hasError;
+  @override
+  ArtistDto get artist;
+  @override
   List<TrackDto> get tracks;
-  String get stageName;
-  int get supporterCount;
-  double get earnings;
+  @override
+  String? get errorMessage;
 
   /// Create a copy of ArtistDashboardState
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String message});
-}
-
-/// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$ArtistDashboardStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$ErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ErrorImpl implements _Error {
-  const _$ErrorImpl({required this.message});
-
-  @override
-  final String message;
-
-  @override
-  String toString() {
-    return 'ArtistDashboardState.error(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)
-        loaded,
-    required TResult Function(String message) error,
-  }) {
-    return error(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult? Function(String message)? error,
-  }) {
-    return error?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<TrackDto> tracks, String stageName,
-            int supporterCount, double earnings)?
-        loaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Error value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Error implements ArtistDashboardState {
-  const factory _Error({required final String message}) = _$ErrorImpl;
-
-  String get message;
-
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ArtistDashboardStateImplCopyWith<_$ArtistDashboardStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

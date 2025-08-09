@@ -166,7 +166,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               filePath: e.profileImage.path,
             );
             // 3. Update artist profile with image URL
-            await _artistRepository.updateProdilePictureUrl(
+            await _artistRepository.updateProfilePictureUrl(
               artistId: e.user.uid,
               profilePictureUrl: imageUrl,
             );

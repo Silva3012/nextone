@@ -9,7 +9,7 @@ abstract class IArtistRepository {
     required String artistId,
     required String filePath,
   });
-  Future<void> updateProdilePictureUrl({
+  Future<void> updateProfilePictureUrl({
     required String artistId,
     required String profilePictureUrl,
   });

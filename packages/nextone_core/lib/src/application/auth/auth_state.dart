@@ -2,27 +2,27 @@ part of 'auth_bloc.dart';
 
 @freezed
 class AuthState with _$AuthState {
-  const factory AuthState.unknown() = _Unknown;
+  const factory AuthState.unknown() = Unknown;
 
   const factory AuthState.authenticated({required UserCredentialsDto user}) =
       _Authenticated;
 
-  const factory AuthState.unauthenticated() = _Unauthenticated;
+  const factory AuthState.unauthenticated() = Unauthenticated;
 
-  const factory AuthState.loading() = _Loading;
+  const factory AuthState.loading() = Loading;
 
   const factory AuthState.error({
     required String message,
     String? details,
   }) = _Error;
 
-  const factory AuthState.forgotPasswordEmailSent() = _ForgotPasswordEmailSent;
+  const factory AuthState.forgotPasswordEmailSent() = ForgotPasswordEmailSent;
   const factory AuthState.forgotPasswordError({required String message}) =
-      _ForgotPasswordError;
+      ForgotPasswordError;
 
   const factory AuthState.needsRoleSelection(
       {required String uid, required String email}) = _NeedsRoleSelection;
 
   const factory AuthState.needsOnboarding({required UserCredentialsDto user}) =
-      _NeedsOnboarding;
+      NeedsOnboarding;
 }
