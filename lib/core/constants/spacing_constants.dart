@@ -15,8 +15,12 @@ const paddingHorizontal32 = EdgeInsets.symmetric(horizontal: 32);
 /// Padding of 32 logical pixels on the top and bottom.
 const paddingTop32bottom32 = EdgeInsets.only(top: 32, bottom: 32);
 
+/// Padding of 32 logical pixels vertically and 16 logical pixels horizontally
 const paddingVertical32Horizontal16 =
     EdgeInsets.symmetric(vertical: 16, horizontal: 32);
+
+/// Padding of 24 logical pixels horizontally
+const paddingHorizontal24 = EdgeInsets.symmetric(horizontal: 24);
 
 /// Padding of 24 logical pixels on all sides.
 const paddingAll24 = EdgeInsets.all(24);
@@ -35,6 +39,9 @@ const height8 = SizedBox(height: 8);
 
 /// Height of 16 logical pixels
 const height16 = SizedBox(height: 16);
+
+/// Height of 24 logical pixels
+const height24 = SizedBox(height: 24);
 
 /// Height of 32 logical pixels
 const height32 = SizedBox(height: 32);

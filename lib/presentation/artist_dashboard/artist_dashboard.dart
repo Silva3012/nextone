@@ -227,7 +227,8 @@ class _TracksTab extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 16.0),
           child: InkWell(
             onTap: () {
-              context.router.push(const PlaceholderRoute());
+              context.router.push(MusicPlayerRoute(
+                  tracks: tracks, initialTrackindex: tracks.indexOf(track)));
             },
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
