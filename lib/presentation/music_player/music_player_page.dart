@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:models/models.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:models/models.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
+import 'package:nextone_core/nextone_core_export.dart';
 
 @RoutePage()
 class MusicPlayerPage extends StatefulWidget {
@@ -17,23 +18,20 @@ class MusicPlayerPage extends StatefulWidget {
 }
 
 class _MusicPlayerPageState extends State<MusicPlayerPage> {
-  late final AudioPlayer _audioPlayer;
+  late final IAudioService _audioService;
   late int _currentIndex;
-  late TrackDto _currentTrack;
 
   @override
   void initState() {
     super.initState();
+    _audioService = nextOneCoreSL.get<IAudioService>();
     _currentIndex = widget.initialTrackindex;
-    _currentTrack = widget.tracks[_currentIndex];
-    _audioPlayer = AudioPlayer();
-
-    _playCurrentTrack();
+    _audioService.playTracks(
+        tracks: widget.tracks, initialIndex: _currentIndex);
   }
 
   @override
   void dispose() {
-    _audioPlayer.dispose();
     super.dispose();
   }
 
@@ -41,36 +39,51 @@ class _MusicPlayerPageState extends State<MusicPlayerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_currentTrack.title),
+        title: StreamBuilder(
+            stream: _audioService.currentTrack$,
+            builder: (context, snapshot) {
+              final track = snapshot.data ?? widget.tracks[_currentIndex];
+              return Text(track.title);
+            }),
       ),
       body: Padding(
         padding: paddingAll16,
         child: Column(
           children: [
             // Cover art
-            if (_currentTrack.coverArtUrl.isNotEmpty)
-              Image.network(
-                _currentTrack.coverArtUrl,
-                height: 250,
-              ),
+            StreamBuilder<TrackDto?>(
+              stream: _audioService.currentTrack$,
+              builder: (context, snapshot) {
+                final track = snapshot.data ?? widget.tracks[_currentIndex];
+                if (track.coverArtUrl.isEmpty) return Container();
+                return Image.network(track.coverArtUrl, height: 250);
+              },
+            ),
             height24,
             // Track title
-            Text(
-              _currentTrack.title,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+
+            StreamBuilder<TrackDto?>(
+              stream: _audioService.currentTrack$,
+              builder: (context, snapshot) {
+                final track = snapshot.data ?? widget.tracks[_currentIndex];
+                return Text(
+                  track.title,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              },
             ),
             height24,
             // Playback controls and progress bar
             StreamBuilder<Duration?>(
-              stream: _audioPlayer.durationStream,
+              stream: _audioService.duration$,
               builder: (context, snapshotDuration) {
                 final duration = snapshotDuration.data ?? Duration.zero;
 
                 return StreamBuilder<Duration>(
-                  stream: _audioPlayer.positionStream,
+                  stream: _audioService.position$,
                   builder: (context, snapshotPosition) {
                     var position = snapshotPosition.data ?? Duration.zero;
                     if (position > duration) {
@@ -84,8 +97,9 @@ class _MusicPlayerPageState extends State<MusicPlayerPage> {
                           max: duration.inMilliseconds.toDouble(),
                           value: position.inMilliseconds.toDouble(),
                           onChanged: (value) {
-                            _audioPlayer
-                                .seek(Duration(milliseconds: value.toInt()));
+                            _audioService.seek(
+                                position:
+                                    Duration(milliseconds: value.toInt()));
                           },
                         ),
                         Padding(
@@ -106,52 +120,33 @@ class _MusicPlayerPageState extends State<MusicPlayerPage> {
             ),
             height24,
 
-            // Play/Pause button
-            StreamBuilder<PlayerState>(
-                stream: _audioPlayer.playerStateStream,
-                builder: (context, snapshot) {
-                  final playerState = snapshot.data;
-                  final playing = playerState?.playing ?? false;
-                  final processingState = playerState?.processingState;
-
-                  if (processingState == ProcessingState.loading ||
-                      processingState == ProcessingState.buffering) {
-                    return const CircularProgressIndicator();
-                  } else if (playing) {
-                    return IconButton(
-                      icon: const Icon(Icons.pause_circle_filled, size: 64),
-                      onPressed: _togglePlayPause,
-                    );
-                  } else {
-                    return IconButton(
-                      icon: const Icon(Icons.play_circle_filled, size: 64),
-                      onPressed: _togglePlayPause,
-                    );
-                  }
-                })
+            StreamBuilder<PlaybackButtonState>(
+              stream: _audioService.playbackButtonState$,
+              builder: (context, snapshot) {
+                final state = snapshot.data;
+                if (state == null) {
+                  return const CircularProgressIndicator();
+                }
+                if (state.processingState == ProcessingState.loading ||
+                    state.processingState == ProcessingState.buffering) {
+                  return const CircularProgressIndicator();
+                }
+                if (state.isPlaying) {
+                  return IconButton(
+                      onPressed: () => _audioService.pause(),
+                      icon: const Icon(Icons.pause_circle_filled, size: 64));
+                } else {
+                  return IconButton(
+                    onPressed: () => _audioService.play(),
+                    icon: const Icon(Icons.play_circle_filled, size: 64),
+                  );
+                }
+              },
+            ),
           ],
         ),
       ),
     );
-  }
-
-  void _togglePlayPause() {
-    if (_audioPlayer.playing) {
-      _audioPlayer.pause();
-    } else {
-      _audioPlayer.play();
-    }
-  }
-
-  Future<void> _playCurrentTrack() async {
-    try {
-      await _audioPlayer.setUrl(_currentTrack.audioUrl);
-      _audioPlayer.play();
-    } catch (e) {
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error loading track: ${e.toString()}')));
-    }
   }
 }
 

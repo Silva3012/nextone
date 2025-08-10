@@ -8,6 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:audio_service/audio_service.dart' as _i87;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
@@ -20,23 +21,30 @@ import '../repositories/implementations/artist_repository/artist_repository.dart
 import '../repositories/implementations/user_repository/user_repository.dart'
     as _i411;
 import '../repositories/repositories_export.dart' as _i233;
+import '../services/implementations/audio/just_audio_service.dart' as _i859;
 import '../services/implementations/auth/auth_service.dart' as _i545;
 import '../services/services_exports.dart' as _i668;
 import 'injection.dart' as _i464;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
-  _i174.GetIt init({
+  Future<_i174.GetIt> init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
-  }) {
+  }) async {
     final gh = _i526.GetItHelper(
       this,
       environment,
       environmentFilter,
     );
     final supabaseModule = _$SupabaseModule();
+    final audioModule = _$AudioModule();
     gh.lazySingleton<_i454.SupabaseClient>(() => supabaseModule.supabaseClient);
+    await gh.lazySingletonAsync<_i87.AudioHandler>(
+      () => audioModule.audioHandler,
+      preResolve: true,
+    );
+    gh.lazySingleton<_i315.IAudioService>(() => _i859.JustAudioService());
     gh.lazySingleton<_i315.IUserRepository>(
         () => _i411.UserRepository(supabaseClient: gh<_i454.SupabaseClient>()));
     gh.lazySingleton<_i315.IArtistRepository>(() =>
@@ -55,3 +63,5 @@ extension GetItInjectableX on _i174.GetIt {
 }
 
 class _$SupabaseModule extends _i464.SupabaseModule {}
+
+class _$AudioModule extends _i464.AudioModule {}

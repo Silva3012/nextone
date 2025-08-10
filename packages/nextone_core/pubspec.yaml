@@ -18,6 +18,9 @@ dependencies:
   flutter_bloc: ^9.1.1
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
+  just_audio: ^0.9.46
+  audio_service: ^0.18.17
+  rxdart: ^0.28.0
 
 dev_dependencies:
   flutter_test:
