@@ -27,7 +27,9 @@ class _MusicPlayerPageState extends State<MusicPlayerPage> {
     _audioService = nextOneCoreSL.get<IAudioService>();
     _currentIndex = widget.initialTrackindex;
     _audioService.playTracks(
-        tracks: widget.tracks, initialIndex: _currentIndex);
+      tracks: widget.tracks,
+      initialIndex: _currentIndex,
+    );
   }
 
   @override
