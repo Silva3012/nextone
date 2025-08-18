@@ -79,11 +79,14 @@ jobs:
       - name: Build APK
         run: flutter build apk --release --build-number=$BUILD_NUMBER
 
+      - name: List build outputs
+        run: ls -R build/app/outputs/
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug.apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          name: app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
       - name: upload artifact to Firebase App Distribution
         uses: emertozd/Firebase-Distribution-Github-Action@v2
@@ -91,7 +94,7 @@ jobs:
           appId: ${{secrets.FIREBASE_ANDROID_APP_ID}}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
           groups: testers
-          file: build/app/outputs/flutter-apk/app-debug.apk
+          file: build/app/outputs/flutter-apk/app-release.apk
 
       ## Need to sort out iOS distribution and my developer account
       # - name: Set up CocoaPods
