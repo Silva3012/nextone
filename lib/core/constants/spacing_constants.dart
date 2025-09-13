@@ -19,6 +19,10 @@ const paddingTop32bottom32 = EdgeInsets.only(top: 32, bottom: 32);
 const paddingVertical32Horizontal16 =
     EdgeInsets.symmetric(vertical: 16, horizontal: 32);
 
+/// Padding of 12 logical pixels horizontally and 6 logical pixels vertically
+const paddingHorizontal12vertical6 =
+    EdgeInsets.symmetric(horizontal: 12, vertical: 6);
+
 /// Padding of 24 logical pixels horizontally
 const paddingHorizontal24 = EdgeInsets.symmetric(horizontal: 24);
 

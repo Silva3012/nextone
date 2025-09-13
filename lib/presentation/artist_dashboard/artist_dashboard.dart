@@ -2,10 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:models/models.dart';
-import 'package:nextone/app/router/app_router.gr.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/app/theme/nextone_text_styles.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
+import 'package:nextone/presentation/music_player/mini_player_bar.dart';
+import 'package:nextone/presentation/music_player/music_player_overlay.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
 import 'package:nextone_core/nextone_core_export.dart';
 
@@ -198,6 +199,7 @@ class _ArtistDashboardPageState extends State<ArtistDashboardPage>
             )
           ],
         ),
+        bottomNavigationBar: const MiniPlayerBar(),
       ),
     );
   }
@@ -227,8 +229,16 @@ class _TracksTab extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 16.0),
           child: InkWell(
             onTap: () {
-              context.router.push(MusicPlayerRoute(
-                  tracks: tracks, initialTrackindex: tracks.indexOf(track)));
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                builder: (context) {
+                  return MusicPlayerOverlay(
+                    tracks: tracks,
+                    initialTrackIndex: tracks.indexOf(track),
+                  );
+                },
+              );
             },
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
