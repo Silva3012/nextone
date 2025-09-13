@@ -14,7 +14,6 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: UploadProfilePictureRoute.page),
         AutoRoute(page: LoadingSplashRoute.page),
         AutoRoute(page: ForgotPasswordRoute.page),
-        AutoRoute(page: MusicPlayerRoute.page),
       ];
 
   @override
