@@ -24,6 +24,7 @@ dependencies:
     path: packages/models
   audio_service: ^0.18.17
   just_audio: ^0.9.46
+  marquee: ^2.3.0
 
 dev_dependencies:
   flutter_test:

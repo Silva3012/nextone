@@ -8,11 +8,11 @@ class MusicPlayerOverlay extends StatefulWidget {
   const MusicPlayerOverlay({
     super.key,
     required this.tracks,
-    required this.initialTrackIndex,
+    this.initialTrackIndex,
   });
 
   final List<TrackDto> tracks;
-  final int initialTrackIndex;
+  final int? initialTrackIndex;
 
   @override
   State<MusicPlayerOverlay> createState() => _MusicPlayerOverlayState();
@@ -26,7 +26,10 @@ class _MusicPlayerOverlayState extends State<MusicPlayerOverlay> {
   void initState() {
     super.initState();
     _audioService = nextOneCoreSL.get<IAudioService>();
-    _currentIndex = widget.initialTrackIndex;
+
+    // If initialTrackIndex is not null, use it to set the current index
+    _currentIndex = widget.initialTrackIndex ?? 0;
+
     _audioService.playTracks(
       tracks: widget.tracks,
       initialIndex: _currentIndex,

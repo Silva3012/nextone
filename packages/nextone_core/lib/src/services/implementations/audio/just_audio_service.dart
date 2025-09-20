@@ -22,9 +22,21 @@ class JustAudioService implements IAudioService {
       _isPlayingController.add(ps.playing);
       _processingStateController.add(ps.processingState);
     });
-    _audioPlayer.positionStream.listen((p) => _positionController.add(p));
-    _audioPlayer.durationStream.listen((d) => _durationController.add(d));
+
+    _audioPlayer.positionStream.listen(_positionController.add);
+    _audioPlayer.durationStream.listen(_durationController.add);
+
+    // Update current track on index change
+    _audioPlayer.currentIndexStream.listen((index) {
+      if (index != null &&
+          _playlistTracks.isNotEmpty &&
+          index < _playlistTracks.length) {
+        _currentTrackController.add(_playlistTracks[index]);
+      }
+    });
   }
+
+  List<TrackDto> _playlistTracks = [];
 
   @override
   Stream<Duration?> get duration$ => _durationController.stream;
@@ -40,7 +52,9 @@ class JustAudioService implements IAudioService {
         processingState$,
         isPlaying$,
         (processingState, isPlaying) => PlaybackButtonState(
-            processingState: processingState, isPlaying: isPlaying),
+          processingState: processingState,
+          isPlaying: isPlaying,
+        ),
       );
 
   @override
@@ -50,6 +64,7 @@ class JustAudioService implements IAudioService {
 
   @override
   Future<void> playTrack({required TrackDto track}) async {
+    _playlistTracks = [track];
     _currentTrackController.add(track);
     await _audioPlayer.setUrl(track.audioUrl);
     await _audioPlayer.play();
@@ -58,6 +73,7 @@ class JustAudioService implements IAudioService {
   @override
   Future<void> playTracks(
       {required List<TrackDto> tracks, required int initialIndex}) async {
+    _playlistTracks = tracks;
     final sources = tracks
         .map((track) => AudioSource.uri(Uri.parse(track.audioUrl)))
         .toList();
@@ -83,6 +99,40 @@ class JustAudioService implements IAudioService {
 
   @override
   Future<void> stop() => _audioPlayer.stop();
+
+  @override
+  Future<void> nextTrack() async {
+    if (_audioPlayer.hasNext) await _audioPlayer.seekToNext();
+  }
+
+  @override
+  Future<void> previousTrack() async {
+    if (_audioPlayer.hasPrevious) await _audioPlayer.seekToPrevious();
+  }
+
+  @override
+  Future<void> toggleShuffleMode() async {
+    // ignore: await_only_futures
+    final current = await _audioPlayer.shuffleModeEnabled;
+    await _audioPlayer.setShuffleModeEnabled(!current);
+  }
+
+  @override
+  Future<void> cycleLoopMode() async {
+    final current = _audioPlayer.loopMode;
+    final next = switch (current) {
+      LoopMode.off => LoopMode.all,
+      LoopMode.all => LoopMode.one,
+      LoopMode.one => LoopMode.off,
+    };
+    await _audioPlayer.setLoopMode(next);
+  }
+
+  @override
+  Stream<bool> get shuffleModeEnabled$ => _audioPlayer.shuffleModeEnabledStream;
+
+  @override
+  Stream<LoopMode> get loopMode$ => _audioPlayer.loopModeStream;
 
   @override
   void dispose() {
