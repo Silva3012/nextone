@@ -9,6 +9,8 @@ abstract class IAudioService {
   Stream<TrackDto?> get currentTrack$;
   Stream<ProcessingState> get processingState$;
   Stream<PlaybackButtonState> get playbackButtonState$;
+  Stream<bool> get shuffleModeEnabled$;
+  Stream<LoopMode> get loopMode$;
 
   Future<void> playTrack({required TrackDto track});
   Future<void> playTracks(
@@ -17,5 +19,11 @@ abstract class IAudioService {
   Future<void> pause();
   Future<void> seek({required Duration position});
   Future<void> stop();
+
+  Future<void> nextTrack();
+  Future<void> previousTrack();
+  Future<void> toggleShuffleMode();
+  Future<void> cycleLoopMode();
+
   void dispose();
 }
