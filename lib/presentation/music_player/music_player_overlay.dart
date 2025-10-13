@@ -7,11 +7,13 @@ import 'package:nextone_core/nextone_core_export.dart';
 class MusicPlayerOverlay extends StatefulWidget {
   const MusicPlayerOverlay({
     super.key,
-    required this.tracks,
+    this.audioService,
+    this.tracks,
     this.initialTrackIndex,
   });
 
-  final List<TrackDto> tracks;
+  final IAudioService? audioService;
+  final List<TrackDto>? tracks;
   final int? initialTrackIndex;
 
   @override
@@ -31,7 +33,7 @@ class _MusicPlayerOverlayState extends State<MusicPlayerOverlay> {
     _currentIndex = widget.initialTrackIndex ?? 0;
 
     _audioService.playTracks(
-      tracks: widget.tracks,
+      tracks: widget.tracks ?? [],
       initialIndex: _currentIndex,
     );
   }
@@ -51,7 +53,7 @@ class _MusicPlayerOverlayState extends State<MusicPlayerOverlay> {
             ),
           ),
           child: MusicPlayerBody(
-            tracks: widget.tracks,
+            tracks: widget.tracks ?? [],
             currentIndex: _currentIndex,
             audioService: _audioService,
             scrollController: scrollController,

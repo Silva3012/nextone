@@ -118,9 +118,10 @@ class MiniPlayerBar extends StatelessWidget {
             context: context,
             isScrollControlled: true,
             backgroundColor: Colors.transparent,
-            builder: (context) => const MusicPlayerOverlay(
-              tracks: [], // optionally pass full playlist if available
-              initialTrackIndex: null,
+            builder: (context) => MusicPlayerOverlay(
+              audioService: audioService,
+              tracks: [track],
+              initialTrackIndex: 0,
             ),
           );
         });
