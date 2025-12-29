@@ -50,9 +50,7 @@ mixin _$ArtistDashboardEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of ArtistDashboardEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ArtistDashboardEventCopyWith<ArtistDashboardEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -77,8 +75,6 @@ class _$ArtistDashboardEventCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ArtistDashboardEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -112,8 +108,6 @@ class __$$OnGetTracksImplCopyWithImpl<$Res>
       _$OnGetTracksImpl _value, $Res Function(_$OnGetTracksImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistDashboardEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,9 +147,7 @@ class _$OnGetTracksImpl implements OnGetTracks {
   @override
   int get hashCode => Object.hash(runtimeType, artistId);
 
-  /// Create a copy of ArtistDashboardEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$OnGetTracksImplCopyWith<_$OnGetTracksImpl> get copyWith =>
@@ -224,11 +216,8 @@ abstract class OnGetTracks implements ArtistDashboardEvent {
 
   @override
   String get artistId;
-
-  /// Create a copy of ArtistDashboardEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$OnGetTracksImplCopyWith<_$OnGetTracksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -241,9 +230,7 @@ mixin _$ArtistDashboardState {
   List<TrackDto> get tracks => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ArtistDashboardStateCopyWith<ArtistDashboardState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -275,8 +262,6 @@ class _$ArtistDashboardStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -310,8 +295,6 @@ class _$ArtistDashboardStateCopyWithImpl<$Res,
     ) as $Val);
   }
 
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ArtistDtoCopyWith<$Res> get artist {
@@ -348,8 +331,6 @@ class __$$ArtistDashboardStateImplCopyWithImpl<$Res>
       $Res Function(_$ArtistDashboardStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -436,9 +417,7 @@ class _$ArtistDashboardStateImpl implements _ArtistDashboardState {
   int get hashCode => Object.hash(runtimeType, isLoading, hasError, artist,
       const DeepCollectionEquality().hash(_tracks), errorMessage);
 
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ArtistDashboardStateImplCopyWith<_$ArtistDashboardStateImpl>
@@ -465,11 +444,8 @@ abstract class _ArtistDashboardState implements ArtistDashboardState {
   List<TrackDto> get tracks;
   @override
   String? get errorMessage;
-
-  /// Create a copy of ArtistDashboardState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ArtistDashboardStateImplCopyWith<_$ArtistDashboardStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

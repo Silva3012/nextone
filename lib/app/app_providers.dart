@@ -20,6 +20,9 @@ class AppProviders extends StatelessWidget {
         BlocProvider<ArtistDashboardBloc>(
           create: (context) => nextOneCoreSL<ArtistDashboardBloc>(),
         ),
+        BlocProvider<OnboardingAiBloc>(
+          create: (context) => nextOneCoreSL<OnboardingAiBloc>(),
+        ),
       ],
       child: child,
     );
