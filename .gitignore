@@ -63,3 +63,17 @@ app.*.map.json
 
 # Firebase local project config
 firebase.json
+
+# Xcode project user data and build artifacts
+**/xcuserdata/
+**/xcshareddata/WorkspaceSettings.xcsettings
+**/DerivedData/
+**/Pods/
+**/*.xcodeproj/project.xcworkspace/
+**/*.xcodeproj/xcuserdata/
+
+# Runner build artifacts
+ios/Runner.xcworkspace/
+ios/Flutter/Generated.xcconfig
+macos/Runner.xcworkspace/
+macos/Flutter/Generated.xcconfig
