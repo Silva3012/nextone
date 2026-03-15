@@ -5,10 +5,14 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
+
+
 
 # IntelliJ related
 *.iml
@@ -45,3 +49,31 @@ app.*.map.json
 
 # Environment variables
 .env
+
+# FVM configuration & cache
+.fvm/
+.fvmrc
+
+# IDE local settings
+.vscode/
+
+# Local google services configs
+**/google-services.json
+**/GoogleService-Info.plist
+
+# Firebase local project config
+firebase.json
+
+# Xcode project user data and build artifacts
+**/xcuserdata/
+**/xcshareddata/WorkspaceSettings.xcsettings
+**/DerivedData/
+**/Pods/
+**/*.xcodeproj/project.xcworkspace/
+**/*.xcodeproj/xcuserdata/
+
+# Runner build artifacts
+ios/Runner.xcworkspace/
+ios/Flutter/Generated.xcconfig
+macos/Runner.xcworkspace/
+macos/Flutter/Generated.xcconfig
