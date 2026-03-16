@@ -193,8 +193,7 @@ class MusicPlayerBody extends StatelessWidget {
                 icon = Icons.repeat;
                 break;
               case LoopMode.off:
-              default:
-                icon = Icons.repeat;
+              icon = Icons.repeat;
             }
             return IconButton(
               icon: Icon(
