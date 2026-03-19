@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:marquee/marquee.dart';
-import 'package:models/models.dart';
+import 'package:nextone/nextone.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/app/theme/nextone_text_styles.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/presentation/music_player/music_player_overlay.dart';
-import 'package:nextone_core/nextone_core_export.dart';
 
 class MiniPlayerBar extends StatelessWidget {
   const MiniPlayerBar({super.key});

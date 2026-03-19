@@ -1,0 +1,13 @@
+{
+    "task_id": "refactor-001",
+    "feature": "flutter-architecture-refactor",
+    "objective": "Refactor the existing NextOne Flutter app to follow Flutter best practices using Clean Architecture and BLoC, remove hook widgets, remove unnecessary package-driven patterns, and consolidate architecture into the lib folder instead of monorepo-style structure.",
+    "platform": "mobile",
+    "constraints": [
+        "Remove HookWidget usage",
+        "Use StatelessWidget or StatefulWidget",
+        "Use BLoC for state management",
+        "Follow Clean Architecture",
+        "Avoid unnecessary dependencies"
+    ]
+}

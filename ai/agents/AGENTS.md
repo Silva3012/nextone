@@ -25,9 +25,15 @@ The MVP prioritises:
 ## Core Tech Stack
 - Mobile: Flutter
 - Web: React + Vite
-- Architecture: Clean Architecture
-- State Management (mobile): BLoC
-- Backend/Data: Firebase and supporting APIs where needed
+- Backend: Supabase (PostgreSQL, Auth, Storage)
+- Firebase: used only for app distribution and AI-related features
+
+## Backend Rules
+- Use Supabase as the primary backend
+- Use PostgreSQL schema design
+- Use Supabase client for data access
+- Use Supabase Storage for file uploads (e.g. songs)
+- Do NOT use Firebase for core data or APIs
 
 ## Architecture Rules
 All generated code must follow project architecture conventions.
