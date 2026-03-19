@@ -22,7 +22,9 @@ class ArtistRepository implements IArtistRepository {
           .eq('artistId', artistId)
           .single();
 
-      return ArtistDto.fromJson(response);
+      final artist = ArtistApiResponse.fromJson(response);
+
+      return ArtistDto.fromApiResponse(artist);
     } catch (e) {
       log(e.toString());
       rethrow;
@@ -84,7 +86,10 @@ class ArtistRepository implements IArtistRepository {
           .select()
           .eq('artistId', artistId);
 
-      return response.map((track) => TrackDto.fromJson(track)).toList();
+      return response
+          .map((track) =>
+              TrackDto.fromApiResponse(TracksApiResponse.fromJson(track)))
+          .toList();
     } catch (e) {
       log(e.toString());
       rethrow;

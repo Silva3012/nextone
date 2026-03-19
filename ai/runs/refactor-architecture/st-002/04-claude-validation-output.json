@@ -1,0 +1,59 @@
+{
+    "step": "ST-002",
+    "status": "approved_with_notes",
+    "summary": "ST-002 is substantively complete. All three auto_mappr-generated files are deleted, both auto_mappr and auto_mappr_annotation are removed from pubspec.yaml, manual fromApiResponse factory constructors exist on all three DTOs and correctly replicate previous generated field mappings, and thin extension-method wrappers exist in the mapper files. dart analyze reports zero errors and zero warnings — only 4 info-level withOpacity deprecations in presentation widgets that are entirely outside ST-002 scope. Two notes are raised: the .toDto() extension methods in all three mapper files are never invoked by any call site (repositories use DTO.fromApiResponse() directly, making the mapper files effectively dead delegation code), and the mappers_export.dart barrel is re-exported through lib/data/models/models.dart mixing concerns. Neither is a blocker. No scope leakage into ST-003 through ST-008 detected.",
+    "issues": [
+        {
+            "id": "ISSUE-ST002-001",
+            "severity": "minor",
+            "description": "The .toDto() extension methods defined in all three mapper files (artist_mapper.dart, track_mapper.dart, user_credentials_mapper.dart) are never called by any call site in the codebase. Repositories invoke DTO.fromApiResponse() directly. The mapper files are exported through mappers_export.dart → models.dart and are therefore in scope everywhere, but .toDto() is never invoked. The mapping logic lives entirely in the DTO fromApiResponse factories. The mapper files are currently dead delegation wrappers.",
+            "affected_files": [
+                "lib/data/mappers/artist/artist_mapper.dart",
+                "lib/data/mappers/tracks/track_mapper.dart",
+                "lib/data/mappers/user_credentials/user_credentials_mapper.dart",
+                "lib/data/repositories/implementations/artist_repository/artist_repository.dart",
+                "lib/data/repositories/implementations/user_repository/user_repository.dart"
+            ],
+            "evidence": "grep -rn '.toDto()' lib/ returned zero matches. Repositories call ArtistDto.fromApiResponse(artist), UserCredentialsDto.fromApiResponse(user), and TrackDto.fromApiResponse(TracksApiResponse.fromJson(track)) directly."
+        },
+        {
+            "id": "ISSUE-ST002-002",
+            "severity": "minor",
+            "description": "lib/data/models/models.dart exports mappers_export.dart (which re-exports all three mapper extension files) alongside model classes. This mixes data-model and mapping-extension concerns in the same barrel. ARCHITECTURE.md Section 2 does not include models.dart or mappers_export.dart in the target tree. This barrel pattern was carried forward from ST-001 and was not introduced by ST-002, but ST-002 did not remediate it.",
+            "affected_files": [
+                "lib/data/models/models.dart",
+                "lib/data/mappers/mappers_export.dart"
+            ],
+            "evidence": "lib/data/models/models.dart:5 exports '../mappers/mappers_export.dart'. ARCHITECTURE.md Section 2 lists no models.dart or mappers_export.dart barrel files."
+        },
+        {
+            "id": "ISSUE-ST002-003",
+            "severity": "info",
+            "description": "dart analyze reports 4 info-level withOpacity deprecation warnings in presentation layer files (mini_player_bar.dart, auth_error_widget.dart x2, nextone_text_field.dart). These are entirely outside ST-002 scope and are pre-existing. Zero errors and zero warnings are present.",
+            "affected_files": [
+                "lib/presentation/music_player/mini_player_bar.dart",
+                "lib/presentation/shared/widgets/auth_error_widget.dart",
+                "lib/presentation/shared/widgets/nextone_text_field.dart"
+            ],
+            "evidence": "dart analyze lib/: 4 issues found, all info-level deprecated_member_use for withOpacity. Scope: ST-003 (nextone_text_field.dart) and ST-008 (remaining two files)."
+        }
+    ],
+    "fix_instructions": [
+        {
+            "issue_id": "ISSUE-ST002-001",
+            "when": "ST-008 (final cleanup)",
+            "action": "Choose one of two remediation paths and apply consistently: (A) Preferred — delete the three mapper extension files (artist_mapper.dart, track_mapper.dart, user_credentials_mapper.dart) and mappers_export.dart entirely, since the fromApiResponse factories on each DTO already provide the mapping surface and are used directly by all call sites. Remove the mappers_export.dart export from models.dart. (B) Alternative — update all repository call sites to use .toDto() via the extension methods and remove the fromApiResponse call from repositories, keeping the mapper files as the sole mapping surface. Either path must be applied consistently across all three mappers and their call sites."
+        },
+        {
+            "issue_id": "ISSUE-ST002-002",
+            "when": "ST-008 (final cleanup)",
+            "action": "If path (A) above is chosen for ISSUE-ST002-001, remove the mappers_export.dart export line from lib/data/models/models.dart and delete the mappers_export.dart file. If path (B) is chosen, keep the barrel but move it to a dedicated lib/data/mappers/mappers_export.dart that is imported directly by call sites rather than re-exported through the models barrel."
+        },
+        {
+            "issue_id": "ISSUE-ST002-003",
+            "when": "ST-003 for nextone_text_field.dart; ST-008 for the remaining two presentation files",
+            "action": "Replace .withOpacity(x) with .withValues(alpha: x) at each flagged call site when those files are touched in their respective subtasks."
+        }
+    ],
+    "confidence": "high"
+}

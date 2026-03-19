@@ -37,6 +37,9 @@ migrate_working_dir/
 /build/
 /pubspec.lock
 
+# Freezed generated files
+*.freezed.dart
+
 # Symbolication related
 app.*.symbols
 

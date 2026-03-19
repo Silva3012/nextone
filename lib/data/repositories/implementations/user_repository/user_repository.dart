@@ -21,7 +21,9 @@ class UserRepository implements IUserRepository {
           .eq('uid', userId)
           .single();
 
-      return UserCredentialsDto.fromJson(response);
+      final user = UserCredentialsApiResponse.fromJson(response);
+
+      return UserCredentialsDto.fromApiResponse(user);
     } catch (e) {
       log(e.toString());
       rethrow;
