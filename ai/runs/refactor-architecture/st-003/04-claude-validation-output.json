@@ -1,0 +1,36 @@
+{
+    "step": "ST-003",
+    "status": "approved_with_notes",
+    "summary": "All 8 targeted files have been correctly converted from HookWidget to StatefulWidget. No flutter_hooks imports remain anywhere in lib/. flutter_hooks is correctly retained in pubspec.yaml (ST-004 scope). All TextEditingControllers are disposed in dispose(). The Timer in loading_splash_page is nullable and cancelled in dispose() with an additional !mounted guard in the callback. nextone_text_field correctly implements the optional-external-controller pattern with a didUpdateWidget override that handles controller switching — exceeding the ARCHITECTURE.md spec. BLoC event dispatch and state observation are functionally equivalent to the prior hook-based approach. Two minor deviations from the architecture spec are noted but are functionally safe and do not block progression to ST-004.",
+    "issues": [
+        {
+            "id": "ISSUE-001",
+            "severity": "minor",
+            "file": "lib/presentation/loading_splash/loading_splash_page.dart",
+            "description": "After the timer fires at progress >= 1.0, a Future.delayed of 500ms is started and then calls router.popAndPush(). There is no mounted check inside the Future.delayed callback. The router object is captured before the delay, which avoids direct setState-after-dispose, but if the widget is disposed during those 500ms the navigation call fires on a stale router reference. ARCHITECTURE.md risk mitigation for this file states: 'cancel in dispose() — ensures no setState after dispose'. The dispose() cancel is present, but the delayed navigation after the timer completes is not guarded.",
+            "evidence": "lib/presentation/loading_splash/loading_splash_page.dart lines 46-49: Future.delayed(const Duration(milliseconds: 500), () { router.popAndPush(const ArtistDashboardRoute()); }); — no mounted check inside the closure."
+        },
+        {
+            "id": "ISSUE-002",
+            "severity": "minor",
+            "file": "lib/presentation/sign_up/profile_setup/profile_setup_page.dart",
+            "description": "All four TextEditingControllers have listeners added via ..addListener(_validateForm) in initState. In dispose(), the controllers are disposed directly without first calling removeListener(_validateForm). The ARCHITECTURE.md migration pattern explicitly requires removeListener in dispose(). Disposing a TextEditingController does internally release its ChangeNotifier listeners, so this is functionally safe, but it deviates from the documented pattern.",
+            "evidence": "initState lines 42-45: controllers initialised with ..addListener(_validateForm). dispose() lines 50-54: controllers disposed with no preceding removeListener calls."
+        }
+    ],
+    "fix_instructions": [
+        {
+            "issue_id": "ISSUE-001",
+            "action": "Add a mounted check inside the Future.delayed callback in loading_splash_page.dart. Replace: Future.delayed(const Duration(milliseconds: 500), () { router.popAndPush(const ArtistDashboardRoute()); }); with: Future.delayed(const Duration(milliseconds: 500), () { if (mounted) context.router.popAndPush(const ArtistDashboardRoute()); }); Note: use context.router directly (not a pre-captured reference) so the mounted check is meaningful.",
+            "blocking_subtask": "ST-008",
+            "urgency": "low"
+        },
+        {
+            "issue_id": "ISSUE-002",
+            "action": "In profile_setup_page.dart dispose(), explicitly remove all listeners before disposing controllers to match the ARCHITECTURE.md pattern: stageNameController.removeListener(_validateForm); locationController.removeListener(_validateForm); genreController.removeListener(_validateForm); biographyController.removeListener(_validateForm); — followed by the existing dispose() calls.",
+            "blocking_subtask": "ST-008",
+            "urgency": "low"
+        }
+    ],
+    "confidence": "high"
+}

@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nextone/app/router/app_router.gr.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
@@ -15,42 +14,45 @@ import 'package:nextone/presentation/shared/widgets/nextone_text_field.dart';
 import 'package:nextone/nextone.dart';
 
 @RoutePage()
-class LoginPage extends HookWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool isPasswordVisible = true;
+  late final TextEditingController emailController;
+  late final TextEditingController passwordController;
+  bool isEmailValid = false;
+  bool isPasswordValid = false;
+  bool showError = false;
+  String errorMessage = '';
+
+  @override
+  void initState() {
+    super.initState();
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final isPasswordVisible = useState(true);
-    final emailController = useTextEditingController();
-    final passwordController = useTextEditingController();
-    final isEmailValid = useState(false);
-    final isPasswordValid = useState(false);
-    final showError = useState(false);
-    final errorMessage = useState('');
-
-    final isFormValid = isEmailValid.value && isPasswordValid.value;
+    final isFormValid = isEmailValid && isPasswordValid;
 
     final authState = context.watch<AuthBloc>().state;
     final isLoading = authState.maybeMap(
       loading: (_) => true,
       orElse: () => false,
-    );
-
-    // Handle error states
-    authState.maybeMap(
-      error: (errorState) {
-        if (!showError.value || errorMessage.value != errorState.message) {
-          showError.value = true;
-          errorMessage.value = errorState.message;
-        }
-      },
-      orElse: () {
-        if (showError.value) {
-          showError.value = false;
-          errorMessage.value = '';
-        }
-      },
     );
 
     return Scaffold(
@@ -69,6 +71,26 @@ class LoginPage extends HookWidget {
               context.router.navigate(
                 const ProfileSetupRoute(),
               );
+            },
+            error: (errorState) {
+              if (!showError || errorMessage != errorState.message) {
+                setState(() {
+                  showError = true;
+                  errorMessage = errorState.message;
+                });
+              }
+            },
+          );
+          
+          state.maybeMap(
+            error: (_) {},
+            orElse: () {
+              if (showError) {
+                setState(() {
+                  showError = false;
+                  errorMessage = '';
+                });
+              }
             },
           );
         },
@@ -90,12 +112,14 @@ class LoginPage extends HookWidget {
                           children: [
                             const NextoneLogo(),
                             SizedBox(height: screenHeight * 0.2),
-                            if (showError.value)
+                            if (showError)
                               AuthErrorWidget(
-                                message: errorMessage.value,
+                                message: errorMessage,
                                 onDismiss: () {
-                                  showError.value = false;
-                                  errorMessage.value = '';
+                                  setState(() {
+                                    showError = false;
+                                    errorMessage = '';
+                                  });
                                   context.read<AuthBloc>().add(
                                         const AuthEvent.onAuthChanged(
                                             user: null),
@@ -108,8 +132,9 @@ class LoginPage extends HookWidget {
                               controller: emailController,
                               keyboardType: TextInputType.text,
                               prefixIcon: const Icon(Icons.email),
-                              onValidChanged: (valid) =>
-                                  isEmailValid.value = valid,
+                              onValidChanged: (valid) => setState(() {
+                                isEmailValid = valid;
+                              }),
                             ),
                             height16,
                             NextoneTextField(
@@ -118,15 +143,17 @@ class LoginPage extends HookWidget {
                               controller: passwordController,
                               keyboardType: TextInputType.text,
                               prefixIcon: const Icon(Icons.lock),
-                              onValidChanged: (valid) =>
-                                  isPasswordValid.value = valid,
-                              obscureText: isPasswordVisible.value,
+                              onValidChanged: (valid) => setState(() {
+                                isPasswordValid = valid;
+                              }),
+                              obscureText: isPasswordVisible,
                               suffixIcon: IconButton(
-                                icon: isPasswordVisible.value
+                                icon: isPasswordVisible
                                     ? const Icon(Icons.visibility)
                                     : const Icon(Icons.visibility_off),
-                                onPressed: () => isPasswordVisible.value =
-                                    !isPasswordVisible.value,
+                                onPressed: () => setState(() {
+                                  isPasswordVisible = !isPasswordVisible;
+                                }),
                               ),
                             ),
                             height16,
@@ -152,9 +179,11 @@ class LoginPage extends HookWidget {
                                   ? null
                                   : () {
                                       // Clear any existing errors when attempting login
-                                      if (showError.value) {
-                                        showError.value = false;
-                                        errorMessage.value = '';
+                                      if (showError) {
+                                        setState(() {
+                                          showError = false;
+                                          errorMessage = '';
+                                        });
                                       }
                                       context.read<AuthBloc>().add(
                                             AuthEvent.onLoginRequested(

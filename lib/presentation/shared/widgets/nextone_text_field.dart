@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 
-class NextoneTextField extends HookWidget {
+class NextoneTextField extends StatefulWidget {
   const NextoneTextField({
     super.key,
     this.hintText,
@@ -38,55 +37,104 @@ class NextoneTextField extends HookWidget {
   final int? minLines;
 
   @override
-  Widget build(BuildContext context) {
-    final textController = controller ?? useTextEditingController();
-    final errorText = useState<String?>(null);
-    final isValid = useState<bool>(false);
+  State<NextoneTextField> createState() => _NextoneTextFieldState();
+}
 
-    useEffect(() {
-      void validate() {
-        final value = textController.text;
-        final error = validator?.call(value);
-        final valid = error == null && value.isNotEmpty;
+class _NextoneTextFieldState extends State<NextoneTextField> {
+  TextEditingController? _internalController;
 
-        if (isValid.value != valid) {
-          isValid.value = valid;
-          onValidChanged?.call(valid);
-        }
+  TextEditingController get _effectiveController =>
+      widget.controller ?? _internalController!;
 
-        errorText.value = error;
+  String? _errorText;
+  bool _isValid = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.controller == null) {
+      _internalController = TextEditingController();
+    }
+    _effectiveController.addListener(_validate);
+  }
+
+  @override
+  void didUpdateWidget(NextoneTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.controller != oldWidget.controller) {
+      final oldEffectiveController =
+          oldWidget.controller ?? _internalController!;
+      oldEffectiveController.removeListener(_validate);
+
+      if (widget.controller == null && oldWidget.controller != null) {
+        _internalController =
+            TextEditingController(text: oldWidget.controller!.text);
+      } else if (widget.controller != null && oldWidget.controller == null) {
+        _internalController?.dispose();
+        _internalController = null;
       }
+      _effectiveController.addListener(_validate);
+    }
+  }
 
-      textController.addListener(validate);
-      return () => textController.removeListener(validate);
-    }, [textController]);
+  @override
+  void dispose() {
+    _effectiveController.removeListener(_validate);
+    _internalController?.dispose();
+    super.dispose();
+  }
 
+  void _validate() {
+    final value = _effectiveController.text;
+    final error = widget.validator?.call(value);
+    final valid = error == null && value.isNotEmpty;
+
+    bool needsStateUpdate = false;
+
+    if (_isValid != valid) {
+      _isValid = valid;
+      needsStateUpdate = true;
+      widget.onValidChanged?.call(valid);
+    }
+
+    if (_errorText != error) {
+      _errorText = error;
+      needsStateUpdate = true;
+    }
+
+    if (needsStateUpdate && mounted) {
+      setState(() {});
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final underlineBorderColour =
-        isValid.value ? NextOneColors.success : NextOneColors.error;
+        _isValid ? NextOneColors.success : NextOneColors.error;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextField(
-          controller: textController,
-          keyboardType: keyboardType ??
-              (useOutlineBorder ? TextInputType.multiline : TextInputType.text),
-          textInputAction: textInputAction ??
-              (useOutlineBorder
+          controller: _effectiveController,
+          keyboardType: widget.keyboardType ??
+              (widget.useOutlineBorder ? TextInputType.multiline : TextInputType.text),
+          textInputAction: widget.textInputAction ??
+              (widget.useOutlineBorder
                   ? TextInputAction.newline
                   : TextInputAction.done),
-          obscureText: obscureText ?? false,
-          enabled: enabled,
-          minLines: useOutlineBorder ? (minLines ?? 3) : 1,
-          maxLines: useOutlineBorder ? (maxLines ?? 10) : 1,
+          obscureText: widget.obscureText ?? false,
+          enabled: widget.enabled,
+          minLines: widget.useOutlineBorder ? (widget.minLines ?? 3) : 1,
+          maxLines: widget.useOutlineBorder ? (widget.maxLines ?? 10) : 1,
           onChanged: (_) {},
           decoration: InputDecoration(
-            hintText: hintText,
-            prefixIcon: prefixIcon,
-            suffixIcon: suffixIcon,
-            filled: filled,
-            fillColor: filled ? NextOneColors.surface.withOpacity(0.9) : null,
-            border: useOutlineBorder
+            hintText: widget.hintText,
+            prefixIcon: widget.prefixIcon,
+            suffixIcon: widget.suffixIcon,
+            filled: widget.filled,
+            fillColor: widget.filled ? NextOneColors.surface.withOpacity(0.9) : null,
+            border: widget.useOutlineBorder
                 ? OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                     borderSide:
@@ -96,7 +144,7 @@ class NextoneTextField extends HookWidget {
                       color: underlineBorderColour,
                     ),
                   ),
-            enabledBorder: useOutlineBorder
+            enabledBorder: widget.useOutlineBorder
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: underlineBorderColour),
@@ -106,7 +154,7 @@ class NextoneTextField extends HookWidget {
                       color: underlineBorderColour,
                     ),
                   ),
-            focusedBorder: useOutlineBorder
+            focusedBorder: widget.useOutlineBorder
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide:
@@ -119,11 +167,11 @@ class NextoneTextField extends HookWidget {
             errorText: null,
           ),
         ),
-        if (errorText.value != null)
+        if (_errorText != null)
           Padding(
             padding: paddindLeft12top4bottom4,
             child: Text(
-              errorText.value!,
+              _errorText!,
               style: const TextStyle(color: NextOneColors.error, fontSize: 12),
             ),
           ),
