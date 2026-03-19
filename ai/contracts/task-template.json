@@ -1,0 +1,28 @@
+{
+    "task_id": "feature-001",
+    "feature": "example feature",
+    "objective": "Describe what needs to be built or refactored",
+    "platform": "mobile|web|both",
+    "project_context": {
+        "product": "NextOne",
+        "mobile": "Flutter",
+        "web": "React + Vite",
+        "architecture": "Clean Architecture",
+        "state_management_mobile": "BLoC"
+    },
+    "constraints": [
+        "Follow repository architecture",
+        "Do not invent missing APIs",
+        "Keep scope MVP-friendly"
+    ],
+    "existing_context": [
+        "Any relevant current codebase details"
+    ],
+    "expected_outputs": [
+        "plan",
+        "ui",
+        "backend",
+        "tests",
+        "validation"
+    ]
+}
