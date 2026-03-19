@@ -1,0 +1,39 @@
+{
+    "feature": "",
+    "goal": "",
+    "user_flow": [],
+    "mobile_ui_spec": {
+        "screens": [],
+        "widgets": [],
+        "bloc": {
+            "events": [],
+            "states": []
+        },
+        "validation_rules": []
+    },
+    "web_ui_spec": {
+        "pages": [],
+        "components": [],
+        "hooks": [],
+        "validation_rules": []
+    },
+    "backend_spec": {
+        "entities": [],
+        "models": [],
+        "use_cases": [],
+        "repositories": [],
+        "datasources": [],
+        "endpoints": [],
+        "input_contracts": [],
+        "output_contracts": [],
+        "error_cases": []
+    },
+    "test_spec": {
+        "unit_tests": [],
+        "bloc_tests": [],
+        "widget_tests": [],
+        "integration_tests": []
+    },
+    "assumptions": [],
+    "risks": []
+}
