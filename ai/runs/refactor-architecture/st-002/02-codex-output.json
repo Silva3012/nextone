@@ -1,0 +1,68 @@
+{
+    "step": "ST-002",
+    "files_modified": [
+        {
+            "path": "lib/data/models/dto/artist_dto/artist_dto.dart",
+            "purpose": "Added explicit ArtistDto.fromApiResponse factory for manual mapping from ArtistApiResponse."
+        },
+        {
+            "path": "lib/data/models/dto/tracks/track_dto.dart",
+            "purpose": "Added explicit TrackDto.fromApiResponse factory for manual mapping from TracksApiResponse."
+        },
+        {
+            "path": "lib/data/models/dto/user_credentials/user_credentials_dto.dart",
+            "purpose": "Added explicit UserCredentialsDto.fromApiResponse factory for manual mapping from UserCredentialsApiResponse."
+        },
+        {
+            "path": "lib/data/mappers/artist/artist_mapper.dart",
+            "purpose": "Replaced auto_mappr-based mapper with explicit extension method for ArtistApiResponse to ArtistDto conversion."
+        },
+        {
+            "path": "lib/data/mappers/tracks/track_mapper.dart",
+            "purpose": "Replaced auto_mappr-based mapper with explicit extension method for TracksApiResponse to TrackDto conversion."
+        },
+        {
+            "path": "lib/data/mappers/user_credentials/user_credentials_mapper.dart",
+            "purpose": "Replaced auto_mappr-based mapper with explicit extension method for UserCredentialsApiResponse to UserCredentialsDto conversion."
+        },
+        {
+            "path": "lib/data/repositories/implementations/artist_repository/artist_repository.dart",
+            "purpose": "Updated repository reads to deserialize API responses first and then map explicitly to ArtistDto and TrackDto."
+        },
+        {
+            "path": "lib/data/repositories/implementations/user_repository/user_repository.dart",
+            "purpose": "Updated repository reads to deserialize API responses first and then map explicitly to UserCredentialsDto."
+        },
+        {
+            "path": "pubspec.yaml",
+            "purpose": "Removed auto_mappr and auto_mappr_annotation dependencies."
+        },
+        {
+            "path": "pubspec.lock",
+            "purpose": "Refreshed lockfile after removing mapping dependencies."
+        }
+    ],
+    "files_deleted": [
+        "lib/data/mappers/artist/artist_mapper.auto_mappr.dart",
+        "lib/data/mappers/tracks/track_mapper.auto_mappr.dart",
+        "lib/data/mappers/user_credentials/user_credentials_mapper.auto_mappr.dart"
+    ],
+    "summary": "Replaced generated auto_mappr mappings with explicit manual mapping using DTO factory constructors and lightweight extension helpers, updated repository call sites to map via API response models, removed mapping dependencies, and deleted generated mapper files.",
+    "mapping_decisions": [
+        "ArtistApiResponse to ArtistDto is now an explicit field-to-field mapping in ArtistDto.fromApiResponse.",
+        "TracksApiResponse to TrackDto is now an explicit field-to-field mapping in TrackDto.fromApiResponse.",
+        "UserCredentialsApiResponse to UserCredentialsDto is now an explicit field-to-field mapping in UserCredentialsDto.fromApiResponse.",
+        "TrackDto mapping intentionally omits API-only TracksApiResponse fields that were not previously mapped: price, metadata, downloadCount, and createdAt.",
+        "Repository reads now deserialize raw Supabase payloads into API response models before converting to DTOs, making the transformation path explicit."
+    ],
+    "notes": [
+        "Removed auto_mappr_annotation from dependencies in pubspec.yaml.",
+        "Removed auto_mappr from dev_dependencies in pubspec.yaml.",
+        "Generated *.auto_mappr.dart files were deleted after their field mappings were extracted and replicated manually."
+    ],
+    "validation_checks": [
+        "Ran flutter pub get successfully after dependency removal.",
+        "Ran dart analyze successfully with no errors.",
+        "Analyzer still reports 4 pre-existing withOpacity deprecation infos in presentation files outside ST-002 scope."
+    ]
+}

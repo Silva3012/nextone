@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:nextone/data/models/api_responses/artist/artist_api_response.dart';
 
 part 'artist_dto.freezed.dart';
 part 'artist_dto.g.dart';
@@ -32,6 +33,22 @@ class ArtistDto with _$ArtistDto {
         supporterCount: 0,
         profilePictureUrl: null,
       );
+
+  factory ArtistDto.fromApiResponse(ArtistApiResponse response) {
+    return ArtistDto(
+      userId: response.userId,
+      artistId: response.artistId,
+      stageName: response.stageName,
+      location: response.location,
+      biography: response.biography,
+      genre: response.genre,
+      createdAt: response.createdAt,
+      socialLinks: response.socialLinks,
+      profileImages: response.profileImages,
+      supporterCount: response.supporterCount,
+      profilePictureUrl: response.profilePictureUrl,
+    );
+  }
 
   factory ArtistDto.fromJson(Map<String, dynamic> json) =>
       _$ArtistDtoFromJson(json);

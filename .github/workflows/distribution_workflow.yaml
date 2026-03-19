@@ -2,7 +2,7 @@ name: Distribution Workflow
 
 on:
   pull_request:
-    branches: ["develop"]
+    branches: ["develop", "develop-agents"]
     types: 
       - closed
 
@@ -97,20 +97,20 @@ jobs:
           file: build/app/outputs/flutter-apk/app-release.apk
 
       ## Need to sort out iOS distribution and my developer account
-      # - name: Set up CocoaPods
-      #   run: |
-      #     cd ios
-      #     pod install
-      #     cd ..
+      - name: Set up CocoaPods
+        run: |
+          cd ios
+          pod install
+          cd ..
       
-      # - name: Build iOS IPA
-      #   run: |
-      #     flutter build ipa --debug --no-codesign --build-number=$BUILD_NUMBER
+      - name: Build iOS IPA
+        run: |
+          flutter build ipa --debug --no-codesign --build-number=$BUILD_NUMBER
 
-      # - name: Distribute IOS via Firebase
-      #   uses: emertozd/Firebase-Distribution-Github-Action@v2
-      #   with:
-      #     appId: ${{secrets.FIREBASE_IOS_APP_ID}}
-      #     serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
-      #     groups: testers
-      #     file: build/ios/ipa/*.ipa
+      - name: Distribute IOS via Firebase
+        uses: emertozd/Firebase-Distribution-Github-Action@v2
+        with:
+          appId: ${{secrets.FIREBASE_IOS_APP_ID}}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIAL_FILE_CONTENT}}
+          groups: testers
+          file: build/ios/ipa/*.ipa
