@@ -29,12 +29,6 @@ jobs:
       - name: Install dependencies
         run: |
           flutter pub get
-          cd packages/models
-          flutter pub get
-          cd ../..
-          cd packages/nextone_core
-          flutter pub get
-          cd ../..
       
       - name: Auto format Dart code
         run: dart format .
