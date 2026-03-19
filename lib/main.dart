@@ -4,7 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:nextone/app/app_providers.dart';
 import 'package:nextone/core/config/app_bloc_observer.dart';
 import 'package:nextone/core/supabase/supabase_initializer.dart';
-import 'package:nextone_core/nextone_core_export.dart';
+import 'package:nextone/nextone.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'app/app.dart';

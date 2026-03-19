@@ -12,7 +12,7 @@ import 'package:nextone/presentation/login/widgets/login_footer.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_logo.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_text_field.dart';
-import 'package:nextone_core/nextone_core_export.dart';
+import 'package:nextone/nextone.dart';
 
 @RoutePage()
 class LoginPage extends HookWidget {

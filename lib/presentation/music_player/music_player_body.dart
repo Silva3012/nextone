@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:models/models.dart';
+import 'package:nextone/nextone.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
-import 'package:nextone_core/nextone_core_export.dart';
 
 class MusicPlayerBody extends StatelessWidget {
   const MusicPlayerBody({

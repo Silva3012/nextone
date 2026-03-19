@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:models/models.dart';
+import 'package:nextone/nextone.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/presentation/music_player/music_player_body.dart';
-import 'package:nextone_core/nextone_core_export.dart';
 
 class MusicPlayerOverlay extends StatefulWidget {
   const MusicPlayerOverlay({

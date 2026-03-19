@@ -1,0 +1,423 @@
+{
+    "task_id": "refactor-001",
+    "feature": "flutter-architecture-refactor",
+    "status": "defined",
+    "platform": "mobile",
+    "summary": "Refactor NextOne Flutter app: remove flutter_hooks/HookWidget, migrate to StatefulWidget where local state is needed, consolidate monorepo packages (nextone_core + models) into lib/ using Clean Architecture layers, and remove auto_mappr in favour of direct mapping.",
+    "architecture": {
+        "target_structure": {
+            "lib/": {
+                "main.dart": "Entry point — unchanged",
+                "firebase_options.dart": "Firebase config — unchanged",
+                "app/": {
+                    "app.dart": "Root widget",
+                    "app_providers.dart": "MultiBlocProvider setup",
+                    "router/": "auto_route config + generated",
+                    "theme/": "Colors, text styles, theme"
+                },
+                "core/": {
+                    "config/": "AppBlocObserver",
+                    "constants/": "Spacing, semantics constants",
+                    "supabase/": "SupabaseConfig, SupabaseInitializer",
+                    "injection/": "GetIt setup (moved from nextone_core package)",
+                    "error/": "Failure types / result types (optional)"
+                },
+                "data/": {
+                    "models/": "Freezed models (API responses, DTOs — moved from packages/models)",
+                    "mappers/": "Manual extension-based mappers replacing auto_mappr",
+                    "repositories/": {
+                        "interfaces/": "Abstract repository contracts",
+                        "implementations/": "Supabase-backed implementations"
+                    },
+                    "services/": {
+                        "interfaces/": "Abstract service contracts",
+                        "implementations/": "Auth, audio implementations"
+                    }
+                },
+                "domain/": {
+                    "entities/": "Pure Dart domain entities (User, Artist, Track)",
+                    "repositories/": "Domain-level repository interfaces (if different from data layer)"
+                },
+                "application/": {
+                    "auth/": "AuthBloc, AuthEvent, AuthState",
+                    "artist_dashboard/": "ArtistDashboardBloc, events, states",
+                    "onboarding_ai/": "OnboardingAiBloc, events, states",
+                    "music_player/": "MusicPlayerBloc, events, states (if not yet present)"
+                },
+                "presentation/": "All page and widget files (current structure retained)"
+            }
+        },
+        "removed_packages": [
+            "packages/nextone_core",
+            "packages/models"
+        ],
+        "removed_dependencies": [
+            "flutter_hooks",
+            "auto_mappr",
+            "auto_mappr_annotation"
+        ],
+        "retained_dependencies": [
+            "flutter_bloc",
+            "auto_route",
+            "supabase_flutter",
+            "injectable",
+            "get_it",
+            "freezed",
+            "json_serializable",
+            "just_audio",
+            "audio_service",
+            "firebase_ai",
+            "rxdart",
+            "image_picker",
+            "flutter_svg",
+            "marquee"
+        ]
+    },
+    "subtasks": [
+        {
+            "id": "ST-001",
+            "title": "Consolidate packages into lib/",
+            "type": "architecture",
+            "priority": 1,
+            "scope": "Move all Dart source from packages/nextone_core/lib/src/ and packages/models/lib/src/ into lib/. Update all import paths. Remove packages/ directory. Update root pubspec.yaml to remove local package path dependencies.",
+            "steps": [
+                "Copy packages/models/lib/src/ → lib/data/models/ (api_responses, dto) and lib/data/mappers/",
+                "Copy packages/nextone_core/lib/src/application/ → lib/application/",
+                "Copy packages/nextone_core/lib/src/services/ → lib/data/services/",
+                "Copy packages/nextone_core/lib/src/repositories/ → lib/data/repositories/",
+                "Copy packages/nextone_core/lib/src/injection/ → lib/core/injection/",
+                "Delete packages/ directory",
+                "Update root pubspec.yaml: remove 'nextone_core' and 'models' path dependencies, absorb their dependencies directly",
+                "Run global find-and-replace on all lib/ imports: replace 'package:nextone_core/' and 'package:models/' with 'package:nextone/'",
+                "Verify no broken imports remain"
+            ],
+            "files_affected": [
+                "pubspec.yaml",
+                "lib/**/*.dart",
+                "packages/**/*.dart (source, then deleted)"
+            ],
+            "acceptance_criteria": [
+                "flutter pub get succeeds with no package resolution errors",
+                "dart analyze reports zero errors",
+                "No import references package:nextone_core or package:models"
+            ]
+        },
+        {
+            "id": "ST-002",
+            "title": "Replace auto_mappr with manual mappers",
+            "type": "architecture",
+            "priority": 2,
+            "scope": "Remove auto_mappr and auto_mappr_annotation. Write plain Dart extension methods or static factory constructors for each mapper that was generated.",
+            "mappers_to_replace": [
+                {
+                    "file": "lib/data/mappers/artist/artist_mapper.dart",
+                    "from_type": "ArtistApiResponse",
+                    "to_type": "ArtistDto",
+                    "approach": "ArtistDto.fromApiResponse(ArtistApiResponse response) factory constructor or extension on ArtistApiResponse"
+                },
+                {
+                    "file": "lib/data/mappers/tracks/track_mapper.dart",
+                    "from_type": "TracksApiResponse",
+                    "to_type": "TrackDto",
+                    "approach": "TrackDto.fromApiResponse factory constructor"
+                },
+                {
+                    "file": "lib/data/mappers/user_credentials/user_credentials_mapper.dart",
+                    "from_type": "UserCredentialsApiResponse",
+                    "to_type": "UserCredentialsDto",
+                    "approach": "UserCredentialsDto.fromApiResponse factory constructor"
+                }
+            ],
+            "steps": [
+                "Read each *.auto_mappr.dart generated file to understand current field mappings",
+                "Write fromApiResponse factory constructor or toDto() extension for each mapper",
+                "Update repository/service files that call mapper methods to use new pattern",
+                "Remove auto_mappr and auto_mappr_annotation from all pubspec.yaml files",
+                "Delete *.auto_mappr.dart generated files",
+                "Run dart analyze to confirm no missing references"
+            ],
+            "acceptance_criteria": [
+                "No auto_mappr imports anywhere in lib/",
+                "All DTO conversions compile and return correct types",
+                "dart analyze reports zero errors"
+            ]
+        },
+        {
+            "id": "ST-003",
+            "title": "Convert HookWidget pages to StatefulWidget",
+            "type": "ui",
+            "priority": 3,
+            "scope": "Replace all 8 HookWidget usages with StatelessWidget or StatefulWidget. Move local state to StatefulWidget state. TextEditingControllers go in State with initState/dispose lifecycle.",
+            "files_to_convert": [
+                {
+                    "file": "lib/presentation/login/login_page.dart",
+                    "current": "HookWidget",
+                    "target": "StatefulWidget",
+                    "hook_replacements": {
+                        "useTextEditingController() for email": "TextEditingController in State, dispose in dispose()",
+                        "useTextEditingController() for password": "TextEditingController in State, dispose in dispose()",
+                        "useState<bool>(false) for passwordVisible": "_passwordVisible bool field in State, setState() on toggle"
+                    },
+                    "bloc_access": "Keep context.watch<AuthBloc>() via BlocBuilder, context.read<AuthBloc>() stays unchanged"
+                },
+                {
+                    "file": "lib/presentation/sign_up/sign_up_page.dart",
+                    "current": "HookWidget",
+                    "target": "StatefulWidget",
+                    "hook_replacements": {
+                        "useTextEditingController()": "TextEditingController fields in State with dispose",
+                        "useState<bool>() for visibility": "bool fields with setState",
+                        "useState<String?>() for errors": "String? fields with setState"
+                    }
+                },
+                {
+                    "file": "lib/presentation/sign_up/profile_setup/profile_setup_page.dart",
+                    "current": "HookWidget",
+                    "target": "StatefulWidget",
+                    "hook_replacements": {
+                        "useTextEditingController()": "TextEditingController in State",
+                        "useState()": "equivalent State fields"
+                    }
+                },
+                {
+                    "file": "lib/presentation/sign_up/role_selection/role_selection_page.dart",
+                    "current": "HookWidget",
+                    "target": "StatefulWidget",
+                    "hook_replacements": {
+                        "useState<String?>() for selectedRole": "_selectedRole String? in State, setState() on change"
+                    }
+                },
+                {
+                    "file": "lib/presentation/sign_up/upload_profile_picture/upload_profile_picture.dart",
+                    "current": "HookWidget",
+                    "target": "StatefulWidget",
+                    "hook_replacements": {
+                        "useState<File?>()": "File? _imageFile in State",
+                        "useState<String?>() for error": "String? _errorMessage in State"
+                    }
+                },
+                {
+                    "file": "lib/presentation/loading_splash/loading_splash_page.dart",
+                    "current": "HookWidget",
+                    "target": "StatefulWidget",
+                    "hook_replacements": {
+                        "useState() for progress": "double _progress in State",
+                        "useEffect() with Timer": "Timer in initState(), cancel in dispose()"
+                    }
+                },
+                {
+                    "file": "lib/presentation/shared/widgets/nextone_text_field.dart",
+                    "current": "HookWidget",
+                    "target": "StatefulWidget",
+                    "hook_replacements": {
+                        "useState<String?>() for errorText": "String? _errorText in State",
+                        "useState<bool>() for isValid": "bool _isValid in State",
+                        "useTextEditingController() as fallback": "Internal TextEditingController if none provided, disposed in dispose()",
+                        "useEffect() with controller listener": "addListener in initState(), removeListener in dispose()"
+                    },
+                    "note": "Accepts optional external TextEditingController param; if null, creates own internally"
+                },
+                {
+                    "file": "lib/presentation/login/forgot_password_page.dart",
+                    "current": "HookWidget",
+                    "target": "StatefulWidget",
+                    "hook_replacements": {
+                        "useTextEditingController()": "TextEditingController in State with dispose"
+                    }
+                }
+            ],
+            "migration_pattern": {
+                "stateful_template": "class MyPage extends StatefulWidget { const MyPage({super.key}); @override State<MyPage> createState() => _MyPageState(); } class _MyPageState extends State<MyPage> { late final TextEditingController _ctrl; @override void initState() { super.initState(); _ctrl = TextEditingController(); } @override void dispose() { _ctrl.dispose(); super.dispose(); } @override Widget build(BuildContext context) { ... } }",
+                "bloc_access": "BlocBuilder<AuthBloc, AuthState> and BlocListener<AuthBloc, AuthState> replace context.watch(). context.read<AuthBloc>().add() stays identical."
+            },
+            "acceptance_criteria": [
+                "Zero imports of flutter_hooks in lib/",
+                "No class extends HookWidget anywhere",
+                "All TextEditingControllers are disposed in State.dispose()",
+                "All pages render correctly with same visual output",
+                "dart analyze reports zero errors"
+            ]
+        },
+        {
+            "id": "ST-004",
+            "title": "Remove flutter_hooks from pubspec.yaml",
+            "type": "dependency",
+            "priority": 4,
+            "scope": "After ST-003 completes, remove flutter_hooks from root pubspec.yaml and run flutter pub get.",
+            "steps": [
+                "Remove 'flutter_hooks: ^0.21.2' from pubspec.yaml dependencies",
+                "Run flutter pub get",
+                "Confirm dart analyze is clean"
+            ],
+            "acceptance_criteria": [
+                "flutter_hooks not in pubspec.yaml",
+                "flutter pub get succeeds",
+                "dart analyze reports zero errors"
+            ]
+        },
+        {
+            "id": "ST-005",
+            "title": "Update injection configuration for consolidated structure",
+            "type": "architecture",
+            "priority": 5,
+            "scope": "After consolidation (ST-001), update lib/core/injection/injection.dart to reference new in-lib paths. Re-run build_runner to regenerate injection.config.dart.",
+            "steps": [
+                "Update all @module and @injectable annotations imports to use package:nextone/ paths",
+                "Run: flutter pub run build_runner build --delete-conflicting-outputs",
+                "Verify injection.config.dart regenerated correctly",
+                "Ensure AppProviders and main.dart call configureDependencies() correctly"
+            ],
+            "acceptance_criteria": [
+                "Dependency injection works at runtime (no LookupError)",
+                "injection.config.dart uses package:nextone/ imports only",
+                "App boots without DI errors"
+            ]
+        },
+        {
+            "id": "ST-006",
+            "title": "Regenerate auto_route after consolidation",
+            "type": "architecture",
+            "priority": 6,
+            "scope": "After ST-001, re-run auto_route code generation to regenerate app_router.gr.dart with correct import paths.",
+            "steps": [
+                "Run: flutter pub run build_runner build --delete-conflicting-outputs",
+                "Verify app_router.gr.dart imports use package:nextone/ paths",
+                "Test all routes navigate correctly"
+            ],
+            "acceptance_criteria": [
+                "app_router.gr.dart compiles without errors",
+                "All 9 routes resolve to correct page widgets",
+                "Navigation works end-to-end"
+            ]
+        },
+        {
+            "id": "ST-007",
+            "title": "Write unit tests for BLoC layer post-refactor",
+            "type": "tests",
+            "priority": 7,
+            "scope": "Add BLoC unit tests in test/ covering the consolidated AuthBloc and ArtistDashboardBloc using bloc_test package. Mock IAuthService and repository interfaces.",
+            "test_cases": [
+                {
+                    "bloc": "AuthBloc",
+                    "test": "emits AuthState.loading then AuthState.authenticated when onLoginRequested succeeds"
+                },
+                {
+                    "bloc": "AuthBloc",
+                    "test": "emits AuthState.loading then AuthState.error when onLoginRequested fails"
+                },
+                {
+                    "bloc": "AuthBloc",
+                    "test": "emits AuthState.needsRoleSelection when user has no role after login"
+                },
+                {
+                    "bloc": "ArtistDashboardBloc",
+                    "test": "emits loading then loaded state when onGetTracks succeeds"
+                },
+                {
+                    "bloc": "ArtistDashboardBloc",
+                    "test": "emits error state when onGetTracks throws"
+                }
+            ],
+            "dependencies_needed": [
+                "bloc_test: ^9.0.0",
+                "mocktail: ^1.0.0"
+            ],
+            "acceptance_criteria": [
+                "All bloc tests pass with flutter test",
+                "Mocks cover IAuthService, IUserRepository, IArtistRepository",
+                "No real network calls made in tests"
+            ]
+        },
+        {
+            "id": "ST-008",
+            "title": "Clean up and validate final state",
+            "type": "quality",
+            "priority": 8,
+            "scope": "Final pass: remove dead code, unused imports, generated files from deleted packages, ensure dart analyze is clean, ensure flutter test passes.",
+            "steps": [
+                "Delete packages/ directory entirely",
+                "Run dart fix --apply to auto-fix lints",
+                "Run dart analyze — resolve all warnings and errors",
+                "Run flutter test — all tests green",
+                "Run flutter build apk --debug to confirm build compiles"
+            ],
+            "acceptance_criteria": [
+                "packages/ directory does not exist",
+                "dart analyze: No issues found",
+                "flutter test: All tests pass",
+                "flutter build apk --debug: succeeds without errors"
+            ]
+        }
+    ],
+    "execution_order": [
+        "ST-001 (consolidate packages → lib)",
+        "ST-002 (replace auto_mappr with manual mappers)",
+        "ST-003 (convert HookWidget to StatefulWidget)",
+        "ST-004 (remove flutter_hooks from pubspec)",
+        "ST-005 (update injection config + codegen)",
+        "ST-006 (regenerate auto_route)",
+        "ST-007 (write BLoC unit tests)",
+        "ST-008 (final cleanup + validation)"
+    ],
+    "dependency_graph": {
+        "ST-002": [
+            "ST-001"
+        ],
+        "ST-004": [
+            "ST-003"
+        ],
+        "ST-005": [
+            "ST-001",
+            "ST-002"
+        ],
+        "ST-006": [
+            "ST-001",
+            "ST-003"
+        ],
+        "ST-007": [
+            "ST-001",
+            "ST-002",
+            "ST-005"
+        ],
+        "ST-008": [
+            "ST-001",
+            "ST-002",
+            "ST-003",
+            "ST-004",
+            "ST-005",
+            "ST-006",
+            "ST-007"
+        ]
+    },
+    "parallel_opportunities": [
+        "ST-002 and ST-003 can be worked in parallel after ST-001 completes",
+        "ST-005 and ST-006 can run in parallel after their dependencies complete",
+        "ST-007 can start as soon as ST-001 + ST-002 + ST-005 complete"
+    ],
+    "risk_flags": [
+        {
+            "risk": "injection.config.dart codegen may produce different output after path changes",
+            "mitigation": "Delete injection.config.dart before re-running build_runner; do not manually edit generated files"
+        },
+        {
+            "risk": "auto_mappr removal — field names may differ between ApiResponse and Dto",
+            "mitigation": "Read generated *.auto_mappr.dart files before deleting them to understand exact field mappings"
+        },
+        {
+            "risk": "nextone_text_field.dart uses both internal and external TextEditingController",
+            "mitigation": "Preserve the optional controller parameter; only create internal controller when parameter is null; always dispose the internal one"
+        },
+        {
+            "risk": "loading_splash_page useEffect cleanup (Timer cancellation)",
+            "mitigation": "Move Timer to State field, cancel in dispose() — ensures no setState after dispose"
+        }
+    ],
+    "out_of_scope": [
+        "Adding new features or screens",
+        "Changing BLoC event/state structure",
+        "Changing Supabase backend logic",
+        "Changing routing definitions (only import paths change)",
+        "Changing theme or UI design",
+        "Firebase AI integration changes"
+    ]
+}

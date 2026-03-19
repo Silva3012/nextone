@@ -1,0 +1,78 @@
+{
+    "feature": "flutter-architecture-refactor",
+    "mode": "backend",
+    "step": "ST-001",
+    "files": [
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/application",
+            "purpose": "Moved BLoC/application source from packages/nextone_core into root lib/application."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/core/injection",
+            "purpose": "Moved dependency injection source and updated generated import paths for the consolidated lib structure."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/data/models",
+            "purpose": "Moved models package API responses and DTOs into root lib/data/models."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/data/mappers",
+            "purpose": "Moved models package mappers and adjusted generated mapper imports for their new location."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/data/repositories",
+            "purpose": "Moved repository interfaces and implementations from packages/nextone_core into root lib/data/repositories."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/data/services",
+            "purpose": "Moved service interfaces and implementations from packages/nextone_core into root lib/data/services."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/nextone.dart",
+            "purpose": "Added consolidated root export surface for package:nextone imports."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/pubspec.yaml",
+            "purpose": "Removed local path dependencies on nextone_core/models and merged their required dependencies into the root app."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/main.dart",
+            "purpose": "Updated app bootstrap import to use the consolidated root package export."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/app/app_providers.dart",
+            "purpose": "Updated provider imports to resolve from the consolidated root package."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/lib/presentation",
+            "purpose": "Updated presentation-layer imports from package:nextone_core and package:models to package:nextone."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/test/widget_test.dart",
+            "purpose": "Adjusted the default smoke test import/class reference so analysis stays error-free after consolidation."
+        },
+        {
+            "path": "/Users/ntsikasilvano/Desktop/development/nextone/packages",
+            "purpose": "Removed retired local package sources after migration into root lib."
+        }
+    ],
+    "code": "Consolidated Dart source from packages/nextone_core and packages/models into root lib/, added a root package export at lib/nextone.dart, updated imports to package:nextone or direct package:nextone/... internal paths where needed to avoid self-export cycles, merged package dependencies into root pubspec.yaml, updated root app/presentation imports, and removed the obsolete packages/ directory.",
+    "assumptions": [
+        "Generated Freezed and AutoMappr files should remain in place during ST-001; only import/path corrections needed for the move were applied.",
+        "Existing folder names such as dto/artist_dto and repository/service subfolders were preserved to minimize structural risk and avoid behavior changes in this step.",
+        "A minimal widget test import/class fix is acceptable within ST-001 because it is required for import consistency and analyzer cleanliness after consolidation."
+    ],
+    "notes": [
+        "auto_mappr and auto_mappr_annotation were retained.",
+        "flutter_hooks was retained.",
+        "No product logic or widget behavior was intentionally changed.",
+        "Internal migrated files now use direct package:nextone/... imports where necessary to avoid circular self-export issues from the new umbrella export.",
+        "No import statements referencing package:nextone_core or package:models remain under lib/ or test/."
+    ],
+    "validation_checks": [
+        "flutter pub get succeeded after merging dependencies into the root pubspec.yaml.",
+        "dart analyze completed with 0 errors; remaining output is warning/info only.",
+        "Verified root pubspec.yaml no longer contains nextone_core/models path dependencies.",
+        "Verified rg search for ^import 'package:(nextone_core|models)/' in lib/ and test/ returns no matches."
+    ]
+}

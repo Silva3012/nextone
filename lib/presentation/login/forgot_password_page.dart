@@ -7,7 +7,7 @@ import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_text_field.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
-import 'package:nextone_core/nextone_core_export.dart';
+import 'package:nextone/nextone.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()

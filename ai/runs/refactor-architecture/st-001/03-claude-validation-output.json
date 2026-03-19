@@ -1,0 +1,54 @@
+{
+    "step": "ST-001",
+    "status": "approved_with_notes",
+    "summary": "All three formal acceptance criteria for ST-001 are met: packages/ is deleted, zero actual import statements reference package:nextone_core or package:models anywhere in lib/, and pubspec.yaml no longer carries path dependencies on nextone_core or models. auto_mappr and flutter_hooks are correctly retained. Four structural deviations from the ARCHITECTURE.md target tree were introduced and must be remediated — none block ST-002 or ST-003, but all must be corrected before ST-008 closes.",
+    "issues": [
+        {
+            "id": "ISSUE-001",
+            "severity": "minor",
+            "description": "lib/nextone.dart umbrella export file was created but is not listed in the ARCHITECTURE.md target lib/ tree. It was added as a workaround for circular self-export issues and exports application_export, injection_export, models.dart, repositories_export, and services_exports. While pragmatically reasonable, it is an undocumented addition that downstream subtasks must be aware of.",
+            "evidence": "lib/nextone.dart exists on disk; not present in ARCHITECTURE.md Section 2 directory tree."
+        },
+        {
+            "id": "ISSUE-002",
+            "severity": "minor",
+            "description": "DTO artist subfolder was not renamed. ARCHITECTURE.md migration table (Section 6) specifies the target path as data/models/dto/artist/artist_dto.dart. The actual path on disk is data/models/dto/artist_dto/artist_dto.dart — the legacy artist_dto/ subfolder name was preserved.",
+            "evidence": "Filesystem: lib/data/models/dto/artist_dto/artist_dto.dart. Architecture spec: data/models/dto/artist/artist_dto.dart."
+        },
+        {
+            "id": "ISSUE-003",
+            "severity": "minor",
+            "description": "Repository implementations and interfaces retained per-entity sub-subfolders from the original package structure. ARCHITECTURE.md specifies flat files: data/repositories/implementations/artist_repository.dart, data/repositories/implementations/user_repository.dart, data/repositories/implementations/ai_content_service.dart, data/repositories/interfaces/i_artist_repository.dart, data/repositories/interfaces/i_user_repository.dart, data/repositories/interfaces/i_ai_content_service.dart. Actual disk layout nests each under an extra named subdirectory (e.g. implementations/artist_repository/artist_repository.dart).",
+            "evidence": "Filesystem: lib/data/repositories/implementations/artist_repository/artist_repository.dart, implementations/user_repository/user_repository.dart, implementations/ai_content_service/ai_content_service.dart, interfaces/artist_repository/i_artist_repository.dart, interfaces/user_repository/i_user_repository.dart, interfaces/ai_content_service/i_ai_content_service.dart."
+        },
+        {
+            "id": "ISSUE-004",
+            "severity": "minor",
+            "description": "Service interfaces retained per-domain sub-subfolders. ARCHITECTURE.md specifies flat files: data/services/interfaces/i_auth_service.dart and data/services/interfaces/i_audio_service.dart. Actual disk paths are data/services/interfaces/auth/i_auth_service.dart and data/services/interfaces/audio/i_audio_service.dart.",
+            "evidence": "Filesystem: lib/data/services/interfaces/auth/i_auth_service.dart and lib/data/services/interfaces/audio/i_audio_service.dart."
+        }
+    ],
+    "fix_instructions": [
+        {
+            "issue_id": "ISSUE-001",
+            "action": "Document lib/nextone.dart in ARCHITECTURE.md Section 2 as an explicitly sanctioned umbrella export barrel, OR remove it and migrate all callers that use package:nextone/ umbrella imports to direct package:nextone/<layer>/... paths. Whichever approach is chosen, resolve before ST-008.",
+            "blocking_subtask": "ST-008"
+        },
+        {
+            "issue_id": "ISSUE-002",
+            "action": "Rename lib/data/models/dto/artist_dto/ → lib/data/models/dto/artist/. Update all imports referencing the old path (artist_dto.dart, artist_dto.freezed.dart, artist_dto.g.dart and any barrel exports). Can be done as part of ST-008 final cleanup.",
+            "blocking_subtask": "ST-008"
+        },
+        {
+            "issue_id": "ISSUE-003",
+            "action": "Flatten the repository sub-subfolders: move implementations/artist_repository/artist_repository.dart → implementations/artist_repository.dart, implementations/user_repository/user_repository.dart → implementations/user_repository.dart, implementations/ai_content_service/ai_content_service.dart → implementations/ai_content_service.dart. Apply the same flattening to all interfaces/ paths. Update all imports and the repositories_export.dart barrel. Can be done as part of ST-008 final cleanup.",
+            "blocking_subtask": "ST-008"
+        },
+        {
+            "issue_id": "ISSUE-004",
+            "action": "Flatten service interface sub-subfolders: move interfaces/auth/i_auth_service.dart → interfaces/i_auth_service.dart, interfaces/audio/i_audio_service.dart → interfaces/i_audio_service.dart. Update all imports and the services_exports.dart barrel. Can be done as part of ST-008 final cleanup.",
+            "blocking_subtask": "ST-008"
+        }
+    ],
+    "confidence": "high"
+}

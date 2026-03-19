@@ -10,7 +10,7 @@ import 'package:nextone/app/theme/nextone_text_styles.dart';
 import 'package:nextone/core/constants/spacing_constants.dart';
 import 'package:nextone/presentation/shared/widgets/background_image.dart';
 import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
-import 'package:nextone_core/nextone_core_export.dart';
+import 'package:nextone/nextone.dart';
 
 @RoutePage()
 class UploadProfilePicturePage extends HookWidget {
