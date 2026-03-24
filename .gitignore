@@ -71,13 +71,22 @@ firebase.json
 # Xcode project user data and build artifacts
 **/xcuserdata/
 **/xcshareddata/WorkspaceSettings.xcsettings
+**/xcshareddata/IDEWorkspaceChecks.plist
 **/DerivedData/
 **/Pods/
 **/*.xcodeproj/project.xcworkspace/
 **/*.xcodeproj/xcuserdata/
 
-# Runner build artifacts
+# iOS/macOS Runner build artifacts and generated files
 ios/Runner.xcworkspace/
 ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/App.framework/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/Podfile.lock
 macos/Runner.xcworkspace/
 macos/Flutter/Generated.xcconfig
+macos/Flutter/flutter_export_environment.sh
+macos/Flutter/ephemeral/
+macos/Podfile.lock

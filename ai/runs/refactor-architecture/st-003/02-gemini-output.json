@@ -1,0 +1,98 @@
+{
+  "step": "ST-003",
+  "files_modified": [
+    {
+      "path": "lib/presentation/login/login_page.dart",
+      "purpose": "Removed HookWidget, migrated to StatefulWidget, replaced hooks with standard State logic."
+    },
+    {
+      "path": "lib/presentation/login/forgot_password_page.dart",
+      "purpose": "Removed HookWidget to StatefulWidget, handled bloc listen logic via BlocListener rather than useEffect."
+    },
+    {
+      "path": "lib/presentation/sign_up/sign_up_page.dart",
+      "purpose": "Changed HookWidget to StatefulWidget, moved text fields to Stateful controls."
+    },
+    {
+      "path": "lib/presentation/sign_up/profile_setup/profile_setup_page.dart",
+      "purpose": "Refactored HookWidget to StatefulWidget, implemented manual listeners for form validation."
+    },
+    {
+      "path": "lib/presentation/sign_up/role_selection/role_selection_page.dart",
+      "purpose": "Updated from HookWidget to StatefulWidget to maintain selected role UI state locally."
+    },
+    {
+      "path": "lib/presentation/sign_up/upload_profile_picture/upload_profile_picture.dart",
+      "purpose": "Converted to StatefulWidget to manage local image file selection and errors without hooks."
+    },
+    {
+      "path": "lib/presentation/loading_splash/loading_splash_page.dart",
+      "purpose": "Refactored from HookWidget to StatefulWidget, replaced useEffect with a Timer in initState."
+    },
+    {
+      "path": "lib/presentation/shared/widgets/nextone_text_field.dart",
+      "purpose": "Eliminated HookWidget in favour of StatefulWidget, added controller lifecycle flow."
+    }
+  ],
+  "widget_decisions": [
+    {
+      "path": "lib/presentation/login/login_page.dart",
+      "old_type": "HookWidget",
+      "new_type": "StatefulWidget",
+      "reason": "Uses local state (isPasswordValid, etc.) and controllers. Thus, Stateful was chosen."
+    },
+    {
+      "path": "lib/presentation/login/forgot_password_page.dart",
+      "old_type": "HookWidget",
+      "new_type": "StatefulWidget",
+      "reason": "Requires TextEditingController disposal, therefore StatefulWidget."
+    },
+    {
+      "path": "lib/presentation/sign_up/sign_up_page.dart",
+      "old_type": "HookWidget",
+      "new_type": "StatefulWidget",
+      "reason": "Contains controllers and password visibility tracking."
+    },
+    {
+      "path": "lib/presentation/sign_up/profile_setup/profile_setup_page.dart",
+      "old_type": "HookWidget",
+      "new_type": "StatefulWidget",
+      "reason": "Dependent on four internal form controllers to update internal states."
+    },
+    {
+      "path": "lib/presentation/sign_up/role_selection/role_selection_page.dart",
+      "old_type": "HookWidget",
+      "new_type": "StatefulWidget",
+      "reason": "Retains ephemeral state for the selected role before the BLoC update completes."
+    },
+    {
+      "path": "lib/presentation/sign_up/upload_profile_picture/upload_profile_picture.dart",
+      "old_type": "HookWidget",
+      "new_type": "StatefulWidget",
+      "reason": "Tracks transient image picker files and errors natively."
+    },
+    {
+      "path": "lib/presentation/loading_splash/loading_splash_page.dart",
+      "old_type": "HookWidget",
+      "new_type": "StatefulWidget",
+      "reason": "Sets up and manages a local Timer, making it necessary to have initState and dispose."
+    },
+    {
+      "path": "lib/presentation/shared/widgets/nextone_text_field.dart",
+      "old_type": "HookWidget",
+      "new_type": "StatefulWidget",
+      "reason": "Conditionally maintains internal versus external Controller, which requires listeners."
+    }
+  ],
+  "summary": "Successfully eradicated flutter_hooks usages from ST-003 targeted widgets by safely converting them to standard StatefulWidgets, thus strictly satisfying objective constraints.",
+  "notes": [
+    "Used BlocListener instead of useEffect to synchronize Bloc states to local variables.",
+    "Retained clean null safety and didn't remove `flutter_hooks` from `pubspec.yaml`."
+  ],
+  "validation_checks": [
+    "No targeted files extend HookWidget.",
+    "No targeted files import flutter_hooks.",
+    "dart analyze reports no errors.",
+    "Internal timers/listeners are adequately cleaned up in dispose."
+  ]
+}

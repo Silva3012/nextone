@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nextone/app/router/app_router.gr.dart';
 import 'package:nextone/app/theme/nextone_colors.dart';
@@ -13,7 +12,7 @@ import 'package:nextone/presentation/shared/widgets/nextone_button.dart';
 import 'package:nextone/nextone.dart';
 
 @RoutePage()
-class UploadProfilePicturePage extends HookWidget {
+class UploadProfilePicturePage extends StatefulWidget {
   const UploadProfilePicturePage({
     super.key,
     required this.stageName,
@@ -28,24 +27,36 @@ class UploadProfilePicturePage extends HookWidget {
   final String genre;
 
   @override
-  Widget build(BuildContext context) {
-    final selectedImage = useState<File?>(null);
-    final error = useState<String?>(null);
+  State<UploadProfilePicturePage> createState() =>
+      _UploadProfilePicturePageState();
+}
 
-    Future<void> pickImage() async {
-      error.value = null;
-      final picker = ImagePicker();
-      try {
-        final pickedFile = await picker.pickImage(
-            source: ImageSource.gallery, imageQuality: 80);
-        if (pickedFile != null) {
-          selectedImage.value = File(pickedFile.path);
-        }
-      } catch (e) {
-        error.value = 'Failed to pick image: $e';
+class _UploadProfilePicturePageState extends State<UploadProfilePicturePage> {
+  File? selectedImage;
+  String? error;
+
+  Future<void> pickImage() async {
+    setState(() {
+      error = null;
+    });
+    final picker = ImagePicker();
+    try {
+      final pickedFile = await picker.pickImage(
+          source: ImageSource.gallery, imageQuality: 80);
+      if (pickedFile != null) {
+        setState(() {
+          selectedImage = File(pickedFile.path);
+        });
       }
+    } catch (e) {
+      setState(() {
+        error = 'Failed to pick image: $e';
+      });
     }
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: Stack(
@@ -73,10 +84,10 @@ class UploadProfilePicturePage extends HookWidget {
                               child: CircleAvatar(
                                 radius: 120,
                                 backgroundColor: NextOneColors.greySurface,
-                                backgroundImage: selectedImage.value != null
-                                    ? FileImage(selectedImage.value!)
+                                backgroundImage: selectedImage != null
+                                    ? FileImage(selectedImage!)
                                     : null,
-                                child: selectedImage.value == null
+                                child: selectedImage == null
                                     ? const Icon(Icons.camera_alt,
                                         size: 60,
                                         color: NextOneColors.greySurface)
@@ -84,8 +95,8 @@ class UploadProfilePicturePage extends HookWidget {
                               ),
                             ),
                             height16,
-                            if (error.value != null)
-                              Text(error.value!,
+                            if (error != null)
+                              Text(error!,
                                   style: const TextStyle(
                                       color: NextOneColors.error)),
                             height16,
@@ -113,7 +124,9 @@ class UploadProfilePicturePage extends HookWidget {
             state.maybeWhen(
               authenticated: (_) =>
                   context.router.navigate(const LoadingSplashRoute()),
-              unauthenticated: () => error.value = 'Failed to complete profile',
+              unauthenticated: () => setState(() {
+                error = 'Failed to complete profile';
+              }),
               orElse: () {},
             );
           },
@@ -122,17 +135,17 @@ class UploadProfilePicturePage extends HookWidget {
                 state.maybeMap(loading: (_) => true, orElse: () => false);
             return NextoneButton(
               text: isLoadingState ? 'Uploading...' : 'Finish',
-              onPressed: selectedImage.value != null && !isLoadingState
+              onPressed: selectedImage != null && !isLoadingState
                   ? state.maybeWhen(
                       needsOnboarding: (user) => () {
                         context.read<AuthBloc>().add(
                               AuthEvent.completeOnboarding(
                                 user: user,
-                                stageName: stageName,
-                                location: location,
-                                biography: biography,
-                                genre: genre,
-                                profileImage: selectedImage.value!,
+                                stageName: widget.stageName,
+                                location: widget.location,
+                                biography: widget.biography,
+                                genre: widget.genre,
+                                profileImage: selectedImage!,
                               ),
                             );
                       },

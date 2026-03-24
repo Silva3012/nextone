@@ -144,7 +144,7 @@
         },
         {
             "id": "ST-003",
-            "title": "Convert HookWidget pages to StatefulWidget",
+            "title": "Convert HookWidget pages to StatelessWidget or StatefulWidget",
             "type": "ui",
             "priority": 3,
             "scope": "Replace all 8 HookWidget usages with StatelessWidget or StatefulWidget. Move local state to StatefulWidget state. TextEditingControllers go in State with initState/dispose lifecycle.",

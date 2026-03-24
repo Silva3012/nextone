@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nextone/app/router/app_router.gr.dart';
 import 'package:nextone/app/theme/nextone_text_styles.dart';
@@ -11,27 +10,52 @@ import 'package:nextone/presentation/shared/widgets/nextone_text_field.dart';
 import 'package:nextone/nextone.dart';
 
 @RoutePage()
-class ProfileSetupPage extends HookWidget {
+class ProfileSetupPage extends StatefulWidget {
   const ProfileSetupPage({super.key});
 
   @override
+  State<ProfileSetupPage> createState() => _ProfileSetupPageState();
+}
+
+class _ProfileSetupPageState extends State<ProfileSetupPage> {
+  late final TextEditingController stageNameController;
+  late final TextEditingController locationController;
+  late final TextEditingController genreController;
+  late final TextEditingController biographyController;
+  bool isFormValid = false;
+
+  void _validateForm() {
+    final valid = stageNameController.text.trim().isNotEmpty &&
+        locationController.text.trim().isNotEmpty &&
+        genreController.text.trim().isNotEmpty &&
+        biographyController.text.trim().isNotEmpty;
+    if (valid != isFormValid) {
+      setState(() {
+        isFormValid = valid;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    stageNameController = TextEditingController()..addListener(_validateForm);
+    locationController = TextEditingController()..addListener(_validateForm);
+    genreController = TextEditingController()..addListener(_validateForm);
+    biographyController = TextEditingController()..addListener(_validateForm);
+  }
+
+  @override
+  void dispose() {
+    stageNameController.dispose();
+    locationController.dispose();
+    genreController.dispose();
+    biographyController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final stageNameController = useTextEditingController();
-    final locationController = useTextEditingController();
-    final genreController = useTextEditingController();
-    final biographyController = useTextEditingController();
-
-    // Form validation
-    final stageNameText = useValueListenable(stageNameController);
-    final locationText = useValueListenable(locationController);
-    final genreText = useValueListenable(genreController);
-    final biographyText = useValueListenable(biographyController);
-
-    final isFormValid = stageNameText.text.trim().isNotEmpty &&
-        locationText.text.trim().isNotEmpty &&
-        genreText.text.trim().isNotEmpty &&
-        biographyText.text.trim().isNotEmpty;
-
     return BlocConsumer<OnboardingAiBloc, OnboardingAiState>(
       listener: (context, state) {
         // Show errors
@@ -42,7 +66,7 @@ class ProfileSetupPage extends HookWidget {
         }
 
         // Populate biography automatically
-        if (state.generatedBio != null) {
+        if (state.generatedBio != null && state.generatedBio != biographyController.text) {
           biographyController.text = state.generatedBio!;
         }
       },
