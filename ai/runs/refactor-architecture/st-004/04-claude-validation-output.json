@@ -1,0 +1,53 @@
+[
+    {
+        "step": "ST-004",
+        "status": "rejected",
+        "summary": "ST-004 has not been executed. flutter_hooks: ^0.21.2 remains in pubspec.yaml (line 18) as a direct dependency and is still present in pubspec.lock. The source precondition is satisfied — lib/ contains no flutter_hooks imports and no HookWidget subclasses — but the dependency removal itself was never performed.",
+        "issues": [
+            {
+                "id": "ISSUE-001",
+                "severity": "blocking",
+                "file": "pubspec.yaml",
+                "description": "flutter_hooks: ^0.21.2 is still declared as a direct dependency on line 18.",
+                "evidence": "pubspec.yaml line 18: flutter_hooks: ^0.21.2"
+            },
+            {
+                "id": "ISSUE-002",
+                "severity": "blocking",
+                "file": "pubspec.lock",
+                "description": "flutter_hooks is still resolved in pubspec.lock (lines 489–492). flutter pub get has not been run after dependency removal.",
+                "evidence": "pubspec.lock line 489: flutter_hooks:, line 492: name: flutter_hooks"
+            }
+        ],
+        "fix_instructions": [
+            {
+                "issue_id": "ISSUE-001",
+                "action": "Delete the line 'flutter_hooks: ^0.21.2' from the dependencies section of pubspec.yaml."
+            },
+            {
+                "issue_id": "ISSUE-002",
+                "action": "Run 'flutter pub get' from the project root. Confirm flutter_hooks no longer appears in pubspec.lock."
+            },
+            {
+                "issue_id": "VERIFY",
+                "action": "Run 'dart analyze' and confirm zero errors. No lib/ source changes are required — the code is already clean."
+            }
+        ],
+        "confidence": "high"
+    },
+    {
+        "step": "ST-004",
+        "status": "approved_with_notes",
+        "summary": "flutter_hooks: ^0.21.2 has been removed from pubspec.yaml and flutter pub get ran successfully, dropping flutter_hooks as a resolved dependency. No file in lib/ imports flutter_hooks and no class extends HookWidget. dart analyze reports errors, but all are pre-existing missing generated file errors (.freezed.dart, .g.dart) that are outside ST-004 scope and belong to ST-005/ST-006 (build_runner regeneration).",
+        "issues": [
+            {
+                "id": "ISSUE-001",
+                "severity": "info",
+                "description": "dart analyze reports errors for missing .freezed.dart and .g.dart files across lib/. These are pre-existing and caused by generated files not yet regenerated — a known prerequisite for ST-005 (update injection config + re-run build_runner) and ST-006 (regenerate auto_route). They are not caused by or related to the flutter_hooks removal.",
+                "evidence": "Errors reference uri_does_not_exist for *.freezed.dart files and undefined_class/_function for *.g.dart stubs."
+            }
+        ],
+        "fix_instructions": [],
+        "confidence": "high"
+    }
+]

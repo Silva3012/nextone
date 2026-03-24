@@ -15,7 +15,6 @@ dependencies:
   auto_route: ^9.3.0+1
   flutter_svg: ^2.1.0
   supabase_flutter: ^2.3.4
-  flutter_hooks: ^0.21.2
   flutter_bloc: ^9.1.1
   image_picker: ^1.0.7
   audio_service: ^0.18.17
