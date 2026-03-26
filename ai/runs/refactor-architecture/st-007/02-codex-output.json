@@ -1,0 +1,44 @@
+{
+    "step": "ST-007",
+    "files_modified": [
+        {
+            "path": "pubspec.yaml",
+            "purpose": "Added the mocktail dev dependency required for interface-based BLoC unit testing."
+        },
+        {
+            "path": "test/application/auth/auth_bloc_test.dart",
+            "purpose": "Added AuthBloc unit tests covering login success, login failure, no-role selection, forgot-password success, and sign-out transitions with mocked dependencies."
+        },
+        {
+            "path": "test/application/artist_dashboard/artist_dashboard_bloc_test.dart",
+            "purpose": "Added ArtistDashboardBloc unit tests covering successful and failed track-loading state transitions with a mocked artist repository."
+        },
+        {
+            "path": "test/application/onboarding_ai/onboarding_ai_bloc_test.dart",
+            "purpose": "Added OnboardingAiBloc unit tests covering successful and failed biography generation with a mocked AI content service."
+        }
+    ],
+    "summary": "Added focused application-layer BLoC unit tests under test/application for AuthBloc, ArtistDashboardBloc, and OnboardingAiBloc using mocked interface dependencies only. No production behavior, repository logic, routing, DI design, or UI code was changed.",
+    "test_coverage": [
+        "AuthBloc: loading -> authenticated on successful login when the fetched user has a completed profile and valid role.",
+        "AuthBloc: loading -> error on failed login with current error-message mapping preserved.",
+        "AuthBloc: loading -> needsRoleSelection on successful login when the fetched user has no role.",
+        "AuthBloc: loading -> forgotPasswordEmailSent on successful forgot-password request.",
+        "AuthBloc: loading -> unauthenticated on successful sign-out.",
+        "ArtistDashboardBloc: loading -> loaded state when artist and tracks are fetched successfully.",
+        "ArtistDashboardBloc: loading -> error state when artist/track fetch fails.",
+        "OnboardingAiBloc: loading -> generated bio on successful biography generation.",
+        "OnboardingAiBloc: loading -> error state on biography generation failure."
+    ],
+    "notes": [
+        "OnboardingAiBloc is present and was testable with the current IAiContentService interface, so both success and failure paths were covered.",
+        "mocktail was added successfully and all tests use mocked interface types rather than concrete implementations.",
+        "bloc_test could not be added in this repository without causing pub resolution failure due to an existing dependency conflict involving firebase_ai, flutter_test, and the pinned auto_route_generator range; the tests were implemented with flutter_test stream assertions instead so ST-007 remains validated without production changes."
+    ],
+    "validation_checks": [
+        "Passed: flutter pub get",
+        "Passed: flutter test test/application",
+        "Confirmed: added tests compile and run against mocked dependencies only",
+        "Confirmed: no production-layer files under lib/ were modified for this step"
+    ]
+}

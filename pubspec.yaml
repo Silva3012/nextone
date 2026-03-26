@@ -38,6 +38,7 @@ dev_dependencies:
   injectable_generator: ^2.6.2
   freezed: ^2.5.2
   json_serializable: ^6.8.0
+  mocktail: ^1.0.4
 
 flutter_launcher_icons:
   image_path_android: "assets/logos/android_icon.png"
