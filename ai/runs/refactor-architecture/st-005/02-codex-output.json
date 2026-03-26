@@ -1,0 +1,19 @@
+{
+    "step": "ST-005",
+    "files_modified": [],
+    "files_deleted": [],
+    "summary": "Validated the consolidated DI setup under lib/core/injection, removed the stale generated injection output, and successfully regenerated code with build_runner. lib/core/injection/injection.config.dart now exists again and DI-related analysis passes with no issues.",
+    "notes": [
+        "The required validation file was not present at ./ai/runs/refactor-architecture/st-004/04-claude-validation.json; the available file used for reference was ./ai/runs/refactor-architecture/st-004/04-claude-validation-output.json.",
+        "No source import corrections were needed in DI-annotated files; the current DI-related source already referenced valid consolidated paths.",
+        "build_runner emitted an analyzer-version warning from freezed about analyzer 3.4.0 vs SDK language version 3.11.0, but generation completed successfully and this did not block ST-005.",
+        "The regenerated injection.config.dart uses current in-repo relative imports and contains no package:nextone_core or package:models references."
+    ],
+    "validation_checks": [
+        "Confirmed lib/core/injection/injection.config.dart was deleted and regenerated successfully via: flutter pub run build_runner build --delete-conflicting-outputs",
+        "Confirmed regenerated DI file exists: lib/core/injection/injection.config.dart",
+        "Confirmed no stale package imports remain in DI/generated scope by searching for package:nextone_core and package:models references",
+        "Ran flutter analyze on DI-related areas: lib/core/injection, lib/application, and lib/data; result: No issues found",
+        "Confirmed configureDependencies() remains defined in lib/core/injection/injection.dart and still initializes GetIt via nextOneCoreSL.init()"
+    ]
+}
