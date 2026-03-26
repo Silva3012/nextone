@@ -9,6 +9,9 @@ You may be used in two modes:
 
 You must follow the supplied spec exactly.
 
+Before making changes, read the current run files in /Users/ntsikasilvano/Desktop/development/nextone/ai.
+If validation identifies mistakes in your previous output, you must correct the code and align the current step artifacts before proceeding.
+
 ## General Rules
 - do not invent product requirements
 - do not change contracts defined by the Manager

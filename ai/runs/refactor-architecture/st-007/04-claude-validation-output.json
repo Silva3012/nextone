@@ -1,0 +1,8 @@
+{
+    "step": "ST-007",
+    "status": "approved",
+    "summary": "ST-007 is complete and fully verified. All three target BLoC test files exist under test/application/ (auth_bloc_test.dart, artist_dashboard_bloc_test.dart, onboarding_ai_bloc_test.dart). `flutter test test/application` passes cleanly with 9 tests: 5 for AuthBloc (login success→authenticated, login failure→error, login success no-role→needsRoleSelection, forgot-password→forgotPasswordEmailSent, sign-out→unauthenticated), 2 for ArtistDashboardBloc (getArtist+getTracks success→loaded, getArtist throws→error), and 2 for OnboardingAiBloc (generateBio success→generatedBio, generateBio throws→error). All mocks target interface types only (IAuthService, IUserRepository, IArtistRepository, IAiContentService) — no concrete implementations. No real network, Supabase, or Firebase calls are made. All event/state names, field names, and constructor signatures align exactly with the current production BLoC sources. Import paths use package:nextone/ exclusively — no package:nextone_core/, package:models/, or packages/ references appear anywhere in the test files. mocktail: ^1.0.4 is the sole new dev_dependency added to pubspec.yaml; it is correctly placed and minimal. bloc_test could not be added due to a pub resolution conflict with firebase_ai and the pinned auto_route_generator range — this is accurately documented in the worker output, and the chosen fallback of flutter_test expectLater/emitsInOrder stream assertions is a fully valid and idiomatic alternative that provides equivalent coverage. No production lib/ files were modified. No ST-008 scope leakage was observed.",
+    "issues": [],
+    "fix_instructions": [],
+    "confidence": "high"
+}

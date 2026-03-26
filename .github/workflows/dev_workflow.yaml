@@ -43,6 +43,6 @@ jobs:
         run: flutter analyze --fatal-warnings
         
 
-     # - name: Run tests
-      #  run: flutter test --coverage
-      #  working-directory: packages/nextone_core
+      - name: Run tests
+        run: flutter test --coverage
+    

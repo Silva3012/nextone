@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:firebase_ai/firebase_ai.dart';
 import 'package:injectable/injectable.dart';
-import 'package:nextone/data/repositories/interfaces/ai_content_service/i_ai_content_service.dart';
+import 'package:nextone/data/repositories/interfaces/i_ai_content_service.dart';
 
 @LazySingleton(as: IAiContentService)
 class AiContentService implements IAiContentService {

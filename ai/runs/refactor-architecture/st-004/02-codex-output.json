@@ -1,0 +1,24 @@
+{
+    "step": "ST-004",
+    "files_modified": [
+        {
+            "path": "pubspec.yaml",
+            "purpose": "Removed the direct flutter_hooks dependency from app dependencies."
+        },
+        {
+            "path": "pubspec.lock",
+            "purpose": "Updated the resolved dependency graph after flutter pub get, removing flutter_hooks from the lockfile."
+        }
+    ],
+    "summary": "Removed flutter_hooks from project dependencies and regenerated the lockfile. Verified there are no remaining flutter_hooks imports in lib/ and no classes extending HookWidget.",
+    "notes": [
+        "The required validation file was found at ai/runs/refactor-architecture/st-003/04-claude-validation-output.json rather than ai/runs/refactor-architecture/st-003/04-claude-validation.json.",
+        "dart analyze completed with 0 errors and 4 existing info-level deprecation messages (withOpacity), which are outside ST-004 scope."
+    ],
+    "validation_checks": [
+        "Confirmed rg -n \"flutter_hooks|HookWidget\" lib pubspec.yaml pubspec.lock returns no matches after the dependency removal.",
+        "Confirmed rg -n \"extends HookWidget|with HookWidget|import 'package:flutter_hooks/flutter_hooks.dart'|import \\\"package:flutter_hooks/flutter_hooks.dart\\\"\" lib returns no matches.",
+        "Ran flutter pub get successfully; dependency resolution completed and reported flutter_hooks is no longer depended on.",
+        "Ran dart analyze successfully; no errors were reported."
+    ]
+}

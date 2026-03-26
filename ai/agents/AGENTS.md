@@ -99,3 +99,35 @@ Every agent response should be:
 - implementation-focused
 - explicit about assumptions
 - aligned to this repository's architecture
+
+## AI Directory Rule
+
+All agents must treat the repository AI directory as required context:
+
+/Users/ntsikasilvano/Desktop/development/nextone/ai
+
+Before starting any task, read and follow:
+- ai/agents/AGENTS.md
+- the agent-specific instruction file for your role
+- the current run files under ai/runs/
+
+The AI directory is the source of truth for:
+- workflow
+- task scope
+- validation results
+- prior decisions
+- naming conventions
+
+Do not ignore these files and do not substitute assumptions for documented instructions.
+
+## Correction Rule
+
+If an agent output is validated as incorrect, incomplete, or out of scope:
+
+1. Read the validation output for the current step
+2. Correct the implementation in the repository
+3. Update only the current step artifacts under ai/runs/
+4. Preserve prior decisions unless explicitly changed
+5. Do not continue to the next step until the current step is corrected
+
+Agents must not silently leave known mistakes unresolved.

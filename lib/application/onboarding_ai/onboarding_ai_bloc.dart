@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:nextone/data/repositories/interfaces/ai_content_service/i_ai_content_service.dart';
+import 'package:nextone/data/repositories/interfaces/i_ai_content_service.dart';
 
 part 'onboarding_ai_event.dart';
 part 'onboarding_ai_state.dart';

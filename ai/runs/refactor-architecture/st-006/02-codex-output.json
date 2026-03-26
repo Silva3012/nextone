@@ -1,0 +1,26 @@
+{
+    "step": "ST-006",
+    "files_modified": [
+        {
+            "path": "lib/app/router/app_router.gr.dart",
+            "purpose": "Regenerated auto_route output after deleting the stale generated router file and rerunning build_runner."
+        }
+    ],
+    "files_deleted": [],
+    "summary": "Validated the hand-written router configuration, confirmed no stale route imports needed correction, removed the stale generated router output, and successfully regenerated lib/app/router/app_router.gr.dart with current package:nextone page imports. Routing-related analysis now passes for lib/app/router.",
+    "notes": [
+        "No manual changes were required in lib/app/router/app_router.dart; the existing route declarations already matched the current refactored page locations.",
+        "The regenerated router file imports only current package:nextone presentation pages and contains no package:nextone_core, package:models, or packages/ references.",
+        "The router still defines 9 routes: Login, SignUp, Placeholder, RoleSelection, ArtistDashboard, ProfileSetup, UploadProfilePicture, LoadingSplash, and ForgotPassword.",
+        "A build_runner analyzer-version warning was emitted during generation (analyzer 3.4.0 vs SDK language version 3.11.0), but code generation completed successfully and did not block ST-006.",
+        "Non-routing analyzer infos remain in presentation widgets for deprecated withOpacity usage, but these are outside ST-006 scope and do not affect route generation."
+    ],
+    "validation_checks": [
+        "Read and validated lib/app/router/app_router.dart against the current presentation page structure before regeneration.",
+        "Deleted lib/app/router/app_router.gr.dart and ran: flutter pub run build_runner build --delete-conflicting-outputs",
+        "Confirmed lib/app/router/app_router.gr.dart was regenerated successfully and exists on disk.",
+        "Confirmed generated route imports point to valid current package:nextone presentation paths.",
+        "Ran flutter analyze lib/app/router --no-fatal-infos; result: No issues found.",
+        "Verified all current @RoutePage()-annotated page widgets referenced by routing are present and resolve to the expected page classes."
+    ]
+}

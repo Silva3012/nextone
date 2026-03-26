@@ -118,7 +118,9 @@ class _NextoneTextFieldState extends State<NextoneTextField> {
         TextField(
           controller: _effectiveController,
           keyboardType: widget.keyboardType ??
-              (widget.useOutlineBorder ? TextInputType.multiline : TextInputType.text),
+              (widget.useOutlineBorder
+                  ? TextInputType.multiline
+                  : TextInputType.text),
           textInputAction: widget.textInputAction ??
               (widget.useOutlineBorder
                   ? TextInputAction.newline
@@ -133,7 +135,9 @@ class _NextoneTextFieldState extends State<NextoneTextField> {
             prefixIcon: widget.prefixIcon,
             suffixIcon: widget.suffixIcon,
             filled: widget.filled,
-            fillColor: widget.filled ? NextOneColors.surface.withOpacity(0.9) : null,
+            fillColor: widget.filled
+                ? NextOneColors.surface.withValues(alpha: 0.9)
+                : null,
             border: widget.useOutlineBorder
                 ? OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(8)),

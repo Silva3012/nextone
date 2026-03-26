@@ -84,19 +84,13 @@ lib/
 │   │           ├── user_credentials_dto.freezed.dart
 │   │           └── user_credentials_dto.g.dart
 │   │
-│   ├── mappers/
-│   │   ├── artist/
-│   │   │   └── artist_mapper.dart     # Manual: ArtistDto.fromApiResponse()
-│   │   ├── tracks/
-│   │   │   └── track_mapper.dart      # Manual: TrackDto.fromApiResponse()
-│   │   └── user_credentials/
-│   │       └── user_credentials_mapper.dart  # Manual: UserCredentialsDto.fromApiResponse()
-│   │
 │   ├── repositories/
 │   │   ├── interfaces/
 │   │   │   ├── i_artist_repository.dart
+│   │   │   ├── i_ai_content_service.dart
 │   │   │   └── i_user_repository.dart
 │   │   └── implementations/
+│   │       ├── ai_content_service.dart
 │   │       ├── artist_repository.dart
 │   │       └── user_repository.dart
 │   │
@@ -198,8 +192,8 @@ The layers form a strict directed acyclic graph. A layer may only import from la
                ▼                  ▼
 ┌──────────────────┐   ┌──────────────────────────────────┐
 │     domain/      │   │            data/                  │
-│  (entities,      │   │  (models, DTOs, mappers,          │
-│   repo interfaces│   │   repo/service interfaces +       │
+│  (entities,      │   │  (models, DTOs, repo/service      │
+│   repo interfaces│   │   interfaces +                    │
 │   if pure Dart)  │   │   Supabase implementations)       │
 └──────────────────┘   └──────────────────────────────────┘
                │                  │
@@ -275,6 +269,8 @@ All imports within `lib/` use the package import form:
 import 'package:nextone/data/models/dto/artist/artist_dto.dart';
 ```
 
+DTOs own API-response mapping through `fromApiResponse()` factories; there is no separate mapper layer.
+
 Relative imports (`../`) are not permitted across layer boundaries. They are acceptable only within the same subdirectory (e.g., a BLoC importing its own event/state files).
 
 ---
@@ -348,9 +344,6 @@ class _MyPageState extends State<MyPage> {
 | `dto/artist_dto/artist_dto.dart` | `data/models/dto/artist/artist_dto.dart` |
 | `dto/tracks/track_dto.dart` | `data/models/dto/tracks/track_dto.dart` |
 | `dto/user_credentials/user_credentials_dto.dart` | `data/models/dto/user_credentials/user_credentials_dto.dart` |
-| `mappers/artist/artist_mapper.dart` | `data/mappers/artist/artist_mapper.dart` |
-| `mappers/tracks/track_mapper.dart` | `data/mappers/tracks/track_mapper.dart` |
-| `mappers/user_credentials/user_credentials_mapper.dart` | `data/mappers/user_credentials/user_credentials_mapper.dart` |
 | `mappers/artist/artist_mapper.auto_mappr.dart` | **DELETED** (replaced by manual mapper) |
 | `mappers/tracks/track_mapper.auto_mappr.dart` | **DELETED** (replaced by manual mapper) |
 | `mappers/user_credentials/user_credentials_mapper.auto_mappr.dart` | **DELETED** (replaced by manual mapper) |
@@ -435,8 +428,8 @@ ST-001 ──► ST-002 ──► ST-005 ──► ST-007
 **ST-001 — Consolidate packages into `lib/`**
 Copy all Dart source from `packages/models/lib/src/` and `packages/nextone_core/lib/src/` into the target paths in `lib/` (see migration table above). Update `pubspec.yaml` to remove the `nextone_core` and `models` path dependencies and absorb their transitive dependencies directly. Run a global import replacement (`package:nextone_core/` → `package:nextone/`, `package:models/` → `package:nextone/`). Delete the `packages/` directory.
 
-**ST-002 — Replace `auto_mappr` with manual mappers**
-Read each `*.auto_mappr.dart` generated file to understand field mappings before deleting them. Write `fromApiResponse()` factory constructors on each DTO class. Remove `auto_mappr` and `auto_mappr_annotation` from all `pubspec.yaml` files. Delete all `*.auto_mappr.dart` files.
+**ST-002 — Replace `auto_mappr` with DTO factories**
+Read each `*.auto_mappr.dart` generated file to understand field mappings before deleting them. Write `fromApiResponse()` factory constructors on each DTO class. Remove `auto_mappr` and `auto_mappr_annotation` from all `pubspec.yaml` files. Delete all `*.auto_mappr.dart` files and do not retain a separate mapper layer.
 
 **ST-003 — Convert `HookWidget` to `StatefulWidget`**
 Apply the `StatefulWidget` template to each of the 8 files listed in the migration table. Dispose all `TextEditingController` and `Timer` instances in `dispose()`. Replace `BlocBuilder` where `context.watch` was used inside a `HookWidget` build method.
@@ -489,4 +482,4 @@ The following are explicitly excluded from `refactor-001`. Any change in these a
 
 ---
 
-*Last updated: 2026-03-19. Maintained by the NextOne mobile team.*
+*Last updated: 2026-03-26. Maintained by the NextOne mobile team.*

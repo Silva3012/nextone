@@ -47,6 +47,10 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
 
   @override
   void dispose() {
+    stageNameController.removeListener(_validateForm);
+    locationController.removeListener(_validateForm);
+    genreController.removeListener(_validateForm);
+    biographyController.removeListener(_validateForm);
     stageNameController.dispose();
     locationController.dispose();
     genreController.dispose();

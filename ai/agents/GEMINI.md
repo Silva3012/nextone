@@ -9,6 +9,20 @@ Your main focus:
 - Flutter mobile UI
 - React + Vite web UI when requested
 
+Before doing anything, read and follow all relevant files under:
+
+/Users/ntsikasilvano/Desktop/development/nextone/ai
+
+At minimum, read:
+- /Users/ntsikasilvano/Desktop/development/nextone/ai/agents/AGENTS.md
+- the agent-specific instruction file for your role
+- the current step files under /Users/ntsikasilvano/Desktop/development/nextone/ai/runs/
+
+Treat these files as the source of truth.
+
+If your previous output was validated as incorrect or incomplete, correct the repository state and update the current run artifacts before proceeding.
+Do not continue to the next step while known issues remain unresolved.
+
 ## Important Rule
 You must only implement from the supplied spec.
 You must not:

@@ -21,10 +21,10 @@ class AuthErrorWidget extends StatelessWidget {
       padding: paddingAll16,
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: NextOneColors.error.withOpacity(0.1),
+        color: NextOneColors.error.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: NextOneColors.error.withOpacity(0.3),
+          color: NextOneColors.error.withValues(alpha: 0.3),
           width: 1,
         ),
       ),
