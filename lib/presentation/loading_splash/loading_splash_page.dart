@@ -31,7 +31,7 @@ class _LoadingSplashPageState extends State<LoadingSplashPage> {
         timer.cancel();
         return;
       }
-      
+
       if (progress < 1.0) {
         setState(() {
           progress += progressIncrement;
@@ -41,11 +41,9 @@ class _LoadingSplashPageState extends State<LoadingSplashPage> {
         setState(() {
           isLoading = false;
         });
-        // Navigate to dashboard after completion
-        final router = context.router;
         Future.delayed(const Duration(milliseconds: 500), () {
-          // It's possible the user navigated away
-          router.popAndPush(const ArtistDashboardRoute());
+          if (!mounted) return;
+          context.router.popAndPush(const ArtistDashboardRoute());
         });
       }
     });

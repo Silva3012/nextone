@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nextone/data/models/models.dart';
-import 'package:nextone/data/repositories/interfaces/artist_repository/i_artist_repository.dart';
+import 'package:nextone/data/repositories/interfaces/i_artist_repository.dart';
 
 part 'artist_dashboard_event.dart';
 part 'artist_dashboard_state.dart';

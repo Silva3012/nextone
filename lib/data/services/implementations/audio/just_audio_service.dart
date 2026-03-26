@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:injectable/injectable.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:nextone/data/models/models.dart';
-import 'package:nextone/data/services/interfaces/audio/i_audio_service.dart';
+import 'package:nextone/data/services/interfaces/i_audio_service.dart';
 import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IAudioService)

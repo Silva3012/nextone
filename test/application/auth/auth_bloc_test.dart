@@ -4,9 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextone/application/auth/auth_bloc.dart';
 import 'package:nextone/data/models/models.dart';
-import 'package:nextone/data/repositories/interfaces/artist_repository/i_artist_repository.dart';
-import 'package:nextone/data/repositories/interfaces/user_repository/i_user_repository.dart';
-import 'package:nextone/data/services/interfaces/auth/i_auth_service.dart';
+import 'package:nextone/data/repositories/interfaces/i_artist_repository.dart';
+import 'package:nextone/data/repositories/interfaces/i_user_repository.dart';
+import 'package:nextone/data/services/interfaces/i_auth_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' show AuthException;
 
 class _MockAuthService extends Mock implements IAuthService {}

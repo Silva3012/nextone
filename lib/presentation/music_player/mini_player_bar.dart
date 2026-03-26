@@ -26,7 +26,7 @@ class MiniPlayerBar extends StatelessWidget {
             color: NextOneColors.surface,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.4),
+                color: Colors.black.withValues(alpha: 0.4),
                 blurRadius: 6,
                 offset: const Offset(0, -2),
               ),

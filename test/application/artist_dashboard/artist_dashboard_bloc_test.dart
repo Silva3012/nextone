@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextone/application/artist_dashboard/artist_dashboard_bloc.dart';
 import 'package:nextone/data/models/models.dart';
-import 'package:nextone/data/repositories/interfaces/artist_repository/i_artist_repository.dart';
+import 'package:nextone/data/repositories/interfaces/i_artist_repository.dart';
 
 class _MockArtistRepository extends Mock implements IArtistRepository {}
 

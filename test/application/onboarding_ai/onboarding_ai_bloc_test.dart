@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nextone/application/onboarding_ai/onboarding_ai_bloc.dart';
-import 'package:nextone/data/repositories/interfaces/ai_content_service/i_ai_content_service.dart';
+import 'package:nextone/data/repositories/interfaces/i_ai_content_service.dart';
 
 class _MockAiContentService extends Mock implements IAiContentService {}
 

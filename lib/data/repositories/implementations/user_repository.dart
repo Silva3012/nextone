@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nextone/data/models/models.dart';
-import 'package:nextone/data/repositories/interfaces/user_repository/i_user_repository.dart';
+import 'package:nextone/data/repositories/interfaces/i_user_repository.dart';
 
 @LazySingleton(as: IUserRepository)
 class UserRepository implements IUserRepository {

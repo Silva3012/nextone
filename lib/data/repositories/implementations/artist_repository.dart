@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nextone/data/models/models.dart';
-import 'package:nextone/data/repositories/interfaces/artist_repository/i_artist_repository.dart';
+import 'package:nextone/data/repositories/interfaces/i_artist_repository.dart';
 
 @LazySingleton(as: IArtistRepository)
 class ArtistRepository implements IArtistRepository {
